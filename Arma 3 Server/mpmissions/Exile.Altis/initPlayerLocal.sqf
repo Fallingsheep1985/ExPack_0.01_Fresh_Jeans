@@ -7,6 +7,7 @@
 
 #include "ScriptControl.sqf" //custom script loader
 
+
 if (!hasInterface || isServer) exitWith {};
 
 ///////////////////////////////////////////////////////////////////////////
@@ -490,3 +491,24 @@ _chair setPosATL [23379.6, 24169.3, 4.56662];
     _chair
 ]
 call ExileClient_object_trader_create;
+
+
+//Sheep Stuff
+//Watermark
+if (LOGO_WATERMARK_SCRIPT) then {
+	_pic = "Pictures\logo.paa";
+	[
+		'<img align=''left'' size=''1.5'' shadow=''0'' image='+(str(_pic))+' />',
+		safeZoneX+0.00,
+		safeZoneY+safeZoneH-0.12,
+		99999,
+		0,
+		0,
+		3090
+	] spawn bis_fnc_dynamicText;
+};
+
+if (WELCOME_CREDITS_SCRIPT) then{
+// Welcome Credits by Gr8
+[] execVM "scripts\welcome.sqf";
+};
