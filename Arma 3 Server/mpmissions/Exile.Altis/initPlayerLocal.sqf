@@ -509,6 +509,11 @@ if (LOGO_WATERMARK_SCRIPT) then {
 };
 
 if (WELCOME_CREDITS_SCRIPT) then{
-// Welcome Credits by Gr8
-[] execVM "scripts\welcome.sqf";
+	// Welcome Credits by Gr8
+	[] execVM "scripts\welcome.sqf";
+};
+
+if (KILL_MESSAGE_SCRIPT) then {
+	// Kill Messages By GR8
+	[] execVM "scripts\KillMessages.sqf";
 };
