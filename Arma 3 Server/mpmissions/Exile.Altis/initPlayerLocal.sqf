@@ -5,7 +5,7 @@
 // Taken away for now
 //#include "initServer.sqf"
 
-#include "ScriptControl.sqf"
+#include "ScriptControl.sqf" //custom script loader
 
 if (!hasInterface || isServer) exitWith {};
 
