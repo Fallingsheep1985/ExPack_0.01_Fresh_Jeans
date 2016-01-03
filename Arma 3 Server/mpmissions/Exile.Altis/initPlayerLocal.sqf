@@ -517,3 +517,7 @@ if (KILL_MESSAGE_SCRIPT) then {
 	// Kill Messages By GR8
 	[] execVM "scripts\KillMessages.sqf";
 };
+if (IGILOAD_SCRIPT) then {
+	// Igiload
+	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
+};

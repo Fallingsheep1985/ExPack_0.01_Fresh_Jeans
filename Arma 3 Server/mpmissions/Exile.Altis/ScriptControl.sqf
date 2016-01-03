@@ -9,6 +9,8 @@ WELCOME_CREDITS_SCRIPT = true;
 //Kill Messages - GR8
 KILL_MESSAGE_SCRIPT = true;
 
+//IgiLoad
+IGILOAD_SCRIPT = true;
 
 
 //////////////////////////////////
@@ -16,4 +18,4 @@ KILL_MESSAGE_SCRIPT = true;
 //////////////////////////////////
 
 REPACK_VERSION = "0.01 Fresh Jeans";
-BUILD_VERSION = 7; //should match the current git commits number
+BUILD_VERSION = 10; //should match the current git commits number
