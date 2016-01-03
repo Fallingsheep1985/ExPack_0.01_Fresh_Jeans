@@ -1753,8 +1753,8 @@ class CfgExileArsenal
 class CfgExileCustomCode 
 {
  ExileClient_object_player_event_onEnterSafezone = "scripts\Igiload\ExileClient_object_player_event_onEnterSafezone.sqf";
- ExileClient_object_item_craft = "ExileClient_object_item_craft.sqf";
- ExileServer_object_tree_network_chopTreeRequest = "ExileServer_object_tree_network_chopTreeRequest.sqf";
+ ExileClient_object_item_craft = "fixes\ExileClient_object_item_craft.sqf";
+ ExileServer_object_tree_network_chopTreeRequest = "fixes\ExileServer_object_tree_network_chopTreeRequest.sqf";
 };
 class CfgExileHUD
 {
