@@ -12,10 +12,13 @@ KILL_MESSAGE_SCRIPT = true;
 //IgiLoad
 IGILOAD_SCRIPT = true;
 
+//Dynamic vehicles spawn with items
+DYNAMIC_ITEMS_SCRIPT = true;
+
 
 //////////////////////////////////
 // DO NOT EDIT BELOW THIS LINE
 //////////////////////////////////
 
 REPACK_VERSION = "0.01 Fresh Jeans";
-BUILD_VERSION = 15; //should match the current git commits number
+BUILD_VERSION = 23; //should match the current git commits number

@@ -57,6 +57,7 @@ for "_xSize" from 0 to _mapsizeX step _gridSize do
 				_debugMarker setMarkerColor "ColorOrange";
 				_debugMarker setMarkerType "mil_dot_noShadow";
 			};
+	if (DYNAMIC_ITEMS_SCRIPT) then {		
       if (_vehicleItemsAllowed isEqualTo 1) then {
         _itemsAdded = 0;
         _itemsPerVehicle = floor (random _maximumItemsPerVehicle);
@@ -72,6 +73,7 @@ for "_xSize" from 0 to _mapsizeX step _gridSize do
           _itemsAdded = _itemsAdded + 1;
         };
       };
+	};
 			_spawned = _spawned + 1;
 			_vehicleCount = _vehicleCount + 1;
 		};
