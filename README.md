@@ -28,3 +28,7 @@ CURRENT PERMISSION LIST TO USE SCRIPTS
 * [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 * [`John`](http://www.exilemod.com/profile/38-john/)
 * [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
+* [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
+* [`Defent`](http://www.exilemod.com/profile/259-defent/)
+* [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
+* [`Shix`](http://www.exilemod.com/profile/4566-shix/)
