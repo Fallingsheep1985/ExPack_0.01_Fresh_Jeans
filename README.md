@@ -14,6 +14,7 @@ Scripts
 * ExileIgiLoad with TaruPodMod by [`SLB2k11`](http://www.exilemod.com/profile/409-slb2k11/)
 * Dynamic Vehicle Spawn with Items by [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 * Detrimental Weather Effects by [`John`](http://www.exilemod.com/profile/38-john/)
+* Dynamic Air Patrol by [`John`](http://www.exilemod.com/profile/38-john/)
 
 
 CURRENT PERMISSION LIST TO USE SCRIPTS

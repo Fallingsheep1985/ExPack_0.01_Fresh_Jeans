@@ -30,6 +30,11 @@ class CfgScriptControlMisson
 	{
 		WEATHER_EFFECTS_SCRIPT = 1;
 	};
+	//Dynamic AirPatrol by john
+	class AIR_PATROL_SCRIPT_config
+	{
+		AIR_PATROL_SCRIPT = 1;
+	};
 	//////////////////////////////////
 	// DO NOT EDIT BELOW THIS LINE
 	//////////////////////////////////
