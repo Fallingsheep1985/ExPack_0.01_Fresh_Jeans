@@ -10,12 +10,6 @@
  */
  
 private ['_code', '_function', '_file'];
-
-
-//Load script control server side
-
-	[] execVM "exile_server\scriptcontrolServer.sqf";
-
 {
     _code = '';
     _function = _x select 0;
