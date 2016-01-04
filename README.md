@@ -32,6 +32,7 @@ Script Permission List
 * [`Defent`](http://www.exilemod.com/profile/259-defent/)
 * [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * [`Shix`](http://www.exilemod.com/profile/4566-shix/)
+* [`IT07`](http://www.exilemod.com/profile/332-it07/)
 
 
 Scripts to be added 
@@ -40,11 +41,10 @@ Scripts to be added
 * ScrapBike
 * Random Heli Crashes
 * GPS Check for Map Markers
-
+* Exile_VEMF_Reloaded
 
 Scripts pending approval
 --------------------------
-* Exile_VEMF_Reloaded
 * DMS - Defents Mission System
 * ETG Heli Crash and Drop Script
 * ETG Login Reward Script
