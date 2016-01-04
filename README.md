@@ -12,6 +12,7 @@ Scripts
 * Welcome Credits by [`GR8`](http://www.exilemod.com/profile/64-gr8/)
 * Watermark Logo by MadHatter05
 * ExileIgiLoad with TaruPodMod by [`SLB2k11`](http://www.exilemod.com/profile/409-slb2k11/)
+* Dynamic Vehicle Spawn with Items by [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 
 
 CURRENT PERMISSION LIST TO USE SCRIPTS
