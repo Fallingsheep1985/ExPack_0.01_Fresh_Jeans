@@ -25,6 +25,11 @@ class CfgScriptControlMisson
 	{
 		LOGO_WATERMARK_SCRIPT = 1;
 	};
+	//Weather Effects by john
+	class WEATHER_EFFECTS_SCRIPT_config
+	{
+		WEATHER_EFFECTS_SCRIPT = 1;
+	};
 	//////////////////////////////////
 	// DO NOT EDIT BELOW THIS LINE
 	//////////////////////////////////
@@ -34,7 +39,7 @@ class CfgScriptControlMisson
 	};
 	class build_version_config
 	{
-		BUILD_VERSION = 30; //should match the current git commits number
+		BUILD_VERSION = 35; //should match the current git commits number
 	};
 };
 

@@ -4,7 +4,7 @@ _LOGO_WATERMARK_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson"
 _WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "WELCOME_CREDITS_SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
 _KILL_MESSAGE_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "KILL_MESSAGE_SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
 _IGILOAD_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "IGILOAD_SCRIPT_config" >> "IGILOAD_SCRIPT");
-
+_WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "WEATHER_EFFECTS_SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
 //Watermark
 if (_LOGO_WATERMARK_SCRIPT isEqualTo 1) then {
 	_piclogo = "Pictures\logo.paa";
@@ -29,4 +29,8 @@ if (_KILL_MESSAGE_SCRIPT isEqualTo 1) then {
 // Igiload
 if (_IGILOAD_SCRIPT isEqualTo 1) then {
 	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
+};
+// Weather Effects by john
+if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then{
+	[] execVM "scripts\weatherEffects.sqf";
 };
