@@ -496,7 +496,7 @@ call ExileClient_object_trader_create;
 //Sheep Stuff
 //Watermark
 if (LOGO_WATERMARK_SCRIPT) then {
-	_piclogo = "pictures\logo.paa";
+	_piclogo = "Pictures\logo.paa";
 	[
 		'<img align=''left'' size=''1.0'' shadow=''0'' image='+(str(_piclogo))+' />',
 		safeZoneX+0.027,
