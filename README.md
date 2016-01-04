@@ -19,7 +19,7 @@ Current Scripts
 * Dynamic Vehicle Spawn with Items by [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 * Detrimental Weather Effects by [`John`](http://www.exilemod.com/profile/38-john/)
 * Dynamic Air Patrol by [`John`](http://www.exilemod.com/profile/38-john/)
-
+* Shix's XM8 apps by [`Shix`](http://www.exilemod.com/profile/4566-shix/)
 
 Script Permission List
 --------------------------
@@ -36,7 +36,6 @@ Script Permission List
 
 Scripts to be added 
 --------------------------
-* Shix's XM8 apps
 * Deploy/Pack Ebike
 * ScrapBike
 * Random Heli Crashes
