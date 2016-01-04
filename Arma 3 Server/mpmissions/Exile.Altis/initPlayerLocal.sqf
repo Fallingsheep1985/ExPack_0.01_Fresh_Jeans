@@ -5,8 +5,7 @@
 // Taken away for now
 //#include "initServer.sqf"
 
-#include "ScriptControl.sqf" //custom script loader
-
+#include "customInit.sqf"
 
 if (!hasInterface || isServer) exitWith {};
 
@@ -491,33 +490,3 @@ _chair setPosATL [23379.6, 24169.3, 4.56662];
     _chair
 ]
 call ExileClient_object_trader_create;
-
-
-//Sheep Stuff
-//Watermark
-if (LOGO_WATERMARK_SCRIPT) then {
-	_piclogo = "Pictures\logo.paa";
-	[
-		'<img align=''left'' size=''1.0'' shadow=''0'' image='+(str(_piclogo))+' />',
-		safeZoneX+0.027,
-		safeZoneY+safeZoneH-0.1,
-		99999,
-		0,
-		0,
-		3090
-	] spawn bis_fnc_dynamicText;
-};
-
-if (WELCOME_CREDITS_SCRIPT) then{
-	// Welcome Credits by Gr8
-	[] execVM "scripts\welcome.sqf";
-};
-
-if (KILL_MESSAGE_SCRIPT) then {
-	// Kill Messages By GR8
-	[] execVM "scripts\KillMessages.sqf";
-};
-if (IGILOAD_SCRIPT) then {
-	// Igiload
-	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
-};
