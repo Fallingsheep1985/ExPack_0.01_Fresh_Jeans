@@ -35,7 +35,42 @@ class Exile_AbstractCraftingRecipe
 	requiresOcean = 0; // isSurfaceWater test
 	requiresFire = 0; // inflamed object nearby
 };
-
+class SpawnVehicleItems{
+    /**
+    * Vehicles in the world
+    */
+    class WorldVehicles{
+        /*
+        * Allow(1) or disable(0) Items in Spawned vehicles
+        * kinda self explanitory
+        */
+        vehicleItemsAllowed = 1;
+        /*
+        * Set the maximum Items per Vehicle to
+        * kinda self explanitory
+        */
+        maximumItemsPerVehicle = 5;
+        /*
+        * Array of allowedItems
+        * kinda self explanitory
+        */
+        allowedItems[] = {
+            "Exile_Item_ToiletPaper",
+            "Exile_Item_PlasticBottleEmpty",
+            "Exile_Item_Can_Empty",
+            "Exile_Item_Rope",
+			"Exile_Item_DuctTape",
+			"Exile_Item_ExtensionCord",
+			"Exile_Item_FuelCanisterEmpty",
+			"Exile_Item_JunkMetal",
+			"Exile_Item_WoodPlank",
+			"Exile_Item_MetalPole",
+			"class Exile_Item_LightBulb",
+			"Exile_Melee_Axe",
+			"Exile_Item_metalboard"
+        };
+    };
+};
 class CfgCraftingRecipes
 {
 	
@@ -1754,7 +1789,6 @@ class CfgExileCustomCode
 {
  ExileClient_object_player_event_onEnterSafezone = "scripts\Igiload\ExileClient_object_player_event_onEnterSafezone.sqf";
  ExileClient_object_item_craft = "fixes\ExileClient_object_item_craft.sqf";
- ExileServer_object_tree_network_chopTreeRequest = "fixes\ExileServer_object_tree_network_chopTreeRequest.sqf";
 };
 class CfgExileHUD
 {
