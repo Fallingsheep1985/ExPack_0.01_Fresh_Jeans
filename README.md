@@ -5,8 +5,12 @@ Pre release of ExPack.
 
 > YOU CAN NOT REUSE THE SCRIPTS/ADDONS IN THIS REPACK WITH OUT THE SCRIPT OWNERS PERMISSION
 
+Current Supported Maps
+--------------------------
+* Altis
 
-Scripts
+
+Current Scripts
 --------------------------
 * Kill Messages by [`GR8`](http://www.exilemod.com/profile/64-gr8/)
 * Welcome Credits by [`GR8`](http://www.exilemod.com/profile/64-gr8/)
