@@ -10,7 +10,6 @@
  */
  
 private ['_code', '_function', '_file'];
-
 {
     _code = '';
     _function = _x select 0;

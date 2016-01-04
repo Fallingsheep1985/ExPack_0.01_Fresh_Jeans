@@ -9,6 +9,9 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
  
+ 
+ #include "ScriptControlServer.cpp"
+ 
 class CfgPatches
 {
 	class exile_server_config

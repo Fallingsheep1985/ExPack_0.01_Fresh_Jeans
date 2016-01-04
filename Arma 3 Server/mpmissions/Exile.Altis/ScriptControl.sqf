@@ -18,4 +18,5 @@ IGILOAD_SCRIPT = true;
 //////////////////////////////////
 
 REPACK_VERSION = "0.01 Fresh Jeans";
-BUILD_VERSION = 28; //should match the current git commits number
+BUILD_VERSION = 30; //should match the current git commits number
+
