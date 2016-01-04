@@ -12,9 +12,6 @@ KILL_MESSAGE_SCRIPT = true;
 //IgiLoad
 IGILOAD_SCRIPT = true;
 
-//Dynamic vehicles spawn with items
-DYNAMIC_ITEMS_SCRIPT = true;
-
 
 //////////////////////////////////
 // DO NOT EDIT BELOW THIS LINE
