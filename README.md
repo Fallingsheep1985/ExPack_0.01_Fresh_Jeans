@@ -21,3 +21,4 @@ CURRENT PERMISSION LIST TO USE SCRIPTS
 * [`GR8`](http://www.exilemod.com/profile/64-gr8/)
 * [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 * [`John`](http://www.exilemod.com/profile/38-john/)
+* [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
