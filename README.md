@@ -21,7 +21,7 @@ Current Scripts
 * Dynamic Air Patrol by [`John`](http://www.exilemod.com/profile/38-john/)
 
 
-CURRENT PERMISSION LIST TO USE SCRIPTS
+Script Permission List
 --------------------------
 
 * [`GR8`](http://www.exilemod.com/profile/64-gr8/)
@@ -32,3 +32,12 @@ CURRENT PERMISSION LIST TO USE SCRIPTS
 * [`Defent`](http://www.exilemod.com/profile/259-defent/)
 * [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * [`Shix`](http://www.exilemod.com/profile/4566-shix/)
+
+
+Scripts to be added 
+--------------------------
+* Shix's XM8 apps
+* Deploy/Pack Ebike
+* ScrapBike
+* Random Heli Crashes
+* GPS Check for Map Markers
