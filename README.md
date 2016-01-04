@@ -41,3 +41,14 @@ Scripts to be added
 * ScrapBike
 * Random Heli Crashes
 * GPS Check for Map Markers
+
+
+Scripts pending approval
+--------------------------
+* Exile_VEMF_Reloaded
+* DMS - Defents Mission System
+* ETG Heli Crash and Drop Script
+* ETG Login Reward Script
+* W4rGo's Lockpick System
+* Dynamic Traders
+* AVS - Advanced Vehicle System
