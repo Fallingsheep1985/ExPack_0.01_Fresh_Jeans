@@ -1789,6 +1789,7 @@ class CfgExileCustomCode
 {
  ExileClient_object_player_event_onEnterSafezone = "scripts\Igiload\ExileClient_object_player_event_onEnterSafezone.sqf";
  ExileClient_object_item_craft = "fixes\ExileClient_object_item_craft.sqf";
+ ExileClient_gui_xm8_slide_apps_onOpen = "xm8Apps\ExileClient_gui_xm8_slide_apps_onOpen.sqf";
 };
 class CfgExileHUD
 {
