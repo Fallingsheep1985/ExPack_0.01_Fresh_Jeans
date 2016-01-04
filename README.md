@@ -38,10 +38,10 @@ Script Permission List
 Scripts to be added 
 --------------------------
 * Deploy/Pack Ebike
-* ScrapBike
-* Random Heli Crashes
-* GPS Check for Map Markers
-* Exile_VEMF_Reloaded
+* ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
+* Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
+* GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
+* Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 
 Scripts pending approval
 --------------------------
