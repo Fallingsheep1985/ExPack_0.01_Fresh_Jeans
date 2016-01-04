@@ -5,7 +5,7 @@
 // Taken away for now
 //#include "initServer.sqf"
 
-#include "customInit.sqf"
+#include "initCustom.sqf"
 
 if (!hasInterface || isServer) exitWith {};
 
