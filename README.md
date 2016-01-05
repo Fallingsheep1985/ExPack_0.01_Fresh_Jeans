@@ -35,6 +35,7 @@ Script Permission List
 * [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * [`Shix`](http://www.exilemod.com/profile/4566-shix/)
 * [`IT07`](http://www.exilemod.com/profile/332-it07/)
+* [`eraser1`]()http://www.exilemod.com/profile/96-eraser1/)
 
 
 Scripts to be added 
@@ -42,10 +43,10 @@ Scripts to be added
 * Deploy/Pack Ebike
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
 * GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
+* DMS - Defents Mission System by [`Defent`](http://www.exilemod.com/profile/259-defent/) & [`eraser1`]()http://www.exilemod.com/profile/96-eraser1/)
 
 Scripts pending approval
 --------------------------
-* DMS - Defents Mission System
 * ETG Heli Crash and Drop Script
 * ETG Login Reward Script
 * W4rGo's Lockpick System
