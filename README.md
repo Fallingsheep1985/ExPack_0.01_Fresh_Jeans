@@ -35,7 +35,8 @@ Script Permission List
 * [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * [`Shix`](http://www.exilemod.com/profile/4566-shix/)
 * [`IT07`](http://www.exilemod.com/profile/332-it07/)
-* [`eraser1`]()http://www.exilemod.com/profile/96-eraser1/)
+* [`eraser1`](http://www.exilemod.com/profile/96-eraser1/)
+* [`infiSTAR`](http://www.exilemod.com/profile/11-infistar/) - BE Filters
 
 
 Scripts to be added 
