@@ -96,6 +96,4 @@ class CfgRemoteExec
 		jip=0;
     };
 };
-include "scripts\customdefines.hpp"
-include"xm8Apps\defines.hpp"
-include"xm8Apps\Xm8Apps.hpp"
+#include "scripts\customdefines.hpp"

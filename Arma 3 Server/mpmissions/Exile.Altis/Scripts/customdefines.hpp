@@ -1,3 +1,6 @@
+#include"xm8Apps\defines.hpp"
+#include"xm8Apps\Xm8Apps.hpp"
+
 //Watermark Logo
 class RscTitles {
 	#include "VEMFr_client\gui\hpp_mainVEMFrClient.hpp"
