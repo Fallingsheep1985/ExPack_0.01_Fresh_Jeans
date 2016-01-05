@@ -20,6 +20,7 @@ Current Scripts
 * Detrimental Weather Effects by [`John`](http://www.exilemod.com/profile/38-john/)
 * Dynamic Air Patrol by [`John`](http://www.exilemod.com/profile/38-john/)
 * Shix's XM8 apps by [`Shix`](http://www.exilemod.com/profile/4566-shix/)
+* Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 
 Script Permission List
 --------------------------
@@ -41,7 +42,6 @@ Scripts to be added
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
 * Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
 * GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
-* Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 
 Scripts pending approval
 --------------------------

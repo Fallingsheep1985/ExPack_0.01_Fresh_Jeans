@@ -1,5 +1,6 @@
 //Watermark Logo
 class RscTitles {
+	#include "VEMFr_client\gui\hpp_mainVEMFrClient.hpp"
 	class wm_disp {
 		idd = -1;
 		onLoad = "uiNamespace setVariable ['wm_disp', _this select 0]";
@@ -44,4 +45,9 @@ class CfgSounds
         sound[] = {"\Sounds\Intro.ogg", 1, 1};
         titles[] = {};
     };
+};
+//VEMF
+class cfgFunctions
+{
+    #include "VEMFr_client\CfgFunctions.hpp"
 };
