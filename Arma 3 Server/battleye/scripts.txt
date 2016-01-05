@@ -43,3 +43,4 @@
 7 ExileClient_gui_safezone_safeESP  !="nt\\code\\ExileClient_gui_safezone_reset.sqf'],\n['ExileClient_gui_safezone_safeESP', 'exile_client\\code\\ExileClient_gui_safezone_s" !="er = addMissionEventHandler [\"Draw3D\", {20 call ExileClient_gui_safezone_safeESP}];\n[\"SafezoneEnter\"] call ExileClient_gui_notif" !="20 call ExileClient_gui_safezone_safeESP" !="#line 1 \"exile_client\\code\\ExileClient_gui_safezone_safeESP.sqf\"\n\n\n\n\n\n\n\n\n\n\n\nprivate[\"_espRenderRange\",\"_distance\",\"_alpha\",\"_clr"
 7 removeMPEventHandler
 7 removeAllMPEventHandlers
+7 createVehcileLocal !"_smoke1 = "#particlesource" createVehicleLocal getpos _v;"

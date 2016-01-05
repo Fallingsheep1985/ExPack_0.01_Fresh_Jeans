@@ -9,4 +9,8 @@ class CfgScriptControl
 	{
 		DYNAMIC_ITEMS_SCRIPT = 1;
 	};
+	class random_heli_crash_config
+	{
+		RANDOM_HELI_CRASH_SCRIPT = 1;
+	};
 };

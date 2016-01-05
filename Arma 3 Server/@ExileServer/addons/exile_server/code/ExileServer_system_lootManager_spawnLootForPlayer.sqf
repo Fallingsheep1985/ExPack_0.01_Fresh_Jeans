@@ -9,7 +9,7 @@
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
  
-private["_playerObject","_spawnRadius","_spawnChancePerPosition","_spawnChancePerBuilding","_maximumNumberOfLootSpotsPerBuilding","_maximumNumberOfItemsPerLootSpot","_spawnedLoot","_minimumDistanceToTraderZones","_minimumDistanceToTerritories","_presentClasses","_playerPosition","_lastKnownPlayerPosition","_buildings","_building","_buildingType","_buildingConfig","_lootTableName","_localPositions","_spawnedItemClassNames","_lootWeaponHolderNetIDs","_spawnedLootInThisBuilding","_lootPosition","_numberOfItemsToSpawn","_lootHolder","_n","_itemClassName","_cargoType","_magazineClassNames","_magazineClassName","_numberOfMagazines"];
+private["_RANDOM_HELI_CRASH_SCRIPT","_playerObject","_spawnRadius","_spawnChancePerPosition","_spawnChancePerBuilding","_maximumNumberOfLootSpotsPerBuilding","_maximumNumberOfItemsPerLootSpot","_spawnedLoot","_minimumDistanceToTraderZones","_minimumDistanceToTerritories","_presentClasses","_playerPosition","_lastKnownPlayerPosition","_buildings","_building","_buildingType","_buildingConfig","_lootTableName","_localPositions","_spawnedItemClassNames","_lootWeaponHolderNetIDs","_spawnedLootInThisBuilding","_lootPosition","_numberOfItemsToSpawn","_lootHolder","_n","_itemClassName","_cargoType","_magazineClassNames","_magazineClassName","_numberOfMagazines"];
 _playerObject = _this;
 _spawnRadius = getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "spawnRadius");
 _spawnChancePerPosition = (getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "spawnChancePerPosition") max 0) min 99; 
@@ -19,6 +19,7 @@ _maximumNumberOfItemsPerLootSpot = getNumber (configFile >> "CfgSettings" >> "Lo
 _spawnedLoot = false;
 _minimumDistanceToTraderZones = getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "minimumDistanceToTraderZones");
 _minimumDistanceToTerritories = getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "minimumDistanceToTerritories");
+_RANDOM_HELI_CRASH_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "random_heli_crash_config" >> "RANDOM_HELI_CRASH_SCRIPT");
 _presentClasses = 
 [
 	"Exile_Loot_XmasPresent_Blue",
@@ -48,6 +49,14 @@ try
 	};
 	_playerObject setVariable["ExilePositionAtLastLootSpawnCircle", _playerPosition];	
 	_buildings = _playerObject nearObjects ["House", _spawnRadius];
+	if (_RANDOM_HELI_CRASH_SCRIPT isEqualTo 1) then {
+		_truckWrecks = _playerPosition nearObjects ["Land_Wreck_HMMWV_F", _spawnRadius];
+		_buildings append _truckWrecks;
+		_heliwrecks2 = _playerPosition nearObjects ["Land_UWreck_Heli_Attack_02_F", _spawnRadius];
+		_buildings append _heliwrecks2;
+		_heliWrecks1 = _playerPosition nearObjects ["Land_Wreck_Heli_Attack_01_F", _spawnRadius];
+		_buildings append _heliWrecks1;
+	};
 	{
 		_building = _x;
 		if !(isObjectHidden _building) then 
