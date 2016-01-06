@@ -45,6 +45,7 @@ Scripts to be added
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
 * GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * DMS - Defents Mission System by [`Defent`](http://www.exilemod.com/profile/259-defent/) & [`eraser1`]()http://www.exilemod.com/profile/96-eraser1/)
+* AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
 
 Scripts pending approval
 --------------------------
@@ -52,4 +53,4 @@ Scripts pending approval
 * ETG Login Reward Script
 * W4rGo's Lockpick System
 * Dynamic Traders
-* AVS - Advanced Vehicle System
+
