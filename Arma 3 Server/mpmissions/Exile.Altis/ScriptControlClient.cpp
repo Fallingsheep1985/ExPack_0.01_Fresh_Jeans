@@ -35,6 +35,10 @@ class CfgScriptControlMisson
 	{
 		AIR_PATROL_SCRIPT = 1;
 	};
+	class ADMIN_TOOLS_SCRIPT_config
+	{
+		ADMIN_TOOLS_SCRIPT = 1;
+	};
 	//////////////////////////////////
 	// DO NOT EDIT BELOW THIS LINE
 	//////////////////////////////////
