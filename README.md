@@ -48,6 +48,8 @@ Scripts to be added
 * AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
+* Slot Machine
+* Achievement System
 
 Scripts pending approval
 --------------------------
