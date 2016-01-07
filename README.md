@@ -53,4 +53,6 @@ Scripts pending approval
 * ETG Login Reward Script
 * W4rGo's Lockpick System
 * Dynamic Traders
+* Chop wood directly into a truck
+* Indestructible Bases
 
