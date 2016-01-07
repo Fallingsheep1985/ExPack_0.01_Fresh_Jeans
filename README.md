@@ -47,6 +47,7 @@ Scripts to be added
 * DMS - Defents Mission System by [`Defent`](http://www.exilemod.com/profile/259-defent/) & [`eraser1`]()http://www.exilemod.com/profile/96-eraser1/)
 * AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
+* Respect Ranking System
 
 Scripts pending approval
 --------------------------
