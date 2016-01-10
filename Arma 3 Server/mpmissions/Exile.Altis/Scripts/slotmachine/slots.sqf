@@ -27,8 +27,8 @@ PRIZE7 = 10000;
 IsSpinning = false;
 reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamond"];
 slotspictures = ["pictures\image1.paa","pictures\image2.paa","pictures\image3.paa","pictures\image4.paa","pictures\image5.paa","pictures\image6.paa","pictures\image7.paa","pictures\image8.paa"];
-
 hasSlotsCredits = false;
+
 fnc_payout = {
    if ((reel1 == reel2) && (reel2 == reel3)) then {
      if (reel1 == "cherry") then {
@@ -89,7 +89,9 @@ fnc_payout = {
      };
      if (reel1 == "diamond") then {
        SlotsPlayerCredits = SlotsPlayerCredits + 3;
-	   //update credits display     
+	   //update credits display  
+	_dialog = findDisplay 9000;
+	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	   
 		ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
        titleText ["You won 3 free spins!","PLAIN DOWN"]; titleFadeOut 3;
      };
@@ -113,7 +115,8 @@ if(IsSpinning)then{
 		 //add credit
 		 SlotsPlayerCredits = SlotsPlayerCredits + 1;
 		 //Update credits display
-		 ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
+		 _dialog = findDisplay 9000;
+		 (_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];
 	   }else{
 		 titleText ["You need 1000 to add 1 credit!","PLAIN DOWN"];
 		 titleFadeOut 3;
@@ -135,7 +138,8 @@ if (playerMoney => SLOTCOST10SPIN) then{
 		 //add credits
 		 SlotsPlayerCredits = SlotsPlayerCredits + 10;
 		 //Update credits display
-		 ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
+		 _dialog = findDisplay 9000;
+		 (_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];
 	   }else{
 		 titleText ["You need 10000 to add 10 credits!","PLAIN DOWN"]; titleFadeOut 3;
 	   };
@@ -147,12 +151,13 @@ fnc_random_pictures = {
 	_counter = 0;
 	while {_counter < 15} do
 	{
+	_dialog = findDisplay 9000;
 	ReelImage1 = slotspictures call BIS_fnc_selectRandom;
 	ReelImage2 = slotspictures call BIS_fnc_selectRandom;
 	ReelImage3 = slotspictures call BIS_fnc_selectRandom;
-	ctrlSetText[1200, format ["%1" ,ReelImage1]];
-	ctrlSetText[1201, format ["%1" ,ReelImage2]];
-	ctrlSetText[1202, format ["%1" ,ReelImage3]];
+	(_dialog displayCtrl 1200) ctrlSetText format ["%1",ReelImage1];
+	(_dialog displayCtrl 1201) ctrlSetText format ["%1",ReelImage2];
+	(_dialog displayCtrl 1202) ctrlSetText format ["%1",ReelImage3];
 	sleep 0.01;
 		_counter = _counter + 1;
 	};
@@ -174,7 +179,8 @@ fnc_spin  = {
 		 //remove credit
 		 SlotsPlayerCredits = SlotsPlayerCredits - 1;
 		 //update credits display     
-		 ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
+		 _dialog = findDisplay 9000;
+		(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	
 		 //randomise reels
 		 call fnc_random_pictures;
 		 //WIN CHANCE
@@ -199,79 +205,89 @@ fnc_spin  = {
 };
 fnc_display_pictures = {
 //reel 1
+	_dialog = findDisplay 9000;
+	_cherry = "pictures\image1.paa";
+	_lemon = "pictures\image2.paa";
+	_grape = "pictures\image3.paa";
+	_watermelon = "pictures\image4.paa";
+	_orange = "pictures\image5.paa";
+	_bar = "pictures\image6.paa";
+	_seven = "pictures\image7.paa";
+	_diamond = "pictures\image8.paa";
+	
    if (reel1 == "cherry") then {
-    ctrlSetText [1200, "pictures\image1.paa"];
+	(_dialog displayCtrl 1200) ctrlSetText format["%1",_cherry];
    };
    if (reel1 == "lemon") then {
-    ctrlSetText [1200, "pictures\image2.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_lemon];
    };
    if (reel1 == "grape") then {
-    ctrlSetText [1200, "pictures\image3.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_grape];
    };
    if (reel1 == "watermelon") then {
-    ctrlSetText [1200, "pictures\image4.paa"];
+	(_dialog displayCtrl 1200) ctrlSetText format["%1",_watermelon];
    };
    if (reel1 == "orange") then {
-    ctrlSetText [1200, "pictures\image5.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_orange];
    };
    if (reel1 == "bar") then {
-    ctrlSetText [1200, "pictures\image6.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_bar];
    };
    if (reel1 == "seven") then {
-    ctrlSetText [1200, "pictures\image7.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_seven];
    };
    if (reel1 == "diamond") then {
-    ctrlSetText [1200, "pictures\image8.paa"];
+    (_dialog displayCtrl 1200) ctrlSetText format["%1",_diamond];
    };
    //reel 2
    if (reel2 == "cherry") then {
-    ctrlSetText [1201,"pictures\image1.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_cherry];
    };
    if (reel2 == "lemon") then {
-    ctrlSetText [1201,"pictures\image2.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_lemon];
    };
    if (reel2 == "grape") then {
-    ctrlSetText [1201,"pictures\image3.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_grape];
    };
    if (reel2 == "watermelon") then {
-    ctrlSetText [1201,"pictures\image4.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_watermelon];
    };
    if (reel2 == "orange") then {
-    ctrlSetText [1201,"pictures\image5.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_orange];
    };
    if (reel2 == "bar") then {
-    ctrlSetText [1201,"pictures\image6.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_bar];
    };
    if (reel2 == "seven") then {
-    ctrlSetText [1201,"pictures\image7.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_seven];
    };
    if (reel2 == "diamond") then {
-    ctrlSetText [1201,"pictures\image8.paa"];
+    (_dialog displayCtrl 1201) ctrlSetText format["%1",_diamond];
    };
    //reel 3
    if (reel3 == "cherry") then {
-    ctrlSetText [1202,"pictures\image1.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_cherry];
    };
    if (reel3 == "lemon") then {
-    ctrlSetText [1202,"pictures\image2.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_lemon];
    };
    if (reel3 == "grape") then {
-    ctrlSetText [1202,"pictures\image3.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_grape];
    };
    if (reel3 == "watermelon") then {
-    ctrlSetText [1202,"pictures\image4.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_watermelon];
    };
    if (reel3 == "orange") then {
-    ctrlSetText [1202,"pictures\image5.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_cherry];
    };
    if (reel3 == "bar") then {
-    ctrlSetText [1202,"pictures\image6.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_bar];
    };
    if (reel3 == "seven") then {
-    ctrlSetText [1202,"pictures\image7.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_seven];
    };
    if (reel3 == "diamond") then {
-    ctrlSetText [1202,"pictures\image8.paa"];
+    (_dialog displayCtrl 1202) ctrlSetText format["%1",_diamond];
    };
 };
 

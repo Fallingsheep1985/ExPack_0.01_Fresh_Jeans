@@ -1,8 +1,10 @@
-
+//////////////////////////////////////////
+//	Slot Dialog made by Fallingsheep	//
+//////////////////////////////////////////
 class RscDisplaySlots
 {
-   idd = SLOTS_DIALOG;
-   movingenable = 0;
+   idd = 9000;
+   movingenable = false;
 
    class Controls
    {
@@ -81,7 +83,7 @@ class RscDisplaySlots
        h = 0.0235 * safezoneH;
 	   onButtonClick = "call fnc_spin;";
      };
-     class 1credit_BTN: RscButton
+     class credit1_BTN: RscButton
      {
        idc = 1601;
        text = "1 Spin";
@@ -91,7 +93,7 @@ class RscDisplaySlots
        h = 0.0235 * safezoneH;
 	   onButtonClick = "call fnc_add_1_credits;";
      };
-     class 10credit_BTN: RscButton
+     class credit10_BTN: RscButton
      {
        idc = 1602;
        text = "10 Spins";
