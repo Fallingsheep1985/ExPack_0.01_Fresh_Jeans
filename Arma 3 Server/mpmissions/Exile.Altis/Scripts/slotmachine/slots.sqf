@@ -28,142 +28,6 @@ IsSpinning = false;
 reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamond"];
 slotspictures = ["pictures\image1.paa","pictures\image2.paa","pictures\image3.paa","pictures\image4.paa","pictures\image5.paa","pictures\image6.paa","pictures\image7.paa","pictures\image8.paa"];
 hasSlotsCredits = false;
-
-fnc_payout = {
-   if ((reel1 == reel2) && (reel2 == reel3)) then {
-     if (reel1 == "cherry") then {
-       titleText ["You won 500","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE1;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "lemon") then {
-       titleText ["You won 750","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE2;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "grape") then {
-       titleText ["You won 1200","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE3;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "watermelon") then {
-       titleText ["You won 2500","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE4;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "orange") then {
-       titleText ["You won 5000","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE5;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "bar") then {
-       titleText ["You won 7500","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE6;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "seven") then {
-       titleText ["Jackpot! You won 10000","PLAIN DOWN"]; titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE7;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-     };
-     if (reel1 == "diamond") then {
-       SlotsPlayerCredits = SlotsPlayerCredits + 3;
-	   //update credits display  
-	_dialog = findDisplay 9000;
-	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	   
-		ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
-       titleText ["You won 3 free spins!","PLAIN DOWN"]; titleFadeOut 3;
-     };
-   }else{
-     titleText ["You lost.","PLAIN DOWN"]; titleFadeOut 3;
-   };
-   IsSpinning = false;
-};
-fnc_add_1_credits = {
-if(IsSpinning)then{
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
-	 } else {
-	   //check if player has required item
-	   if (playerMoney => SLOTCOST1SPIN) then{
-		 //remove cost
-			_newMoney = playerMoney - SLOTCOST1SPIN;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-		 //add credit
-		 SlotsPlayerCredits = SlotsPlayerCredits + 1;
-		 //Update credits display
-		 _dialog = findDisplay 9000;
-		 (_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];
-	   }else{
-		 titleText ["You need 1000 to add 1 credit!","PLAIN DOWN"];
-		 titleFadeOut 3;
-	   };
-   };
-};
-
-fnc_add_10_credits = {
-if(IsSpinning)then{
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
-	 } else {
-if (playerMoney => SLOTCOST10SPIN) then{
-		 //remove cost
-			_newMoney = playerMoney - SLOTCOST10SPIN;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-		 //add credits
-		 SlotsPlayerCredits = SlotsPlayerCredits + 10;
-		 //Update credits display
-		 _dialog = findDisplay 9000;
-		 (_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];
-	   }else{
-		 titleText ["You need 10000 to add 10 credits!","PLAIN DOWN"]; titleFadeOut 3;
-	   };
-   };
-};
-
-fnc_random_pictures = {
-//loop thru random images on reels
-	_counter = 0;
-	while {_counter < 15} do
-	{
-	_dialog = findDisplay 9000;
-	ReelImage1 = slotspictures call BIS_fnc_selectRandom;
-	ReelImage2 = slotspictures call BIS_fnc_selectRandom;
-	ReelImage3 = slotspictures call BIS_fnc_selectRandom;
-	(_dialog displayCtrl 1200) ctrlSetText format ["%1",ReelImage1];
-	(_dialog displayCtrl 1201) ctrlSetText format ["%1",ReelImage2];
-	(_dialog displayCtrl 1202) ctrlSetText format ["%1",ReelImage3];
-	sleep 0.01;
-		_counter = _counter + 1;
-	};
-};
-
-fnc_spin  = {
 	if(IsSpinning)then{
 		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
 	 } else {
@@ -180,9 +44,26 @@ fnc_spin  = {
 		 SlotsPlayerCredits = SlotsPlayerCredits - 1;
 		 //update credits display     
 		 _dialog = findDisplay 9000;
-		(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	
+		 _slotcredits = _dialog displayCtrl 1001;
+		 _slotcredits ctrlSetText format["%1",SlotsPlayerCredits];
 		 //randomise reels
-		 call fnc_random_pictures;
+//loop thru random images on reels
+	_counter = 0;
+	while {_counter < 15} do
+	{
+	_dialog = findDisplay 9000;
+	_reel1 = _dialog displayCtrl 1200;
+	_reel2 = _dialog displayCtrl 1201;
+	_reel3 = _dialog displayCtrl 1202;
+	ReelImage1 = slotspictures call BIS_fnc_selectRandom;
+	ReelImage2 = slotspictures call BIS_fnc_selectRandom;
+	ReelImage3 = slotspictures call BIS_fnc_selectRandom;
+	_reel1 ctrlSetText ReelImage1;
+	_reel2 ctrlSetText ReelImage2;
+	_reel3 ctrlSetText ReelImage3;
+	sleep 0.01;
+		_counter = _counter + 1;
+	};
 		 //WIN CHANCE
 		 SlotsWinChance = random 100;
 		 //10% chance to win
@@ -197,14 +78,7 @@ fnc_spin  = {
 		 };
 		 sleep 0.1;
 		 //display pictures
-		 call fnc_display_pictures;
-		 //check if win or lose
-		 call fnc_payout;
-	   };
-	};
-};
-fnc_display_pictures = {
-//reel 1
+		 //reel 1
 	_dialog = findDisplay 9000;
 	_cherry = "pictures\image1.paa";
 	_lemon = "pictures\image2.paa";
@@ -214,6 +88,9 @@ fnc_display_pictures = {
 	_bar = "pictures\image6.paa";
 	_seven = "pictures\image7.paa";
 	_diamond = "pictures\image8.paa";
+	_reel1 = _dialog displayCtrl 1200;
+	_reel2 = _dialog displayCtrl 1201;
+	_reel3 = _dialog displayCtrl 1202;
 	
    if (reel1 == "cherry") then {
 	(_dialog displayCtrl 1200) ctrlSetText format["%1",_cherry];
@@ -289,46 +166,74 @@ fnc_display_pictures = {
    if (reel3 == "diamond") then {
     (_dialog displayCtrl 1202) ctrlSetText format["%1",_diamond];
    };
-};
-
-
-fnc_reset_slots = {
-	SlotsPlayerCredits = 0;
-	IsSpinning = false;
-};
-
-fnc_cash_out = {
-	if (IsSpinning) then {
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
-	}else{
-		if (SlotsPlayerCredits > 0) then {
-			while {SlotsPlayerCredits > 0} do
-			{
-				if (SlotsPlayerCredits > 10) then {
-					//remove credits
-					SlotsPlayerCredits = SlotsPlayerCredits - 10;
-					//cash back
-					_newMoney = playerMoney + SLOTCOST10SPIN;
-					player setVariable ['ExileMoney', _newMoney];
-					ExileClientPlayerMoney = _newMoney;
-					(owner player) publicVariableClient 'ExileClientPlayerMoney';
-					format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-				}else{
-					//remove credits
-					SlotsPlayerCredits = SlotsPlayerCredits - 1;
-					//cash back
-					_newMoney = playerMoney + SLOTCOST1SPIN;
-					player setVariable ['ExileMoney', _newMoney];
-					ExileClientPlayerMoney = _newMoney;
-					(owner player) publicVariableClient 'ExileClientPlayerMoney';
-					format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
-				};
-			};
-			titleText ["Credits refunded.","PLAIN DOWN"]; titleFadeOut 3;
-			sleep 0.01;
-			call fnc_reset_slots;
-		};
+		 if ((reel1 == reel2) && (reel2 == reel3)) then {
+     if (reel1 == "cherry") then {
+       titleText ["You won 500","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE1;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "lemon") then {
+       titleText ["You won 750","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE2;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "grape") then {
+       titleText ["You won 1200","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE3;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "watermelon") then {
+       titleText ["You won 2500","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE4;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "orange") then {
+       titleText ["You won 5000","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE5;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "bar") then {
+       titleText ["You won 7500","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE6;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "seven") then {
+       titleText ["Jackpot! You won 10000","PLAIN DOWN"]; titleFadeOut 3;
+		_newMoney = playerMoney + PRIZE7;
+			player setVariable ['ExileMoney', _newMoney];
+			ExileClientPlayerMoney = _newMoney;
+			(owner player) publicVariableClient 'ExileClientPlayerMoney';
+			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+     };
+     if (reel1 == "diamond") then {
+       SlotsPlayerCredits = SlotsPlayerCredits + 3;
+	   //update credits display  
+	_dialog = findDisplay 9000;
+	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	   
+		ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
+       titleText ["You won 3 free spins!","PLAIN DOWN"]; titleFadeOut 3;
+     };
+   }else{
+     titleText ["You lost.","PLAIN DOWN"]; titleFadeOut 3;
+   };
+   IsSpinning = false;
+	   };
 	};
-};
-//randomize images
-call fnc_random_pictures;

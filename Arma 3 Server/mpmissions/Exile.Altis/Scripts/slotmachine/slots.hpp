@@ -81,7 +81,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.05875 * safezoneW;
        h = 0.0235 * safezoneH;
-	   onButtonClick = "call fnc_spin;";
+	   onButtonClick = "[] execVM 'scripts\slotmachine\slots.sqf';";
      };
      class credit1_BTN: RscButton
      {
@@ -91,7 +91,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.0734375 * safezoneW;
        h = 0.0235 * safezoneH;
-	   onButtonClick = "call fnc_add_1_credits;";
+	   onButtonClick = "[] execVM 'scripts\slotmachine\add1credit.sqf';";";
      };
      class credit10_BTN: RscButton
      {
@@ -101,7 +101,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.0807813 * safezoneW;
        h = 0.0235 * safezoneH;
-	   onButtonClick = "call fnc_add_10_credits;";
+	   onButtonClick = "[] execVM 'scripts\slotmachine\add10credit.sqf';";
      };
      class cashout_BTN: RscButton
      {
@@ -111,7 +111,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.05875 * safezoneW;
        h = 0.0235 * safezoneH;
-	   onButtonClick = "call fnc_cash_out;";
+	   onButtonClick = "[] execVM 'scripts\slotmachine\cashout.sqf';";
      };
    };
 };
