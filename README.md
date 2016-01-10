@@ -22,6 +22,7 @@ Current Scripts
 * Shix's XM8 apps by [`Shix`](http://www.exilemod.com/profile/4566-shix/)
 * Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 * Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
+* Slot Machine - XM8 App
 
 Script Permission List
 --------------------------
@@ -48,7 +49,6 @@ Scripts to be added
 * AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
-* Slot Machine
 * Achievement System
 
 Scripts pending approval
