@@ -33,7 +33,7 @@ app1_action = {
 _app2Text = "Admin Menu";
 _app2Logo = "";
 app2_action = {
-	[] execVM "badmin\client\systems\adminPanel\checkAdmin.sqf"
+	[] execVM "badmin\client\systems\adminPanel\checkAdmin.sqf";
 };
 
 //App 3 

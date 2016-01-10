@@ -3,6 +3,8 @@
 //		By - Fallingsheep		//
 //		ReWritten for exile		//
 ////////////////////////////////// 
+disableSerialization;
+
 private["ReelImage1","ReelImage2","ReelImage3","fnc_add_1_credits","fnc_add_10_credits","fnc_spin","fnc_payout","fnc_random_pictures","fnc_reset_slots","_newMoney","playerMoney","SlotsPlayerCredits","SLOTCOST1SPIN","SLOTCOST10SPIN","PRIZE1","PRIZE2","PRIZE3","PRIZE4","PRIZE5","PRIZE6","PRIZE7","IsSpinning","reelArray","slotspictures","hasSlotsCredits","reel1","reel2","reel3"]
 //Variables
 SlotsPlayerCredits = 0;
