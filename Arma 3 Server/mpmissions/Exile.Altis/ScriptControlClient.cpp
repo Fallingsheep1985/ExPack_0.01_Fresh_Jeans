@@ -49,7 +49,7 @@ class CfgScriptControlMisson
 	};
 	class build_version_config
 	{
-		BUILD_VERSION = 50; //should match the current git commits number
+		BUILD_VERSION = 76; //should match the current git commits number
 	};
 };
 
