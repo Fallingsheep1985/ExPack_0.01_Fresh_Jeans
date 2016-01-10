@@ -52,6 +52,7 @@ Scripts to be added
 * Achievement System
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 * Creepy Night Fog
+* Blackjack - WIP
 
 Scripts pending approval
 --------------------------
