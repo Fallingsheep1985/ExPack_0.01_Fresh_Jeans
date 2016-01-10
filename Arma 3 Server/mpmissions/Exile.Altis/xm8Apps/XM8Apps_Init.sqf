@@ -21,9 +21,6 @@ app1_action = {
 execVM"custom\deploy_bike.sqf";
 };
 */
-//ScriptControl
-_ADMIN_TOOLS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "ADMIN_TOOLS_SCRIPT_config" >> "_ADMIN_TOOLS_SCRIPT");
-
 
 //App 1 
 _app1Text = "Slot Machine";
@@ -32,21 +29,13 @@ app1_action = {
 	[] execVM "Scripts\SlotMachine\open_dialog.sqf";
 };
 
-if (_ADMIN_TOOLS_SCRIPT isEqualTo 1) then{
-	//App 2 
-	_app2Text = "Admin Menu";
-	_app2Logo = "";
-	app2_action = {
+//App 2 
+_app2Text = "Admin Menu";
+_app2Logo = "";
+app2_action = {
 	[] execVM "badmin\client\systems\adminPanel\checkAdmin.sqf"
-	};
-}else{
-	//App 2 
-	_app2Text = "Admin Menu";
-	_app2Logo = "";
-	app2_action = {
-	[] execVM "fusionsmenu\admin\tools.sqf"
-	};
 };
+
 //App 3 
 _app3Text = "App 3";
 _app3Logo = "";

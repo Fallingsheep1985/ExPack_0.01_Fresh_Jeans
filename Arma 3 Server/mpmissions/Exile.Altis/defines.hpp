@@ -893,7 +893,7 @@ class RscBackground
 	shadow = 2;
 	colorBackground[] = {0,0,0,1};
 	colorText[] = {1,1,1,1};
-	font = "Zeppelin32";
+	font = "TahomaB";
 	sizeEx = 0.02;
 	text = "";
 	
@@ -933,7 +933,7 @@ class RscScButton
 	colorBackground2[] = {1,1,1,0.4};
 	class Attributes
 	{
-		font = "Zeppelin32";
+		font = "TahomaB";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
@@ -953,7 +953,7 @@ class RscScButton
 	animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
 	animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
 	period = 0.4;
-	font = "Zeppelin32";
+	font = "TahomaB";
 	size = 0.03921;
 	sizeEx = 0.03921;
 	text = "";
@@ -964,7 +964,7 @@ class RscScButton
 	action = "";
 	class AttributesImage
 	{
-		font = "Zeppelin32";
+		font = "TahomaB";
 		color = "#E5E5E5";
 		align = "left";
 	};
@@ -977,7 +977,7 @@ class MyRscFrame
 	shadow = 2;
 	colorBackground[] = {0,0,0,1};
 	colorText[] = {1,1,1,1};
-	font = "Zeppelin32";
+	font = "TahomaB";
 	sizeEx = 0.02;
 	text = "";
 };

@@ -9,7 +9,7 @@ _AIR_PATROL_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> 
 _STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "STATUS_BAR_SCRIPT_config" >> "_STATUS_BAR_SCRIPT");
 
 
-if (_AIR_PATROL_SCRIPT isEqualTo 1) then{
+if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\airpatrol.sqf";
 };
 
@@ -28,7 +28,7 @@ if (_LOGO_WATERMARK_SCRIPT isEqualTo 1) then {
 	] spawn bis_fnc_dynamicText;
 };
 // Welcome Credits by Gr8
-if (_WELCOME_CREDITS_SCRIPT isEqualTo 1) then{
+if (_WELCOME_CREDITS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\welcome.sqf";
 };
 // Kill Messages By GR8
@@ -40,31 +40,24 @@ if (_IGILOAD_SCRIPT isEqualTo 1) then {
 	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
 };
 // Weather Effects by john
-if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then{
+if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\weatherEffects.sqf";
 };
 // Status Bar
-if (_STATUS_BAR_SCRIPT isEqualTo 1) then{
-	[] execVM "addons\statusBar\statusBar.sqf";
+if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
+	[] execVM "scripts\statusBar\statusBar.sqf";
 };
 
-
 // bAdmin Exile by Daz & Biabock
-
 #define DEBUG false
-
 [DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
-
-if (!isDedicated) then
-{
-	if (hasInterface) then // Normal player
-	{
+if (!isDedicated) then {
+	if (hasInterface) then {
 		execVM "badmin\client\init.sqf";
 	}
 };
 
-if (isServer) then
-{
+if (isServer) then {
 	diag_log "bAdmin - Initializing";
 	[] execVM "badmin\server\init.sqf";
 };
