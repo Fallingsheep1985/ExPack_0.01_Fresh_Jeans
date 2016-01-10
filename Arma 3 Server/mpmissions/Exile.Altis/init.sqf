@@ -6,7 +6,7 @@ _KILL_MESSAGE_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >
 _IGILOAD_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "IGILOAD_SCRIPT_config" >> "IGILOAD_SCRIPT");
 _WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "WEATHER_EFFECTS_SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
 _AIR_PATROL_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "AIR_PATROL_SCRIPT_config" >> "AIR_PATROL_SCRIPT");
-_STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "STATUS_BAR_SCRIPT_config" >> "_STATUS_BAR_SCRIPT");
+_STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "STATUS_BAR_SCRIPT_config" >> "STATUS_BAR_SCRIPT");
 
 
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
