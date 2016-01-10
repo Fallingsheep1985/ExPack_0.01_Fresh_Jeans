@@ -28,23 +28,13 @@ reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamo
 slotspictures = ["pictures\image1.paa","pictures\image2.paa","pictures\image3.paa","pictures\image4.paa","pictures\image5.paa","pictures\image6.paa","pictures\image7.paa","pictures\image8.paa"];
 hasSlotsCredits = false;
 
-	_dialog = findDisplay 9000;
-	_reel1 = _dialog displayCtrl 1200;
-	_reel2 = _dialog displayCtrl 1201;
-	_reel3 = _dialog displayCtrl 1202;
-	//starting images
-
-	_reel1 ctrlSetText "pictures\image1.paa";
-	_reel2 ctrlSetText "pictures\image2.paa";
-	_reel3 ctrlSetText "pictures\image3.paa";
-
 	if(IsSpinning)then{
-		titleText ["Please wait for current spin!","PLAIN DOWN",3,3]; 
+		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
 		titleFadeOut 3;
 	 } else {
 	   if (SlotsPlayerCredits <= 0) then {
 		 hasSlotsCredits = false;
-		 titleText ["You have no credits!","PLAIN DOWN",3,3]; 
+		 titleText ["You have no credits!","PLAIN DOWN",3]; 
 		 titleFadeOut 3;
 	   }else{
 		 hasSlotsCredits = true;
@@ -83,78 +73,78 @@ hasSlotsCredits = false;
 	_reel3 = _dialog displayCtrl 1202;
 	//reel 1
    if (reel1 == "cherry") then {
-	_reel1 ctrlSetText "pictures\image1.paa";
+	_reel1 ctrlSetText "pictures\image1.jpg";
    };
    if (reel1 == "lemon") then {
-    _reel1 ctrlSetText "pictures\image2.paa";
+    _reel1 ctrlSetText "pictures\image2.jpg";
    };
    if (reel1 == "grape") then {
-    _reel1 ctrlSetText "pictures\image3.paa";
+    _reel1 ctrlSetText "pictures\image3.jpg";
    };
    if (reel1 == "watermelon") then {
-	_reel1 ctrlSetText "pictures\image4.paa";
+	_reel1 ctrlSetText "pictures\image4.jpg";
    };
    if (reel1 == "orange") then {
-    _reel1 ctrlSetText "pictures\image5.paa";
+    _reel1 ctrlSetText "pictures\image5.jpg";
    };
    if (reel1 == "bar") then {
-    _reel1 ctrlSetText "pictures\image6.paa";
+    _reel1 ctrlSetText "pictures\image6.jpg";
    };
    if (reel1 == "seven") then {
-    _reel1 ctrlSetText "pictures\image7.paa";
+    _reel1 ctrlSetText "pictures\image7.jpg";
    };
    if (reel1 == "diamond") then {
-    _reel1 ctrlSetText "pictures\image8.paa";
+    _reel1 ctrlSetText "pictures\image8.jpg";
    };
    //reel2
   if (reel2 == "cherry") then {
-	_reel2 ctrlSetText "pictures\image1.paa";
+	_reel2 ctrlSetText "pictures\image1.jpg";
    };
    if (reel2 == "lemon") then {
-    _reel2 ctrlSetText "pictures\image2.paa";
+    _reel2 ctrlSetText "pictures\image2.jpg";
    };
    if (reel2 == "grape") then {
-    _reel2 ctrlSetText "pictures\image3.paa";
+    _reel2 ctrlSetText "pictures\image3.jpg";
    };
    if (reel2 == "watermelon") then {
-	_reel2 ctrlSetText "pictures\image4.paa";
+	_reel2 ctrlSetText "pictures\image4.jpg";
    };
    if (reel2 == "orange") then {
-    _reel2 ctrlSetText "pictures\image5.paa";
+    _reel2 ctrlSetText "pictures\image5.jpg";
    };
    if (reel2 == "bar") then {
-    _reel2 ctrlSetText "pictures\image6.paa";
+    _reel2 ctrlSetText "pictures\image6.jpg";
    };
    if (reel2 == "seven") then {
-    _reel2 ctrlSetText "pictures\image7.paa";
+    _reel2 ctrlSetText "pictures\image7.jpg";
    };
    if (reel2 == "diamond") then {
-    _reel2 ctrlSetText "pictures\image8.paa";
+    _reel2 ctrlSetText "pictures\image8.jpg";
    };
    //reel 3
   if (reel3 == "cherry") then {
-	_reel3 ctrlSetText "pictures\image1.paa";
+	_reel3 ctrlSetText "pictures\image1.jpg";
    };
    if (reel3 == "lemon") then {
-    _reel3 ctrlSetText "pictures\image2.paa";
+    _reel3 ctrlSetText "pictures\image2.jpg";
    };
    if (reel3 == "grape") then {
-    _reel3 ctrlSetText "pictures\image3.paa";
+    _reel3 ctrlSetText "pictures\image3.jpg";
    };
    if (reel3 == "watermelon") then {
-	_reel3 ctrlSetText "pictures\image4.paa";
+	_reel3 ctrlSetText "pictures\image4.jpg";
    };
    if (reel3 == "orange") then {
-    _reel3 ctrlSetText "pictures\image5.paa";
+    _reel3 ctrlSetText "pictures\image5.jpg";
    };
    if (reel3 == "bar") then {
-    _reel3 ctrlSetText "pictures\image6.paa";
+    _reel3 ctrlSetText "pictures\image6.jpg";
    };
    if (reel3 == "seven") then {
-    _reel3 ctrlSetText "pictures\image7.paa";
+    _reel3 ctrlSetText "pictures\image7.jpg";
    };
    if (reel3 == "diamond") then {
-    _reel3 ctrlSetText "pictures\image8.paa";
+    _reel3 ctrlSetText "pictures\image8.jpg";
    };
 if ((reel1 == reel2) && (reel2 == reel3)) then {
      if (reel1 == "cherry") then {
