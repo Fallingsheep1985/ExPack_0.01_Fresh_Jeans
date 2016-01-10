@@ -1,6 +1,6 @@
-// weatherEffects.sqf: v1.1
 
-//Changelog: Removed legacy fatigue settings and put  new stamina settings in
+
+
 
 // ** Weather effects by JohnO **//
  
@@ -56,8 +56,8 @@ _coldClothes =
 "U_B_survival_uniform",
 "U_I_Wetsuit",
 "U_O_Wetsuit",
-"U_B_Wetsuit",
-"Exile_Uniform_Woodland"
+"U_B_Wetsuit"
+
 ];     
  
 sick = false;
@@ -85,8 +85,9 @@ _distanceToFire = player distance _fire;
                         sick = false;
                         cold = 0;
                         sickValue = 0;
-                        player enableStamina false;
-                        player allowSprint true;
+
+
+                        player enableFatigue false;
                 };
                 uiSleep 1;
                 _exitA      
@@ -176,12 +177,14 @@ waitUntil
                                         {
                                                 sick = false;
                                                 enableCamShake false;
-                                                player enableStamina false;
-                                                player allowSprint true;
+
+
+                                                player setFatigue 0;
+                                                player enableFatigue false;
                                                 uiSleep 1;
                                                 if ((_showSick) && (sickValue >= 0 && sickValue <= 0.25)) then
                                                 {
-                                                        titleText ["You are feeling better", "PLAIN DOWN",0.5];
+                                                        titleText ["You are feeling better..", "PLAIN DOWN",0.5];
                                                 };
                                         };
                                 };     
@@ -194,13 +197,13 @@ waitUntil
                 };
                 if ((_showCold) && (cold >= 0 && cold <=0.1) && (!_warm)) then
                 {
-                        titleText ["It is getting cold", "PLAIN DOWN",0.5];
+                        titleText ["It is getting cold..", "PLAIN DOWN",0.5];
                 }
                 else
                 {
                         if ((_showCold) && (cold >= 0.2 && cold <= 0.3) && (!_warm)) then
                         {
-                                titleText ["You are starting to freeze", "PLAIN DOWN",0.5];
+                                titleText ["You are starting to freeze...", "PLAIN DOWN",0.5];
                         };
                 };
          
@@ -214,11 +217,12 @@ waitUntil
                         addCamShake [5, 3, 60];
                         if (_showCold) then
                         {
-                                titleText ["You are freezing", "PLAIN DOWN",1];
+                                titleText ["You are freezing..", "PLAIN DOWN",1];
                         };
                 };
                
-                if ((!_warm) && (cold > 0.3 )) then
+
+                if (!_warm) then
                 {
                         _sickChance = random 1;
          
@@ -229,37 +233,42 @@ waitUntil
                                 if ((_showSick) && (sickValue < 0.25)) then
                                 {
          
-                                        titleText ["You are getting sick", "PLAIN DOWN",0.5];
+                                        titleText ["You are sick...", "PLAIN DOWN",0.5];
          
                                 };
                                 if ((sickValue > 0.25) && (sickValue < 0.50)) then
                                 {
-                                        player enableStamina true;
-                                        player allowSprint false;
+
+
+                                        player enableFatigue true;
                                         enableCamShake true;
                                         addCamShake [5, 3, 30];
-                                        
+
+                                        player setFatigue 0.5;
          
                                         if (_showSick) then
                                         {
-                                                titleText ["You are very sick", "PLAIN DOWN",0.5];
+                                                titleText ["You are very sick...", "PLAIN DOWN",0.5];
                                         };
                                 }
                                 else
                                 {
                                         if (sickValue > 0.50) then
                                         {
-                                                player enableStamina true;
-                                                player allowSprint false;
+
+
+                                                player enableFatigue true;
                                                 enableCamShake true;
                                                 addCamShake [10, 10, 15];
                                                 [120] call BIS_fnc_bloodEffect;
                                                 player setDamage _damage + 0.02;
-                                                
+
+                                                player setFatigue 1;
          
                                                 if (_showSick) then
                                                 {
-                                                        titleText ["You are dying", "PLAIN DOWN",0.5];
+
+                                                        titleText ["You are dieing...", "PLAIN DOWN",0.5];
                                                 };
                                         };
                                 };
@@ -269,35 +278,39 @@ waitUntil
                 {      
                         if ((_showSick) && (sickValue < 0.25)) then
                         {
-                                titleText ["You are sick", "PLAIN DOWN",0.5];
+                                titleText ["You are sick...", "PLAIN DOWN",0.5];
                         };
                         if ((sickValue > 0.25) && (sickValue < 0.50)) then
                         {
-                               
+
+                                player enableFatigue true;
                                 enableCamShake true;
                                 addCamShake [5, 3, 30];
-                                
+
+                                player setFatigue 0.5;
          
                                 if (_showSick) then
                                 {
-                                        titleText ["You are very sick", "PLAIN DOWN",0.5];
+                                        titleText ["You are very sick...", "PLAIN DOWN",0.5];
                                 };
                         }
                         else
                         {
                                 if (sickValue > 0.50) then
                                 {
-                                        player enableStamina true;
-                                        player allowSprint false;
+
+
+                                        player enableFatigue true;
                                         enableCamShake true;
                                         addCamShake [10, 10, 15];
                                         [120] call BIS_fnc_bloodEffect;
                                         player setDamage _damage + 0.02;
-                                        
+
+                                        player setFatigue 1;
          
                                         if (_showSick) then
                                         {
-                                                titleText ["You are dying", "PLAIN DOWN",0.5];
+                                                titleText ["You are dieing...", "PLAIN DOWN",0.5];
                                         };
                                 };
                         };
