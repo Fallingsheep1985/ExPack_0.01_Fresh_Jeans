@@ -36,7 +36,7 @@ class CfgScriptControlMisson
 		AIR_PATROL_SCRIPT = 1;
 	};
 	//Status Bar
-	class _STATUS_BAR_SCRIPT_config
+	class STATUS_BAR_SCRIPT_config
 	{
 		STATUS_BAR_SCRIPT = 1;
 	};
