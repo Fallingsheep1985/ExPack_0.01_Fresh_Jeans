@@ -47,3 +47,27 @@ if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then{
 if (_STATUS_BAR_SCRIPT isEqualTo 1) then{
 	[] execVM "addons\statusBar\statusBar.sqf";
 };
+
+
+// bAdmin Exile by Daz & Biabock
+
+#define DEBUG false
+
+[DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
+
+if (!isDedicated) then
+{
+	if (hasInterface) then // Normal player
+	{
+		execVM "badmin\client\init.sqf";
+	}
+};
+
+if (isServer) then
+{
+	diag_log "bAdmin - Initializing";
+	[] execVM "badmin\server\init.sqf";
+};
+
+
+ 

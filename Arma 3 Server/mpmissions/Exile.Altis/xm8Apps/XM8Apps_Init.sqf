@@ -37,7 +37,7 @@ if (_ADMIN_TOOLS_SCRIPT isEqualTo 1) then{
 	_app2Text = "Admin Menu";
 	_app2Logo = "";
 	app2_action = {
-	[] execVM "fusionsmenu\admin\tools.sqf"
+	[] execVM "badmin\client\systems\adminPanel\checkAdmin.sqf"
 	};
 }else{
 	//App 2 
