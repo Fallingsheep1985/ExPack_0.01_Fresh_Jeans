@@ -97,11 +97,16 @@ class CfgRemoteExec
     };
 };
 
-// CUSTOM
+//////////////////////////////////////////////////////////
+// 						CUSTOM							//
+//////////////////////////////////////////////////////////
+
 #include"xm8Apps\defines.hpp"
 #include"xm8Apps\Xm8Apps.hpp"
+
 //Watermark Logo
 class RscTitles {
+	#include "scripts\statusBar\statusBar.hpp"
 	#include "VEMFr_client\gui\hpp_mainVEMFrClient.hpp"
 	class wm_disp {
 		idd = -1;
