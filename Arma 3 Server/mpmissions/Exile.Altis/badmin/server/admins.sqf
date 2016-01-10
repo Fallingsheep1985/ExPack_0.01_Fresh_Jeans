@@ -24,22 +24,22 @@ if (!isServer) exitWith {};
 	// Low Administrators: manage & spectate players, remove hacked vehicles
 	lowAdmins = compileFinal str
 	[
-		// Put player UIDs here
+		"",
+		""
 	];
 
 	// High Administrators: manage & spectate players, remove hacked vehicles, show player tags
 	highAdmins = compileFinal str
 	[
-		// Put player UIDs here
+		"",
+		""
 	];
 
 	// Server Owners: access to everything, including god mode, money, guns, and vehicles
 	serverOwners = compileFinal str
 	[
 		"76561198083039115", //Fallingsheep
-		"76561198027539471", // Daz
-		"76561198080973735", // Muffin
-		"76561198119540941" // God
+		"12121212212121212"
 	];
 
 	/********************************************************/

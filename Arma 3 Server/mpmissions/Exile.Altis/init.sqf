@@ -66,6 +66,17 @@ if (isServer) then {
 	[] execVM "badmin\server\init.sqf";
 	diag_log "bAdmin - Server Loaded";
 };
+OPEN_bADMIN_FNC = {
+	switch (_this) do {
+		//Key U
+		case 22: {
+			nul = [] execVM "badmin\client\systems\adminPanel\checkAdmin.sqf";
+		};
+	};
+};
+
+waituntil {!isnull (finddisplay 46)};
+(findDisplay 46) displayAddEventHandler ["KeyDown","_this select 1 call OPEN_bADMIN_FNC;false;"];
 
 
 // Weather Effects by john
