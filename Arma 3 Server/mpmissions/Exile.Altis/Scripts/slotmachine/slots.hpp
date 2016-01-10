@@ -79,27 +79,27 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.05875 * safezoneW;
        h = 0.0235 * safezoneH;
-       action = "_nil=[]Spawn fnc_spin";
+	   onButtonClick = "call fnc_spin;";
      };
      class 1credit_BTN: RscButton
      {
        idc = 1601;
-       text = "Add 1 Credit";
+       text = "1 Spin";
        x = 0.419219 * safezoneW + safezoneX;
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.0734375 * safezoneW;
        h = 0.0235 * safezoneH;
-       action = "_nil=[]Spawn fnc_add_1_credits";
+	   onButtonClick = "call fnc_add_1_credits;";
      };
      class 10credit_BTN: RscButton
      {
        idc = 1602;
-       text = "Add 10 Credits";
+       text = "10 Spins";
        x = 0.514687 * safezoneW + safezoneX;
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.0807813 * safezoneW;
        h = 0.0235 * safezoneH;
-       action = "_nil=[]Spawn fnc_add_10_credits";
+	   onButtonClick = "call fnc_add_10_credits;";
      };
      class cashout_BTN: RscButton
      {
@@ -109,7 +109,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.05875 * safezoneW;
        h = 0.0235 * safezoneH;
-       action = "closeDialog 0;_nil=[]Spawn fnc_cash_out";
+	   onButtonClick = "call fnc_cash_out;";
      };
    };
 };
