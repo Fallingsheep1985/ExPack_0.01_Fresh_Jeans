@@ -3,9 +3,10 @@
 //		By - Fallingsheep		//
 //		ReWritten for exile		//
 ////////////////////////////////// 
-
+private["fnc_add_1_credits","fnc_add_10_credits","fnc_spin","fnc_payout","fnc_random_pictures","fnc_reset_slots","_newMoney","playerMoney","SlotsPlayerCredits","SLOTCOST1SPIN","SLOTCOST10SPIN","PRIZE1","PRIZE2","PRIZE3","PRIZE4","PRIZE5","PRIZE6","PRIZE7","IsSpinning","reelArray","slotspictures","hasSlotsCredits","reel1","reel2","reel3"]
 //Variables
 SlotsPlayerCredits = 0;
+//get players current cash
 playerMoney = player getVariable ['ExileMoney', 0];
 //Cost of 1 spin
 SLOTCOST1SPIN = 1000;
@@ -286,11 +287,23 @@ fnc_cash_out = {
 			while {SlotsPlayerCredits > 0} do
 			{
 				if (SlotsPlayerCredits > 10) then {
-					player addMagazine slotsprize2;
+					//remove credits
 					SlotsPlayerCredits = SlotsPlayerCredits - 10;
+					//cash back
+					_newMoney = playerMoney + SLOTCOST10SPIN;
+					player setVariable ['ExileMoney', _newMoney];
+					ExileClientPlayerMoney = _newMoney;
+					(owner player) publicVariableClient 'ExileClientPlayerMoney';
+					format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
 				}else{
-					player addMagazine slotsprize1;
+					//remove credits
 					SlotsPlayerCredits = SlotsPlayerCredits - 1;
+					//cash back
+					_newMoney = playerMoney + SLOTCOST1SPIN;
+					player setVariable ['ExileMoney', _newMoney];
+					ExileClientPlayerMoney = _newMoney;
+					(owner player) publicVariableClient 'ExileClientPlayerMoney';
+					format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
 				};
 			};
 			titleText ["Credits refunded.","PLAIN DOWN"]; titleFadeOut 3;
@@ -299,3 +312,5 @@ fnc_cash_out = {
 		};
 	};
 };
+//randomize images
+call fnc_random_pictures;
