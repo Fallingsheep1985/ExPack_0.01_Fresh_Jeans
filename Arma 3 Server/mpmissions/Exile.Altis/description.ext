@@ -100,8 +100,9 @@ class CfgRemoteExec
 //////////////////////////////////////////////////////////
 // 						CUSTOM							//
 //////////////////////////////////////////////////////////
+//Custom defines
+#include "defines.hpp"
 //bAdmin dialog includes
-#include "badmin\client\gui_base.hpp"
 #include "badmin\client\systems\common.hpp"
 #include "badmin\client\systems\adminPanel\dialog\adminMenu.hpp"
 #include "badmin\client\systems\adminPanel\dialog\modMenu.hpp"
@@ -112,7 +113,6 @@ class CfgRemoteExec
 //Slot Machine
 #include"Scripts\slotmachine\slots.hpp"
 //XM8 Apps
-#include"xm8Apps\defines.hpp"
 #include"xm8Apps\Xm8Apps.hpp"
 
 //Watermark Logo
