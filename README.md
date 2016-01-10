@@ -22,7 +22,7 @@ Current Scripts
 * Shix's XM8 apps by [`Shix`](http://www.exilemod.com/profile/4566-shix/)
 * Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 * Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
-* Slot Machine - XM8 App
+* Slot Machine by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/)
 
 Script Permission List
 --------------------------
@@ -50,6 +50,8 @@ Scripts to be added
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
+* Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
+* Creepy Night Fog
 
 Scripts pending approval
 --------------------------
