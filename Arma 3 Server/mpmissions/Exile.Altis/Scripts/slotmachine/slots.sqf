@@ -3,7 +3,7 @@
 //		By - Fallingsheep		//
 //		ReWritten for exile		//
 ////////////////////////////////// 
-disableSerialization;
+
 
 //Variables
 SlotsPlayerCredits = 0;
@@ -65,7 +65,7 @@ hasSlotsCredits = false;
 	};
 	sleep 0.1;
 	//display pictures
-	
+disableSerialization;	
 	
 	_dialog = findDisplay 9000;
 	_reel1 = _dialog displayCtrl 1200;
