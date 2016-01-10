@@ -22,6 +22,8 @@ class CfgScriptControlMisson
 		AIR_PATROL_SCRIPT = 1;
 		//Status Bar
 		STATUS_BAR_SCRIPT = 1;
+		//Ground Fog
+		FOG_SCRIPT = 1;
 	};
 
 	//////////////////////////////////
