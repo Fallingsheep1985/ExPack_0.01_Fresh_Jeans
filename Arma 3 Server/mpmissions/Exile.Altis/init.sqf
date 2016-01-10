@@ -1,4 +1,4 @@
-//Server  init
+//init
 private["_piclogo","_LOGO_WATERMARK_SCRIPT","_WELCOME_CREDITS_SCRIPT","_KILL_MESSAGE_SCRIPT","_IGILOAD_SCRIPT"];
 _LOGO_WATERMARK_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "LOGO_WATERMARK_SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
 _WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "WELCOME_CREDITS_SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
@@ -11,10 +11,7 @@ _ADMIN_TOOLS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >>
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then{
 	[] execVM "scripts\airpatrol.sqf";
 };
-if (_ADMIN_TOOLS_SCRIPT isEqualTo 1) then{
-	[] execVM "fusionsmenu\admin\activate.sqf";
-	[] execVM "fusionsmenu\admin\loop.sqf";  
-};
+
 //Script load init
 //Watermark
 if (_LOGO_WATERMARK_SCRIPT isEqualTo 1) then {

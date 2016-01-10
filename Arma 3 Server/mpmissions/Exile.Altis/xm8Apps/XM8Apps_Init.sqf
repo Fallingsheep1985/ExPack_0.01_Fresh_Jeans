@@ -23,19 +23,20 @@ execVM"custom\deploy_bike.sqf";
 */
 
 //App 1 
-_app1Text = "App 1";
+_app1Text = "Slot Machine";
 _app1Logo = "";
 app1_action = {
-
+	[] execVM "Scripts\SlotMachine\open_dialog.sqf";
 };
 
-//App 2 
-_app2Text = "App 2";
-_app2Logo = "";
-app2_action = {
-
+if (_ADMIN_TOOLS_SCRIPT isEqualTo 1) then{
+	//App 2 
+	_app2Text = "Admin Menu";
+	_app2Logo = "";
+	app2_action = {
+	[] execVM "fusionsmenu\admin\tools.sqf"
+	};
 };
-
 //App 3 
 _app3Text = "App 3";
 _app3Logo = "";
