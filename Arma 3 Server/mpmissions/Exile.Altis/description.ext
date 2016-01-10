@@ -100,7 +100,9 @@ class CfgRemoteExec
 //////////////////////////////////////////////////////////
 // 						CUSTOM							//
 //////////////////////////////////////////////////////////
-
+Slot Machine
+#include"Scripts\slotmachine\slots.hpp"
+//XM8 Apps
 #include"xm8Apps\defines.hpp"
 #include"xm8Apps\Xm8Apps.hpp"
 

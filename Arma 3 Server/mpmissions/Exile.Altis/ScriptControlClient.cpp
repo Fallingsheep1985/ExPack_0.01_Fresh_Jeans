@@ -35,11 +35,6 @@ class CfgScriptControlMisson
 	{
 		AIR_PATROL_SCRIPT = 1;
 	};
-	//Admin Tools
-	class ADMIN_TOOLS_SCRIPT_config
-	{
-		ADMIN_TOOLS_SCRIPT = 1;
-	};
 	//Status Bar
 	class _STATUS_BAR_SCRIPT_config
 	{
