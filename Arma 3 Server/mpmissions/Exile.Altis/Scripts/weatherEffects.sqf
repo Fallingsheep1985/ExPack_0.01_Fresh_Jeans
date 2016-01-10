@@ -1,20 +1,16 @@
-
-
-
-
 // ** Weather effects by JohnO **//
- 
-private ["_exitA","_exitB","_exitWeather","_fatigue","_rainLevel","_damage","_uniform","_cover","_fire","_distanceToCover","_distanceToFire","_showSick","_showCold","_effectsCheck","_warm","_sick","_healthyInd"];
- 
+
+private ["_cold","_sickChance","_sickValue","_fatigue","_rainLevel","_damage","_uniform","_cover","_fire","_distanceToCover","_distanceToFire","_showSick","_showCold","_effectsCheck","_warm","_sick","_healthyInd"];
+
 /** SETTINGS **/
 /** Notifications **/
- 
+
 _showSick = true; //True to enable notifications "Eg You are getting sick"
 _showCold = true; //True to enable notifications "Eg You are getting cold"
 _effectsCheck = 60; //Time in seconds that the weather effects will apply. This time is x2, so 60 is actually 120. Due to the way the script works.
 _healthyInd = true; // If true - will display a "You are healthy" status when the character is not sick or cold.
- 
- 
+
+
 _coldClothes =
 [
 "", //NAKED - DO NOT CHANGE
@@ -57,9 +53,8 @@ _coldClothes =
 "U_I_Wetsuit",
 "U_O_Wetsuit",
 "U_B_Wetsuit"
+];	
 
-];     
- 
 sick = false;
 _warm = true;
 cold = 0;
@@ -73,249 +68,222 @@ _cover = nearestBuilding player;
 _fire = nearestObject [player,"Exile_Construction_CampFire_Static"];
 _distanceToCover = player distance _cover;
 _distanceToFire = player distance _fire;
- 
+
 [sick,sickValue,cold] spawn
 {
-        _exitA = false;
-        waituntil 
-        {
-               
-                if (!alive player) then
-                {     
-                        sick = false;
-                        cold = 0;
-                        sickValue = 0;
-
-
-                        player enableFatigue false;
-                };
-                uiSleep 1;
-                _exitA      
-        };        
-           
+	while {true} do
+	{
+		waituntil {!alive player};	
+		sick = false;
+		cold = 0;
+		sickValue = 0;
+		player enableFatigue false;
+	
+	};	
 };
- 
-[] spawn 
+
+[] spawn
+
 {
-        _exitB = false;       
-        waituntil 
-        {
-                if (damage player > 0.75) then
-                {      
-                        playSound "SndExileHeartbeatStopping";
-                        enableCamShake true;
-                        addCamShake [5, 3, 30];
-                        uiSleep 5;
-                };
-                uiSleep 1;
-                _exitB
-        };      
+	while {true} do
+	{
+
+		waituntil {damage player > 0.75};
+		if (damage player > 0.75) then
+		{	
+			playSound "SndExileHeartbeatStopping";
+			enableCamShake true;
+			addCamShake [5, 3, 30];
+			uiSleep 5;
+		};	
+
+	};	
 };
 
-_exitWeather = false; 
-waitUntil
-{     
-        if (alive player) then
-        {        
-                if (_healthyInd) then
-                {      
-                        if ((!sick) && (_warm) && (sickValue <= 0)) then
-                        {
-                                titleText ["You are healthy", "PLAIN DOWN",0.5];
-                        };
-                };
-         
-                if (sickValue <= 0) then
-                {
-                        sickValue = 0;
-                }
-                else
-                {
-                        if (sickValue >= 1) then
-                        {
-                                sickValue = 1;
-                        };
-                };
-                if (cold <= 0) then
-                {                
-                        cold = 0;
-                }
-                else
-                {
-                        if (cold >= 1) then
-                        {
-                                cold = 0.9;
-                        };
-                };
-                                               
-                uiSleep _effectsCheck;
-         
-                _rainLevel = rain;
-                _damage = damage player;
-                _uniform = uniform player;
-                _cover = nearestBuilding player;
-                _fire = nearestObject [player,"Exile_Construction_CampFire_Static"];
-                _distanceToCover = player distance _cover;
-                _distanceToFire = player distance _fire;
-         
-                if ((daytime >= 19 || daytime < 5) || (_rainLevel > 0.5 )) then {_warm = false};
-         
-                if ((!_warm) && (_uniform in _coldClothes)) then {_warm = false};
-                if ((!_warm) && (_distanceToFire < 20) || (_distanceToCover < 50)) then {_warm = true};
-                if !(_uniform in _coldClothes) then {_warm = true};
-               
-                if (_warm) then
-                {
-                        _warm = true;
-                        cold = cold - 0.1;
-                        if (cold <= 0) then
-                        {
-                                if (sickValue >= 0) then
-                                {
-                                        sickValue = sickValue - 0.05;
-                                        if (sickValue <= 0.25) then
-                                        {
-                                                sick = false;
-                                                enableCamShake false;
+while {alive player} do
+{	
+	waituntil {alive player};	
+	if (_healthyInd) then
+	{	
+		if ((!sick) && (_warm) && (sickValue <= 0)) then
+		{
+			titleText ["You are healthy", "PLAIN DOWN",0.5];
+		};
+	};
 
+	if (sickValue <= 0) then 
+	{
+		sickValue = 0;
+	} 
+	else 
+	{
+		if (sickValue >= 1) then
+		{
+			sickValue = 1;
+		};
+	};
+	if (cold <= 0) then
+	{		 
+		cold = 0;
+	}
+	else
+	{
+		if (cold >= 1) then
+		{
+			cold = 0.9;
+		};
+	};
+					
+	uiSleep _effectsCheck;
 
-                                                player setFatigue 0;
-                                                player enableFatigue false;
-                                                uiSleep 1;
-                                                if ((_showSick) && (sickValue >= 0 && sickValue <= 0.25)) then
-                                                {
-                                                        titleText ["You are feeling better..", "PLAIN DOWN",0.5];
-                                                };
-                                        };
-                                };     
-                        };
-                }
-                else
-                {
-                        _warm = false;
-                        cold = cold + 0.1;
-                };
-                if ((_showCold) && (cold >= 0 && cold <=0.1) && (!_warm)) then
-                {
-                        titleText ["It is getting cold..", "PLAIN DOWN",0.5];
-                }
-                else
-                {
-                        if ((_showCold) && (cold >= 0.2 && cold <= 0.3) && (!_warm)) then
-                        {
-                                titleText ["You are starting to freeze...", "PLAIN DOWN",0.5];
-                        };
-                };
-         
-                uiSleep _effectsCheck; 
-               
-                if ((cold > 0.3) && (!_warm)) then
-                {
-                        cold = cold + 0.1;
-                        player setDamage _damage +0.07;
-                        enableCamShake true;
-                        addCamShake [5, 3, 60];
-                        if (_showCold) then
-                        {
-                                titleText ["You are freezing..", "PLAIN DOWN",1];
-                        };
-                };
-               
+	_rainLevel = rain;
+	_damage = damage player;
+	_uniform = uniform player;
+	_cover = nearestBuilding player;
+	_fire = nearestObject [player,"Exile_Construction_CampFire_Static"];
+	_distanceToCover = player distance _cover;
+	_distanceToFire = player distance _fire;
 
-                if (!_warm) then
-                {
-                        _sickChance = random 1;
-         
-                        if ((_sickChance > 0.5) || (sickValue > 0)) then
-                        {
-                                sick = true;
-                                sickValue = sickValue + 0.05;
-                                if ((_showSick) && (sickValue < 0.25)) then
-                                {
-         
-                                        titleText ["You are sick...", "PLAIN DOWN",0.5];
-         
-                                };
-                                if ((sickValue > 0.25) && (sickValue < 0.50)) then
-                                {
+	if ((daytime >= 19 || daytime < 5) || (_rainLevel > 0.5 )) then {_warm = false};
 
+	if ((!_warm) && (_uniform in _coldClothes)) then {_warm = false};
+	if ((!_warm) && (_distanceToFire < 20) || (_distanceToCover < 50)) then {_warm = true};
+	if !(_uniform in _coldClothes) then {_warm = true};
+	
+	if (_warm) then
+	{
+		_warm = true;
+		cold = cold - 0.1;
+		if (cold <= 0) then
+		{
+			if (sickValue >= 0) then
+			{
+				sickValue = sickValue - 0.05;
+				if (sickValue <= 0.25) then
+				{
+					sick = false;
+					enableCamShake false;
+					player setFatigue 0;
+					player enableFatigue false;
+					uiSleep 1;
+					if ((_showSick) && (sickValue >= 0 && sickValue <= 0.25)) then
+					{
+						titleText ["You are feeling better..", "PLAIN DOWN",0.5];
+					};
+				};
+			};	
+		};
+	}
+	else
+	{
+		_warm = false;
+		cold = cold + 0.1;
+	};
+	if ((_showCold) && (cold >= 0 && cold <=0.1) && (!_warm)) then
+	{
+		titleText ["It is getting cold..", "PLAIN DOWN",0.5];
+	}
+	else
+	{
+		if ((_showCold) && (cold >= 0.2 && cold <= 0.3) && (!_warm)) then
+		{
+			titleText ["You are starting to freeze...", "PLAIN DOWN",0.5];
+		};
+	};
 
-                                        player enableFatigue true;
-                                        enableCamShake true;
-                                        addCamShake [5, 3, 30];
+	uiSleep _effectsCheck; //issue - player dies while sleeping. and respawns. the if alive never checks. the values never clear.
+	
+	if ((cold > 0.3) && (!_warm)) then
+	{
+		cold = cold + 0.1;
+		player setDamage _damage +0.07;
+		enableCamShake true;
+		addCamShake [5, 3, 60];
+		if (_showCold) then
+		{
+			titleText ["You are freezing..", "PLAIN DOWN",1];
+		};
+	};
+	
+	if (!_warm) then 
+	{
+		_sickChance = random 1; 
 
-                                        player setFatigue 0.5;
-         
-                                        if (_showSick) then
-                                        {
-                                                titleText ["You are very sick...", "PLAIN DOWN",0.5];
-                                        };
-                                }
-                                else
-                                {
-                                        if (sickValue > 0.50) then
-                                        {
+		if ((_sickChance > 0.5) || (sickValue > 0)) then
+		{
+			sick = true;
+			sickValue = sickValue + 0.05; 
+			if ((_showSick) && (sickValue < 0.25)) then
+			{
 
+				titleText ["You are sick...", "PLAIN DOWN",0.5];
 
-                                                player enableFatigue true;
-                                                enableCamShake true;
-                                                addCamShake [10, 10, 15];
-                                                [120] call BIS_fnc_bloodEffect;
-                                                player setDamage _damage + 0.02;
+			};
+			if ((sickValue > 0.25) && (sickValue < 0.50)) then
+			{
+				player enableFatigue true;
+				enableCamShake true;
+				addCamShake [5, 3, 30];	
+				player setFatigue 0.5;
 
-                                                player setFatigue 1;
-         
-                                                if (_showSick) then
-                                                {
+				if (_showSick) then
+				{
+					titleText ["You are very sick...", "PLAIN DOWN",0.5];
+				};
+			}
+			else
+			{
+				if (sickValue > 0.50) then
+				{
+					player enableFatigue true;
+					enableCamShake true;
+					addCamShake [10, 10, 15];
+					[120] call BIS_fnc_bloodEffect;
+					player setDamage _damage + 0.02;
+					player setFatigue 1;
 
-                                                        titleText ["You are dieing...", "PLAIN DOWN",0.5];
-                                                };
-                                        };
-                                };
-                        };
-                };             
-                if ((_warm) && (sick)) then
-                {      
-                        if ((_showSick) && (sickValue < 0.25)) then
-                        {
-                                titleText ["You are sick...", "PLAIN DOWN",0.5];
-                        };
-                        if ((sickValue > 0.25) && (sickValue < 0.50)) then
-                        {
+					if (_showSick) then
+					{
+						titleText ["You are dieing...", "PLAIN DOWN",0.5];
+					};
+				};
+			};
+		};
+	};		
+	if ((_warm) && (sick)) then 
+	{	
+		if ((_showSick) && (sickValue < 0.25)) then
+		{
+			titleText ["You are sick...", "PLAIN DOWN",0.5];
+		};
+		if ((sickValue > 0.25) && (sickValue < 0.50)) then
+		{
+			player enableFatigue true;
+			enableCamShake true;
+			addCamShake [5, 3, 30];	
+			player setFatigue 0.5;
 
-                                player enableFatigue true;
-                                enableCamShake true;
-                                addCamShake [5, 3, 30];
+			if (_showSick) then
+			{
+				titleText ["You are very sick...", "PLAIN DOWN",0.5];
+			};
+		}
+		else
+		{
+			if (sickValue > 0.50) then
+			{
+				player enableFatigue true;
+				enableCamShake true;
+				addCamShake [10, 10, 15]; 
+				[120] call BIS_fnc_bloodEffect;
+				player setDamage _damage + 0.02;
+				player setFatigue 1;
 
-                                player setFatigue 0.5;
-         
-                                if (_showSick) then
-                                {
-                                        titleText ["You are very sick...", "PLAIN DOWN",0.5];
-                                };
-                        }
-                        else
-                        {
-                                if (sickValue > 0.50) then
-                                {
-
-
-                                        player enableFatigue true;
-                                        enableCamShake true;
-                                        addCamShake [10, 10, 15];
-                                        [120] call BIS_fnc_bloodEffect;
-                                        player setDamage _damage + 0.02;
-
-                                        player setFatigue 1;
-         
-                                        if (_showSick) then
-                                        {
-                                                titleText ["You are dieing...", "PLAIN DOWN",0.5];
-                                        };
-                                };
-                        };
-                };
-        };
-        uiSleep 1;
-        _exitWeather  
+				if (_showSick) then
+				{
+					titleText ["You are dieing...", "PLAIN DOWN",0.5];
+				};
+			};
+		};
+	};
 };
