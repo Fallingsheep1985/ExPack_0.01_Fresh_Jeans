@@ -43,9 +43,10 @@ else
 	// Server Owners: access to everything, including god mode, money, guns, and vehicles
 	serverOwners = compileFinal str
 	[
-	"76561198027539471", // Daz
-	"76561198080973735", // Muffin
-	"76561198119540941" // God
+		"76561198083039115", //Fallingsheep
+		"76561198027539471", // Daz
+		"76561198080973735", // Muffin
+		"76561198119540941" // God
 	];
 
 	/********************************************************/

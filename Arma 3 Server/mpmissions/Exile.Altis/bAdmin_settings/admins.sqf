@@ -28,7 +28,7 @@ highAdmins = compileFinal str
 ];
 
 //	Server Owners: access to everything
-serverOwners = 
+serverOwners = compileFinal str
 [
 	"76561198083039115", //Fallingsheep
 	"76561198027539471", // Daz
