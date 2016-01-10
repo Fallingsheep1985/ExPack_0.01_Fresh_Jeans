@@ -1,7 +1,7 @@
 disableSerialization;
 playerMoney = player getVariable ['ExileMoney', 0];
 	if (IsSpinning) then {
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; 
+		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
 		titleFadeOut 3;
 	}else{
 		if (SlotsPlayerCredits > 0) then {
@@ -27,12 +27,13 @@ playerMoney = player getVariable ['ExileMoney', 0];
 					format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
 				};
 			};
-			titleText ["Credits refunded.","PLAIN DOWN"]; titleFadeOut 3;
+			titleText ["Credits refunded.","PLAIN DOWN", 3]; titleFadeOut 3;
 			sleep 0.01;
 			
 			//Reset Slots
 			SlotsPlayerCredits = 0;
 			IsSpinning = false;
 		};
-		closeDialog "RscDisplaySlots";
+		titleText ["No Credits - Closing app.","PLAIN DOWN", 3]; titleFadeOut 3;
+		closeDialog 9000;
 	};

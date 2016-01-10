@@ -27,12 +27,25 @@ IsSpinning = false;
 reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamond"];
 slotspictures = ["pictures\image1.paa","pictures\image2.paa","pictures\image3.paa","pictures\image4.paa","pictures\image5.paa","pictures\image6.paa","pictures\image7.paa","pictures\image8.paa"];
 hasSlotsCredits = false;
+
+	_dialog = findDisplay 9000;
+	_reel1 = _dialog displayCtrl 1200;
+	_reel2 = _dialog displayCtrl 1201;
+	_reel3 = _dialog displayCtrl 1202;
+	//starting images
+
+	_reel1 ctrlSetText "pictures\image1.paa";
+	_reel2 ctrlSetText "pictures\image2.paa";
+	_reel3 ctrlSetText "pictures\image3.paa";
+
 	if(IsSpinning)then{
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
+		titleText ["Please wait for current spin!","PLAIN DOWN",3,3]; 
+		titleFadeOut 3;
 	 } else {
 	   if (SlotsPlayerCredits <= 0) then {
 		 hasSlotsCredits = false;
-		 titleText ["You have no credits!","PLAIN DOWN"]; titleFadeOut 3;
+		 titleText ["You have no credits!","PLAIN DOWN",3,3]; 
+		 titleFadeOut 3;
 	   }else{
 		 hasSlotsCredits = true;
 	   };
@@ -45,129 +58,108 @@ hasSlotsCredits = false;
 		 _dialog = findDisplay 9000;
 		 _slotcredits = _dialog displayCtrl 1001;
 		 _slotcredits ctrlSetText format["%1",SlotsPlayerCredits];
-		 //randomise reels
-//loop thru random images on reels
-	_counter = 0;
-	while {_counter < 15} do
-	{
-	_dialog = findDisplay 9000;
-	_reel1 = _dialog displayCtrl 1200;
-	_reel2 = _dialog displayCtrl 1201;
-	_reel3 = _dialog displayCtrl 1202;
-	ReelImage1 = slotspictures call BIS_fnc_selectRandom;
-	ReelImage2 = slotspictures call BIS_fnc_selectRandom;
-	ReelImage3 = slotspictures call BIS_fnc_selectRandom;
-	_reel1 ctrlSetText ReelImage1;
-	_reel2 ctrlSetText ReelImage2;
-	_reel3 ctrlSetText ReelImage3;
-	sleep 0.01;
-		_counter = _counter + 1;
-	};
+
+
+
 		 //WIN CHANCE
-		 SlotsWinChance = random 100;
-		 //10% chance to win
-		 if(SlotsWinChance < 10) then{
-			reel1 = reelArray call BIS_fnc_selectRandom;
-			reel2 = reel1;
-			reel3 = reel1;
-		 }else{
-			reel1 = reelArray call BIS_fnc_selectRandom;
-			reel2 = reelArray call BIS_fnc_selectRandom;
-			reel3 = reelArray call BIS_fnc_selectRandom;
-		 };
-		 sleep 0.1;
-		 //display pictures
-		 //reel 1
+	SlotsWinChance = random 100;
+	//10% chance to win
+	if(SlotsWinChance < 10) then{
+		reel1 = reelArray call BIS_fnc_selectRandom;
+		reel2 = reel1;
+		reel3 = reel1;
+	}else{
+		reel1 = reelArray call BIS_fnc_selectRandom;
+		reel2 = reelArray call BIS_fnc_selectRandom;
+		reel3 = reelArray call BIS_fnc_selectRandom;
+	};
+	sleep 0.1;
+	//display pictures
+	
+	
 	_dialog = findDisplay 9000;
-	_cherry = "pictures\image1.paa";
-	_lemon = "pictures\image2.paa";
-	_grape = "pictures\image3.paa";
-	_watermelon = "pictures\image4.paa";
-	_orange = "pictures\image5.paa";
-	_bar = "pictures\image6.paa";
-	_seven = "pictures\image7.paa";
-	_diamond = "pictures\image8.paa";
 	_reel1 = _dialog displayCtrl 1200;
 	_reel2 = _dialog displayCtrl 1201;
 	_reel3 = _dialog displayCtrl 1202;
-	
+	//reel 1
    if (reel1 == "cherry") then {
-	_reel1 ctrlSetText format["%1",_cherry];
+	_reel1 ctrlSetText "pictures\image1.paa";
    };
    if (reel1 == "lemon") then {
-    _reel1 ctrlSetText format["%1",_lemon];
+    _reel1 ctrlSetText "pictures\image2.paa";
    };
    if (reel1 == "grape") then {
-    _reel1 ctrlSetText format["%1",_grape];
+    _reel1 ctrlSetText "pictures\image3.paa";
    };
    if (reel1 == "watermelon") then {
-	_reel1 ctrlSetText format["%1",_watermelon];
+	_reel1 ctrlSetText "pictures\image4.paa";
    };
    if (reel1 == "orange") then {
-    _reel1 ctrlSetText format["%1",_orange];
+    _reel1 ctrlSetText "pictures\image5.paa";
    };
    if (reel1 == "bar") then {
-    _reel1 ctrlSetText format["%1",_bar];
+    _reel1 ctrlSetText "pictures\image6.paa";
    };
    if (reel1 == "seven") then {
-    _reel1 ctrlSetText format["%1",_seven];
+    _reel1 ctrlSetText "pictures\image7.paa";
    };
    if (reel1 == "diamond") then {
-    _reel1 ctrlSetText format["%1",_diamond];
+    _reel1 ctrlSetText "pictures\image8.paa";
    };
-   //reel 2
-   if (reel2 == "cherry") then {
-    _reel2 ctrlSetText format["%1",_cherry];
+   //reel2
+  if (reel2 == "cherry") then {
+	_reel2 ctrlSetText "pictures\image1.paa";
    };
    if (reel2 == "lemon") then {
-    _reel2 ctrlSetText format["%1",_lemon];
+    _reel2 ctrlSetText "pictures\image2.paa";
    };
    if (reel2 == "grape") then {
-    _reel2 ctrlSetText format["%1",_grape];
+    _reel2 ctrlSetText "pictures\image3.paa";
    };
    if (reel2 == "watermelon") then {
-    _reel2 ctrlSetText format["%1",_watermelon];
+	_reel2 ctrlSetText "pictures\image4.paa";
    };
    if (reel2 == "orange") then {
-    _reel2 ctrlSetText format["%1",_orange];
+    _reel2 ctrlSetText "pictures\image5.paa";
    };
    if (reel2 == "bar") then {
-    _reel2 ctrlSetText format["%1",_bar];
+    _reel2 ctrlSetText "pictures\image6.paa";
    };
    if (reel2 == "seven") then {
-    _reel2 ctrlSetText format["%1",_seven];
+    _reel2 ctrlSetText "pictures\image7.paa";
    };
    if (reel2 == "diamond") then {
-    _reel2 ctrlSetText format["%1",_diamond];
+    _reel2 ctrlSetText "pictures\image8.paa";
    };
    //reel 3
-   if (reel3 == "cherry") then {
-    _reel3 ctrlSetText format["%1",_cherry];
+  if (reel3 == "cherry") then {
+	_reel3 ctrlSetText "pictures\image1.paa";
    };
    if (reel3 == "lemon") then {
-    _reel3 ctrlSetText format["%1",_lemon];
+    _reel3 ctrlSetText "pictures\image2.paa";
    };
    if (reel3 == "grape") then {
-    _reel3 ctrlSetText format["%1",_grape];
+    _reel3 ctrlSetText "pictures\image3.paa";
    };
    if (reel3 == "watermelon") then {
-    _reel3 ctrlSetText format["%1",_watermelon];
+	_reel3 ctrlSetText "pictures\image4.paa";
    };
    if (reel3 == "orange") then {
-    _reel3 ctrlSetText format["%1",_cherry];
+    _reel3 ctrlSetText "pictures\image5.paa";
    };
    if (reel3 == "bar") then {
-    _reel3 ctrlSetText format["%1",_bar];
+    _reel3 ctrlSetText "pictures\image6.paa";
    };
    if (reel3 == "seven") then {
-    _reel3 ctrlSetText format["%1",_seven];
+    _reel3 ctrlSetText "pictures\image7.paa";
    };
    if (reel3 == "diamond") then {
-    _reel3 ctrlSetText format["%1",_diamond];
+    _reel3 ctrlSetText "pictures\image8.paa";
    };
-		 if ((reel1 == reel2) && (reel2 == reel3)) then {
+if ((reel1 == reel2) && (reel2 == reel3)) then {
      if (reel1 == "cherry") then {
-       titleText ["You won 500","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 500","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE1;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -175,7 +167,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "lemon") then {
-       titleText ["You won 750","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 750","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE2;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -183,7 +176,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "grape") then {
-       titleText ["You won 1200","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 1200","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE3;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -191,7 +185,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "watermelon") then {
-       titleText ["You won 2500","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 2500","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE4;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -199,7 +194,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "orange") then {
-       titleText ["You won 5000","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 5000","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE5;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -207,7 +203,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "bar") then {
-       titleText ["You won 7500","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 7500","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE6;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -215,7 +212,8 @@ hasSlotsCredits = false;
 			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
      };
      if (reel1 == "seven") then {
-       titleText ["Jackpot! You won 10000","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["Jackpot! You won 10000","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
 		_newMoney = playerMoney + PRIZE7;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
@@ -228,10 +226,12 @@ hasSlotsCredits = false;
 	_dialog = findDisplay 9000;
 	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits];	   
 		ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
-       titleText ["You won 3 free spins!","PLAIN DOWN"]; titleFadeOut 3;
+       titleText ["You won 3 free spins!","PLAIN DOWN",3]; 
+	   titleFadeOut 3;
      };
    }else{
-     titleText ["You lost.","PLAIN DOWN"]; titleFadeOut 3;
+     titleText ["You lost.","PLAIN DOWN",3]; 
+	 titleFadeOut 3;
    };
    IsSpinning = false;
 	   };
