@@ -11,6 +11,7 @@ _STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> 
 
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\airpatrol.sqf";
+	diag_log "Air Patrol - Loaded";
 };
 
 //Script load init
@@ -26,26 +27,32 @@ if (_LOGO_WATERMARK_SCRIPT isEqualTo 1) then {
 		0,
 		3090
 	] spawn bis_fnc_dynamicText;
+	diag_log "Watermark - Loaded";
 };
 // Welcome Credits by Gr8
 if (_WELCOME_CREDITS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\welcome.sqf";
+	diag_log "Welcome Credits by Gr8 - Loaded";
 };
 // Kill Messages By GR8
 if (_KILL_MESSAGE_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\KillMessages.sqf";
+	diag_log "Kill Messages By GR8 - Loaded";
 };
 // Igiload
 if (_IGILOAD_SCRIPT isEqualTo 1) then {
 	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
+	diag_log "IgiLoad - Loaded";
 };
 // Weather Effects by john
 if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\weatherEffects.sqf";
+	diag_log "Weather Effects - Loaded";
 };
 // Status Bar
 if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\statusBar\statusBar.sqf";
+	diag_log "Status Bar - Loaded";
 };
 
 // bAdmin Exile by Daz & Biabock
@@ -61,6 +68,5 @@ if (isServer) then {
 	diag_log "bAdmin - Initializing";
 	[] execVM "badmin\server\init.sqf";
 };
-
 
  

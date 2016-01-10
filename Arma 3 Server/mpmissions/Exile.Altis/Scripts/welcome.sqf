@@ -1,7 +1,6 @@
 if(isDedicated) exitWith {};
-
-_sizeTitle             = 0.55; // Font Size of the Title Messages
-_sizeSubText         = 0.45;  // Font Size of the SubTitle Messages
+_sizeTitle             = 1; // Font Size of the Title Messages
+_sizeSubText         = 0.50;  // Font Size of the SubTitle Messages
 _colorTitle         = "#0969ee"; // HTML Color Code of the Title Messages (must start with '#' )
 _colorSubText         = "#1cee09"; // HTML Color Code of the SubTitle Messages (must start with '#' )
 _alignTitle         = "left"; // Alignment of the Title Message (right or left)
@@ -23,7 +22,7 @@ _posDefault         = [0.3,0.55,0.5]; // Defualt Positions of all Credits
 
 // First
 _title             = format ["Welcome %1",name player];
-_shorttext         = "Arma 3 Exile By MyServer";
+_shorttext         = "ExPack - 0.01 FreshJeans";
 _posText        = [0.8,0.5,0.4];
 
 
@@ -43,7 +42,7 @@ _posText4        = [0.8,0.5,0.28];
 
 
 _title5         = "Custom Scripts";
-_shorttext5     = "Welcome Messages <br />AI Missions<br />Custom Traders<br /> ";
+_shorttext5     = "";
 _posText5        = [0.8,0.5,0.335];
 
 
