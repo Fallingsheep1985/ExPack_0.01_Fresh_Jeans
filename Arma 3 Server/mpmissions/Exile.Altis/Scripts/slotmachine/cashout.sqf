@@ -1,9 +1,8 @@
 disableSerialization;
-
-private["ReelImage1","ReelImage2","ReelImage3","fnc_add_1_credits","fnc_add_10_credits","fnc_spin","fnc_payout","fnc_random_pictures","fnc_reset_slots","_newMoney","playerMoney","SlotsPlayerCredits","SLOTCOST1SPIN","SLOTCOST10SPIN","PRIZE1","PRIZE2","PRIZE3","PRIZE4","PRIZE5","PRIZE6","PRIZE7","IsSpinning","reelArray","slotspictures","hasSlotsCredits","reel1","reel2","reel3"]
-
+playerMoney = player getVariable ['ExileMoney', 0];
 	if (IsSpinning) then {
-		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
+		titleText ["Please wait for current spin!","PLAIN DOWN"]; 
+		titleFadeOut 3;
 	}else{
 		if (SlotsPlayerCredits > 0) then {
 			while {SlotsPlayerCredits > 0} do
@@ -30,8 +29,10 @@ private["ReelImage1","ReelImage2","ReelImage3","fnc_add_1_credits","fnc_add_10_c
 			};
 			titleText ["Credits refunded.","PLAIN DOWN"]; titleFadeOut 3;
 			sleep 0.01;
+			
 			//Reset Slots
 			SlotsPlayerCredits = 0;
 			IsSpinning = false;
 		};
+		closeDialog "RscDisplaySlots";
 	};

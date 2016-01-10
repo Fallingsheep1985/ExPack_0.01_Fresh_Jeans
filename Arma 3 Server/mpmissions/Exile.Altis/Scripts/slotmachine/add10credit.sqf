@@ -1,9 +1,11 @@
+disableSerialization;
+playerMoney = player getVariable ['ExileMoney', 0];
 if(IsSpinning)then{
 		titleText ["Please wait for current spin!","PLAIN DOWN"]; titleFadeOut 3;
 	 } else {
-if (playerMoney => SLOTCOST10SPIN) then{
+if ( playerMoney > 10000 ) then{
 		 //remove cost
-			_newMoney = playerMoney - SLOTCOST10SPIN;
+			_newMoney = playerMoney - 10000;
 			player setVariable ['ExileMoney', _newMoney];
 			ExileClientPlayerMoney = _newMoney;
 			(owner player) publicVariableClient 'ExileClientPlayerMoney';

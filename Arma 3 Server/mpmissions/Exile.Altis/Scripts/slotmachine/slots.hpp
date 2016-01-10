@@ -91,7 +91,7 @@ class RscDisplaySlots
        y = 0.5705 * safezoneH + safezoneY;
        w = 0.0734375 * safezoneW;
        h = 0.0235 * safezoneH;
-	   onButtonClick = "[] execVM 'scripts\slotmachine\add1credit.sqf';";";
+	   onButtonClick = "[] execVM 'scripts\slotmachine\add1credit.sqf';";
      };
      class credit10_BTN: RscButton
      {

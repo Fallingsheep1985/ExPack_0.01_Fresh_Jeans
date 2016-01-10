@@ -5,7 +5,6 @@
 ////////////////////////////////// 
 disableSerialization;
 
-private["ReelImage1","ReelImage2","ReelImage3","fnc_add_1_credits","fnc_add_10_credits","fnc_spin","fnc_payout","fnc_random_pictures","fnc_reset_slots","_newMoney","playerMoney","SlotsPlayerCredits","SLOTCOST1SPIN","SLOTCOST10SPIN","PRIZE1","PRIZE2","PRIZE3","PRIZE4","PRIZE5","PRIZE6","PRIZE7","IsSpinning","reelArray","slotspictures","hasSlotsCredits","reel1","reel2","reel3"]
 //Variables
 SlotsPlayerCredits = 0;
 //get players current cash
@@ -93,78 +92,78 @@ hasSlotsCredits = false;
 	_reel3 = _dialog displayCtrl 1202;
 	
    if (reel1 == "cherry") then {
-	(_dialog displayCtrl 1200) ctrlSetText format["%1",_cherry];
+	_reel1 ctrlSetText format["%1",_cherry];
    };
    if (reel1 == "lemon") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_lemon];
+    _reel1 ctrlSetText format["%1",_lemon];
    };
    if (reel1 == "grape") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_grape];
+    _reel1 ctrlSetText format["%1",_grape];
    };
    if (reel1 == "watermelon") then {
-	(_dialog displayCtrl 1200) ctrlSetText format["%1",_watermelon];
+	_reel1 ctrlSetText format["%1",_watermelon];
    };
    if (reel1 == "orange") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_orange];
+    _reel1 ctrlSetText format["%1",_orange];
    };
    if (reel1 == "bar") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_bar];
+    _reel1 ctrlSetText format["%1",_bar];
    };
    if (reel1 == "seven") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_seven];
+    _reel1 ctrlSetText format["%1",_seven];
    };
    if (reel1 == "diamond") then {
-    (_dialog displayCtrl 1200) ctrlSetText format["%1",_diamond];
+    _reel1 ctrlSetText format["%1",_diamond];
    };
    //reel 2
    if (reel2 == "cherry") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_cherry];
+    _reel2 ctrlSetText format["%1",_cherry];
    };
    if (reel2 == "lemon") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_lemon];
+    _reel2 ctrlSetText format["%1",_lemon];
    };
    if (reel2 == "grape") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_grape];
+    _reel2 ctrlSetText format["%1",_grape];
    };
    if (reel2 == "watermelon") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_watermelon];
+    _reel2 ctrlSetText format["%1",_watermelon];
    };
    if (reel2 == "orange") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_orange];
+    _reel2 ctrlSetText format["%1",_orange];
    };
    if (reel2 == "bar") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_bar];
+    _reel2 ctrlSetText format["%1",_bar];
    };
    if (reel2 == "seven") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_seven];
+    _reel2 ctrlSetText format["%1",_seven];
    };
    if (reel2 == "diamond") then {
-    (_dialog displayCtrl 1201) ctrlSetText format["%1",_diamond];
+    _reel2 ctrlSetText format["%1",_diamond];
    };
    //reel 3
    if (reel3 == "cherry") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_cherry];
+    _reel3 ctrlSetText format["%1",_cherry];
    };
    if (reel3 == "lemon") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_lemon];
+    _reel3 ctrlSetText format["%1",_lemon];
    };
    if (reel3 == "grape") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_grape];
+    _reel3 ctrlSetText format["%1",_grape];
    };
    if (reel3 == "watermelon") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_watermelon];
+    _reel3 ctrlSetText format["%1",_watermelon];
    };
    if (reel3 == "orange") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_cherry];
+    _reel3 ctrlSetText format["%1",_cherry];
    };
    if (reel3 == "bar") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_bar];
+    _reel3 ctrlSetText format["%1",_bar];
    };
    if (reel3 == "seven") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_seven];
+    _reel3 ctrlSetText format["%1",_seven];
    };
    if (reel3 == "diamond") then {
-    (_dialog displayCtrl 1202) ctrlSetText format["%1",_diamond];
+    _reel3 ctrlSetText format["%1",_diamond];
    };
 		 if ((reel1 == reel2) && (reel2 == reel3)) then {
      if (reel1 == "cherry") then {
@@ -227,7 +226,7 @@ hasSlotsCredits = false;
        SlotsPlayerCredits = SlotsPlayerCredits + 3;
 	   //update credits display  
 	_dialog = findDisplay 9000;
-	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits]];	   
+	(_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits];	   
 		ctrlSetText[1001, format ["%1" ,SlotsPlayerCredits]];
        titleText ["You won 3 free spins!","PLAIN DOWN"]; titleFadeOut 3;
      };
