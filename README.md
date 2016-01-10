@@ -23,7 +23,7 @@ Current Scripts
 * Exile_VEMF_Reloaded by [`IT07`](http://www.exilemod.com/profile/332-it07/)
 * Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
 * Slot Machine by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/)
-* Creepy Night Fog
+* Creepy Night Fog by CNSU
 
 
 Script Permission List
