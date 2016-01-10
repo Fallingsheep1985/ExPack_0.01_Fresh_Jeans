@@ -44,11 +44,7 @@ if (_IGILOAD_SCRIPT isEqualTo 1) then {
 	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
 	diag_log "IgiLoad - Loaded";
 };
-// Weather Effects by john
-if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
-	[] execVM "scripts\weatherEffects.sqf";
-	diag_log "Weather Effects - Loaded";
-};
+
 // Status Bar
 if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\statusBar\statusBar.sqf";
@@ -61,12 +57,20 @@ if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
 if (!isDedicated) then {
 	if (hasInterface) then {
 		execVM "badmin\client\init.sqf";
-	}
+		diag_log "bAdmin - Client Loaded";
+	};
 };
 
 if (isServer) then {
 	diag_log "bAdmin - Initializing";
 	[] execVM "badmin\server\init.sqf";
+	diag_log "bAdmin - Server Loaded";
 };
 
+
+// Weather Effects by john
+if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
+	[] execVM "scripts\weatherEffects.sqf";
+	diag_log "Weather Effects - Loaded";
+};
  

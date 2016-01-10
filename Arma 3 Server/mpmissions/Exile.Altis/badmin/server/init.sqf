@@ -13,8 +13,6 @@
 
 if (!isServer && hasInterface) exitWith {};
 
-externalConfigFolder = "\bAdmin_settings";
-
 if (isServer) then
 {
 	[] execVM "badmin\server\admins.sqf";
