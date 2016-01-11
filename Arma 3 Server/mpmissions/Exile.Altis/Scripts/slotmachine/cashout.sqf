@@ -1,33 +1,40 @@
-	if (IsSpinning) then {
-		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
-		titleFadeOut 3;
-	}else{
-		if (SlotsPlayerCredits > 0) then {
-			while {SlotsPlayerCredits > 0} do
-			{
-				if (SlotsPlayerCredits > 10) then {
-					//remove credits
-					SlotsPlayerCredits = SlotsPlayerCredits - 10;
-					//cash back
-					_newPoptabs = ExileClientPlayerMoney + 10000;
-					ENIGMA_UpdateStats = [player,_newPoptabs];
-					publicVariableServer "ENIGMA_UpdateStats";
-				}else{
-					//remove credits
-					SlotsPlayerCredits = SlotsPlayerCredits - 1;
-					//cash back
-					_newPoptabs = ExileClientPlayerMoney + 1000;
-					ENIGMA_UpdateStats = [player,_newPoptabs];
-					publicVariableServer "ENIGMA_UpdateStats";
-				};
-			};
-			titleText ["Credits refunded.","PLAIN DOWN", 3]; titleFadeOut 3;
-			sleep 0.01;
-			
-			//Reset Slots
-			SlotsPlayerCredits = 0;
-			IsSpinning = false;
-		};
-		titleText ["No Credits - Closing app.","PLAIN DOWN", 3]; titleFadeOut 3;
-		closeDialog 9000;
-	};
+disableSerialization;
+
+if (SlotsPlayerCredits > 1) then {
+	//Disable btns
+	_dialog = findDisplay 9000;
+	_spinbtn = _dialog displayCtrl 1600;
+	_bet1 = _dialog displayCtrl 1601;
+	_bet10 = _dialog displayCtrl 1602;
+	_cashout = _dialog displayCtrl 1603;
+	_spinbtn ctrlEnable false;
+	_bet1 ctrlEnable false;
+	_bet10 ctrlEnable false;
+	_cashout ctrlEnable false;
+	
+	_CashBack = SlotsPlayerCredits * 1000;
+	
+	//DEBUG
+	diag_log format ["CREDITS - %1", SlotsPlayerCredits];
+	diag_log format ["CASH - %1", _CashBack];
+	
+	//Remove credits
+	SlotsPlayerCredits = 0;
+	//cash back
+	_newPoptabs = ExileClientPlayerMoney + _CashBack;
+	ENIGMA_UpdateStats = [player,_newPoptabs];
+	publicVariableServer "ENIGMA_UpdateStats";
+	//Update text
+	_dialog = findDisplay 9000;
+	_slotcredits = _dialog displayCtrl 1001;
+	_slotcredits ctrlSetText format["%1",SlotsPlayerCredits];
+
+	titleText ["Credits refunded.","PLAIN DOWN", 3]; 
+	titleFadeOut 5;
+	sleep 0.5;
+	closeDialog 9000;
+}else{
+	titleText ["No Credits - Closing app.","PLAIN DOWN", 3]; 
+	titleFadeOut 5;
+	closeDialog 9000;
+};

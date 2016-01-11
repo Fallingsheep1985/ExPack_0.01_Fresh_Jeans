@@ -13,7 +13,7 @@ _cashout ctrlEnable false;
 
 if(IsSpinning)then{
 		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
-		titleFadeOut 3;
+		titleFadeOut 5;
 	 } else {
 	if ( _playerMoney >= 10000 ) then{
 		 //remove cost
@@ -23,21 +23,23 @@ if(IsSpinning)then{
 		 //add credits
 		 SlotsPlayerCredits = SlotsPlayerCredits + 10;
 		 titleText ["Added 10 credits.","PLAIN DOWN",3];
-		 titleFadeOut 3;		 
+		 titleFadeOut 5;		 
 		 //Update credits display	
 		 _dialog = findDisplay 9000;
 		 (_dialog displayCtrl 1001) ctrlSetText format ["%1" ,SlotsPlayerCredits];
 		//Wait and enable button again
 		sleep 0.5;
+		_spinbtn ctrlEnable true;
 		_bet1 ctrlEnable true;
 		_bet10 ctrlEnable true;
 		_cashout ctrlEnable true;
 	   }else{
 	   //Enable btn
+	   _spinbtn ctrlEnable true;
 		_bet1 ctrlEnable true;
 		_bet10 ctrlEnable true;
 		_cashout ctrlEnable true;
 		 titleText ["You need 10000 to add 10 credits!","PLAIN DOWN",3]; 
-		 titleFadeOut 3;
+		 titleFadeOut 5;
 	   };
    };
