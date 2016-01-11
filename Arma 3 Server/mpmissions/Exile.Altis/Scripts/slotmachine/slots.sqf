@@ -150,65 +150,51 @@ if ((reel1 == reel2) && (reel2 == reel3)) then {
      if (reel1 == "cherry") then {
        titleText ["You won 500","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE1;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE1;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "lemon") then {
        titleText ["You won 750","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE2;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE2;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "grape") then {
        titleText ["You won 1200","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE3;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE3;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "watermelon") then {
        titleText ["You won 2500","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE4;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE4;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "orange") then {
        titleText ["You won 5000","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE5;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE5;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "bar") then {
        titleText ["You won 7500","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE6;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE6;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "seven") then {
        titleText ["Jackpot! You won 10000","PLAIN DOWN",3]; 
 	   titleFadeOut 3;
-		_newMoney = playerMoney + PRIZE7;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney + PRIZE7;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
      };
      if (reel1 == "diamond") then {
        SlotsPlayerCredits = SlotsPlayerCredits + 3;

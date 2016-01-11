@@ -6,11 +6,9 @@ if(IsSpinning)then{
 	 } else {
 if ( playerMoney > 10000 ) then{
 		 //remove cost
-			_newMoney = playerMoney - 10000;
-			player setVariable ['ExileMoney', _newMoney];
-			ExileClientPlayerMoney = _newMoney;
-			(owner player) publicVariableClient 'ExileClientPlayerMoney';
-			format['setAccountMoney:%1:%2', _newMoney, (getPlayerUID player)] call ExileServer_system_database_query_fireAndForget;
+		_newPoptabs = ExileClientPlayerMoney - 10000;
+		ENIGMA_UpdateStats = [player,_newPoptabs];
+		publicVariableServer "ENIGMA_UpdateStats";
 		 //add credits
 		 SlotsPlayerCredits = SlotsPlayerCredits + 10;
 		 //Update credits display
