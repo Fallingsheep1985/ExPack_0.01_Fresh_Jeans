@@ -34,7 +34,7 @@ class CfgScriptControlMisson
 	class version_config
 	{
 		REPACK_VERSION = 0.01; //current release number
-		BUILD_VERSION = 105; //should match the current git commits number
+		BUILD_VERSION = 110; //should match the current git commits number
 	};
 
 };
