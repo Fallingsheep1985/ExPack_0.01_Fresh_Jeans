@@ -1,5 +1,3 @@
-disableSerialization;
-playerMoney = player getVariable ['ExileMoney', 0];
 	if (IsSpinning) then {
 		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
 		titleFadeOut 3;
@@ -11,14 +9,14 @@ playerMoney = player getVariable ['ExileMoney', 0];
 					//remove credits
 					SlotsPlayerCredits = SlotsPlayerCredits - 10;
 					//cash back
-					_newPoptabs = ExileClientPlayerMoney + SLOTCOST10SPIN;
+					_newPoptabs = ExileClientPlayerMoney + 10000;
 					ENIGMA_UpdateStats = [player,_newPoptabs];
 					publicVariableServer "ENIGMA_UpdateStats";
 				}else{
 					//remove credits
 					SlotsPlayerCredits = SlotsPlayerCredits - 1;
 					//cash back
-					_newPoptabs = ExileClientPlayerMoney + SLOTCOST1SPIN;
+					_newPoptabs = ExileClientPlayerMoney + 1000;
 					ENIGMA_UpdateStats = [player,_newPoptabs];
 					publicVariableServer "ENIGMA_UpdateStats";
 				};
