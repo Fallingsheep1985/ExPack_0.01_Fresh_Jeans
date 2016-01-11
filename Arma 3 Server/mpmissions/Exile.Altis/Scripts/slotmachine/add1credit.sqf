@@ -15,7 +15,7 @@ if(IsSpinning)then{
 		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
 		titleFadeOut 3;
 	 } else {
-if (( _playerMoney = 1000 )||(_playerMoney > 1000 )) then{
+if ( _playerMoney >= 1000 ) then{
 		 //remove cost
 		_newPoptabs = ExileClientPlayerMoney - 1000;
 		ENIGMA_UpdateStats = [player,_newPoptabs];
