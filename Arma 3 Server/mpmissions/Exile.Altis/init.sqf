@@ -1,6 +1,4 @@
 //init
-private["_piclogo","_LOGO_WATERMARK_SCRIPT","_WELCOME_CREDITS_SCRIPT","_KILL_MESSAGE_SCRIPT","_IGILOAD_SCRIPT"];
-
 _LOGO_WATERMARK_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
 _WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
 _KILL_MESSAGE_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
@@ -14,6 +12,7 @@ _LOCK_PICK_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >>
 //Lockpick
 if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
 	[] execVM "addons\w4_lockpick\initLockpick.sqf";
+	diag_log "Lock Pick - Loaded";
 };
 //Air Patrol
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
@@ -54,6 +53,16 @@ if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\statusBar\statusBar.sqf";
 	diag_log "Status Bar - Loaded";
 };
+//Ground Fog
+if (_FOG_SCRIPT isEqualTo 1) then {
+	_GF = [] execVM "scripts\fog.sqf";
+	diag_log "Ground Fog - Loaded";
+};
+// Weather Effects by john
+if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
+	[] execVM "scripts\weatherEffects.sqf";
+	diag_log "Weather Effects - Loaded";
+};
 // bAdmin Exile by Daz & Biabock
 #define DEBUG false
 [DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
@@ -78,13 +87,5 @@ OPEN_bADMIN_FNC = {
 };
 waituntil {!isnull (finddisplay 46)};
 (findDisplay 46) displayAddEventHandler ["KeyDown","_this select 1 call OPEN_bADMIN_FNC;false;"];
-//Ground Fog
-if (_FOG_SCRIPT isEqualTo 1) then {
-	_GF = [] execVM "scripts\fog.sqf";
-};
-// Weather Effects by john
-if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
-	[] execVM "scripts\weatherEffects.sqf";
-	diag_log "Weather Effects - Loaded";
-};
+
  
