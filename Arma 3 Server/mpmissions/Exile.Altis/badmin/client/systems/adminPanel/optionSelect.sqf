@@ -51,14 +51,16 @@ if (_uid call isAdmin) then
 				};
 				case 4: //Add Money
 				{
-					_Poptabs = 10000;
-					ExileClientPlayerMoney = ExileClientPlayerMoney + _Poptabs;
+					_newPoptabs = ExileClientPlayerMoney + 10000;
+					ENIGMA_UpdateStats = [player,_newPoptabs];
+					publicVariableServer "ENIGMA_UpdateStats";
 					systemChat "Added 10000 Poptabs for you";
 				};
 				case 5: //Add Score
 				{
-					_Score = 10000;
-					ExileClientPlayerScore = ExileClientPlayerScore + _Score;
+					_newScore = ExileClientPlayerScore + 10000;
+					ENIGMA_UpdateStats = [player,0,_newScore];
+					publicVariableServer "ENIGMA_UpdateStats";
 					systemChat "Added 10000 Score for you";
 				};
 				case 6: //TP Menu
