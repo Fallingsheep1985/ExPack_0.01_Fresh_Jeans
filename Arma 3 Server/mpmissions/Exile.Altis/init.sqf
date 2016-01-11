@@ -1,25 +1,25 @@
 //init
 private["_piclogo","_LOGO_WATERMARK_SCRIPT","_WELCOME_CREDITS_SCRIPT","_KILL_MESSAGE_SCRIPT","_IGILOAD_SCRIPT"];
-_LOGO_WATERMARK_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
-_WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
-_KILL_MESSAGE_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
-_IGILOAD_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "IGILOAD_SCRIPT");
-_WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
-_AIR_PATROL_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AIR_PATROL_SCRIPT");
-_STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
-_FOG_SCRIPT getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
-_LOCK_PICK_SCRIPT getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
 
+_LOGO_WATERMARK_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
+_WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
+_KILL_MESSAGE_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
+_IGILOAD_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "IGILOAD_SCRIPT");
+_WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
+_AIR_PATROL_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AIR_PATROL_SCRIPT");
+_STATUS_BAR_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
+_FOG_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
+_LOCK_PICK_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
+
+//Lockpick
 if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
 	[] execVM "addons\w4_lockpick\initLockpick.sqf";
 };
-
+//Air Patrol
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\airpatrol.sqf";
 	diag_log "Air Patrol - Loaded";
 };
-
-//Script load init
 //Watermark
 if (_LOGO_WATERMARK_SCRIPT isEqualTo 1) then {
 	_piclogo = "Pictures\logo.paa";
@@ -49,13 +49,11 @@ if (_IGILOAD_SCRIPT isEqualTo 1) then {
 	[] execVM "Scripts\IgiLoad\IgiLoadInit.sqf";
 	diag_log "IgiLoad - Loaded";
 };
-
 // Status Bar
 if (_STATUS_BAR_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\statusBar\statusBar.sqf";
 	diag_log "Status Bar - Loaded";
 };
-
 // bAdmin Exile by Daz & Biabock
 #define DEBUG false
 [DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
@@ -65,7 +63,6 @@ if (!isDedicated) then {
 		diag_log "bAdmin - Client Loaded";
 	};
 };
-
 if (isServer) then {
 	diag_log "bAdmin - Initializing";
 	[] execVM "badmin\server\init.sqf";
@@ -79,14 +76,12 @@ OPEN_bADMIN_FNC = {
 		};
 	};
 };
-
 waituntil {!isnull (finddisplay 46)};
 (findDisplay 46) displayAddEventHandler ["KeyDown","_this select 1 call OPEN_bADMIN_FNC;false;"];
 //Ground Fog
 if (_FOG_SCRIPT isEqualTo 1) then {
 	_GF = [] execVM "scripts\fog.sqf";
 };
-
 // Weather Effects by john
 if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\weatherEffects.sqf";
