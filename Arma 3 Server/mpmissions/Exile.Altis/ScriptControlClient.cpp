@@ -24,6 +24,8 @@ class CfgScriptControlMisson
 		STATUS_BAR_SCRIPT = 1;
 		//Ground Fog
 		FOG_SCRIPT = 1;
+		//Lockpick by W4rGo
+		LOCK_PICK_SCRIPT = 1;
 	};
 
 	//////////////////////////////////

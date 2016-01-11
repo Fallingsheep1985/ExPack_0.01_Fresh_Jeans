@@ -8,7 +8,11 @@ _WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson
 _AIR_PATROL_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AIR_PATROL_SCRIPT");
 _STATUS_BAR_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
 _FOG_SCRIPT getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
+_LOCK_PICK_SCRIPT getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
 
+if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
+	[] execVM "addons\w4_lockpick\initLockpick.sqf";
+};
 
 if (_AIR_PATROL_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\airpatrol.sqf";

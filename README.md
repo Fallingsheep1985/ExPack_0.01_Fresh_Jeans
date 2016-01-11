@@ -24,11 +24,12 @@ Current Scripts
 * Random Heli Crashes by [`Darth_Rouge`](http://www.exilemod.com/profile/3705-darth_rogue/)
 * Slot Machine by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/)
 * Creepy Night Fog by CNSU
+* Update Respect/Poptabs and save to database by [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
+* W4rGo's Lockpick System by [`W4rGo`](http://www.exilemod.com/profile/3342-w4rgo/)
 
 
 Script Permission List
 --------------------------
-
 * [`GR8`](http://www.exilemod.com/profile/64-gr8/)
 * [`Jenartor`](http://www.exilemod.com/profile/53934-jenartor/)
 * [`John`](http://www.exilemod.com/profile/38-john/)
@@ -54,13 +55,12 @@ Scripts to be added
 * Achievement System
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 * Blackjack - WIP
-* Update Respect/Poptabs and save to database by [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
+
 
 Scripts pending approval
 --------------------------
 * ETG Heli Crash and Drop Script
 * ETG Login Reward Script
-* W4rGo's Lockpick System
 * Chop wood directly into a truck
 * Indestructible Bases
 

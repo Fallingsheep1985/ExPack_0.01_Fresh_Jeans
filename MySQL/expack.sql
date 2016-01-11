@@ -388,6 +388,7 @@ ALTER TABLE `player` CHANGE `handgun_items` `handgun_items` TEXT CHARACTER SET u
 ALTER TABLE `player` CHANGE `primary_weapon_items` `primary_weapon_items` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 ALTER TABLE `player` CHANGE `secondary_weapon_items` `secondary_weapon_items` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 
+DROP TABLE IF EXISTS `kills`;
 CREATE TABLE `kills` (
 	`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Identification number of each kill',
 	`killer_name` VARCHAR(50) NOT NULL DEFAULT 'Unkown' COMMENT 'Name of the Killer',
@@ -405,6 +406,22 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=50
 ;
+
+DROP TABLE IF EXISTS `lockpick`;
+CREATE TABLE `lockpick` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` varchar(32) NOT NULL,
+  `object_owner` varchar(64) NOT NULL,
+  `territory_id` int(11) NOT NULL,
+  `position_x` double NOT NULL,
+  `position_y` double NOT NULL,
+  `position_z` double NOT NULL,
+  `object` varchar(64) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `object_type` varchar(20) NOT NULL,
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=198 DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
