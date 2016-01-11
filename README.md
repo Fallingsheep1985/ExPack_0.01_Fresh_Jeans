@@ -40,7 +40,7 @@ Script Permission List
 * [`IT07`](http://www.exilemod.com/profile/332-it07/)
 * [`eraser1`](http://www.exilemod.com/profile/96-eraser1/)
 * [`infiSTAR`](http://www.exilemod.com/profile/11-infistar/) - BE Filters
-
+* [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
 
 Scripts to be added 
 --------------------------
@@ -54,6 +54,7 @@ Scripts to be added
 * Achievement System
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 * Blackjack - WIP
+* Update Respect/Poptabs and save to database by [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
 
 Scripts pending approval
 --------------------------
