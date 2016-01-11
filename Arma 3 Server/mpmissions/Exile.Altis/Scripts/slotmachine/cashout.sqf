@@ -14,10 +14,6 @@ if (SlotsPlayerCredits > 1) then {
 	
 	_CashBack = SlotsPlayerCredits * 1000;
 	
-	//DEBUG
-	diag_log format ["CREDITS - %1", SlotsPlayerCredits];
-	diag_log format ["CASH - %1", _CashBack];
-	
 	//Remove credits
 	SlotsPlayerCredits = 0;
 	//cash back
