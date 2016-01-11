@@ -4,6 +4,7 @@
 //		ReWritten for exile		//
 ////////////////////////////////// 
 
+disableSerialization;
 
 //Variables
 SlotsPlayerCredits = 0;
@@ -64,8 +65,7 @@ hasSlotsCredits = false;
 		reel3 = reelArray call BIS_fnc_selectRandom;
 	};
 	sleep 0.1;
-	//display pictures
-disableSerialization;	
+	//display pictures	
 	
 	_dialog = findDisplay 9000;
 	_reel1 = _dialog displayCtrl 1200;
