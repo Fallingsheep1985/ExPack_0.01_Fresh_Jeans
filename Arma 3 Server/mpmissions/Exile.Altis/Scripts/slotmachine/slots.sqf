@@ -8,25 +8,26 @@ disableSerialization;
 reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamond"];
 slotspictures = ["pictures\image1.paa","pictures\image2.paa","pictures\image3.paa","pictures\image4.paa","pictures\image5.paa","pictures\image6.paa","pictures\image7.paa","pictures\image8.paa"];
 
-
-if(IsSpinning)then{
-//Disable buttons when running (helps prevent glitch exploits)
 _dialog = findDisplay 9000;
 _spinbtn = _dialog displayCtrl 1600;
 _bet1 = _dialog displayCtrl 1601;
 _bet10 = _dialog displayCtrl 1602;
 _cashout = _dialog displayCtrl 1603;
-_spinbtn ctrlEnable false;
-_bet1 ctrlEnable false;
-_bet10 ctrlEnable false;
-_cashout ctrlEnable false;
+
+if(IsSpinning)then{
+		//Disable btns (helps prevent glitch, exploits, etc)
+		_spinbtn ctrlEnable false;
+		_bet1 ctrlEnable false;
+		_bet10 ctrlEnable false;
+		_cashout ctrlEnable false;
 		titleText ["Please wait for current spin!","PLAIN DOWN",3]; 
 		titleFadeOut 3;
 } else {
-_spinbtn ctrlEnable true;
-_bet1 ctrlEnable true;
-_bet10 ctrlEnable true;
-_cashout ctrlEnable true;
+		//Enable btns
+		_spinbtn ctrlEnable true;
+		_bet1 ctrlEnable true;
+		_bet10 ctrlEnable true;
+		_cashout ctrlEnable true;
 	if (SlotsPlayerCredits <= 0) then {
 		 hasSlotsCredits = false;
 		 titleText ["You have no credits!","PLAIN DOWN",3]; 
