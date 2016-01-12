@@ -91,6 +91,7 @@ waituntil {!isnull (finddisplay 46)};
 
 //blow out
 if (_BLOWOUT_SCRIPT isEqualTo 1) then {
+	ns_blow_itemapsi = "NVGoggles";
 	ns_blowout = false;
 	ns_blowout_dayz = true;// true / false
 	ns_blow_delaymod = 1; //blowout delay

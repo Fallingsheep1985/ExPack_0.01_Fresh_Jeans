@@ -12,31 +12,31 @@ bl_flashes =
   if (worldName == "namalsk") then {
      _pozice = [0, 0, 0];
      _blesky1 = "bl_bleez" createVehicle _pozice;
-     _blesky1 setPos [10887.825, 11084.657, 0];   
+     _blesky1 setPos [3976.25, 8470.01, 0];   
      _blesky1 setVectorUp [0,0,1];
      _blesky2 = "bl_bleez" createVehicle _pozice;
-     _blesky2 setPos [10887.825, 11084.657, 151];
+     _blesky2 setPos [3976.25, 8470.01, 151];
      _blesky2 setVectorUp [0,0,1];     
      _blesky3 = "bl_bleez" createVehicle _pozice;
-     _blesky3 setPos [10887.825, 11084.657, 320];  
+     _blesky3 setPos [3976.25, 8470.01, 320];  
      _blesky3 setVectorUp [0,0,1];
      _blesky4 = "bl_bleez" createVehicle _pozice;
-     _blesky4 setPos [10887.825, 11084.657, 471];  
+     _blesky4 setPos [3976.25, 8470.01, 471];  
      _blesky4 setVectorUp [0,0,1];   
      _blesky5 = "bl_bleez" createVehicle _pozice;
-     _blesky5 setPos [10887.825, 11084.657, 620];  
+     _blesky5 setPos [3976.25, 8470.01, 620];  
      _blesky5 setVectorUp [0,0,1];
      _blesky6 = "bl_bleez" createVehicle _pozice;
-     _blesky6 setPos [10887.825, 11084.657, 770];  
+     _blesky6 setPos [3976.25, 8470.01, 770];  
      _blesky6 setVectorUp [0,0,1];
      _blesky7 = "bl_bleez" createVehicle _pozice;
-     _blesky7 setPos [10887.825, 11084.657, 820];  
+     _blesky7 setPos [3976.25, 8470.01, 820];  
      _blesky7 setVectorUp [0,0,1];
      _blesky8 = "bl_bleez" createVehicle _pozice;
-     _blesky8 setPos [10887.825, 11084.657, 970];  
+     _blesky8 setPos [3976.25, 8470.01, 970];  
      _blesky8 setVectorUp [0,0,1];
      _blesky9 = "bl_bleez" createVehicle _pozice;
-     _blesky9 setPos [10887.825, 11084.657, 1120];  
+     _blesky9 setPos [3976.25, 8470.01, 1120];  
      _blesky9 setVectorUp [0,0,1];
      sleep 0.25;
      deleteVehicle _blesky1;  
@@ -53,10 +53,12 @@ bl_flashes =
 bl_damage = {
 	private["_isinbuilding","_emp"];
 	_emp = _this select 0;
+	//_count_units = count playableUnits;
 	_count_units = count AllUnits;
 	_isinbuilding = false;
 	diag_log format["[NAC BLOWOUT SERVER] :: bl_damage (_count_units = %1)", _count_units];
 	for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do {
+		//_jednotka = playableUnits select _c;
 		_jednotka = AllUnits select _c;
 		if (!isNull _jednotka) then {
 			if([_jednotka] call fnc_isInsideBuilding) then {
@@ -67,7 +69,7 @@ bl_damage = {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
 			};
 			
-			if (!("A3_GPNVG18_BLK_F" in weapons _jednotka)) then {
+			if (!(_jednotka hasWeapon ns_blow_itemapsi)) then {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
 				if (!_isinbuilding) then {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
@@ -79,20 +81,37 @@ bl_damage = {
 			} else {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does have APSI, I do not have problem with him.", _jednotka];
 			};
-if (worldName == "Altis") then {
+if (worldName == "namalsk") then {
 	      if (_emp == 1) then {
-	       if ("ItemGPS" in items _jednotka) then {
-	         _jednotka removeItem "ItemGPS";
+	       if (_jednotka hasWeapon "NVGoggles") then {
+	         _jednotka removeWeapon "NVGoggles";
+	         _jednotka addWeapon "BrokenNVGoggles"; 
 	       };
-	       if ("ItemRadio" in items _jednotka) then {
-	         _jednotka removeItem "ItemRadio";
+	       if (_jednotka hasWeapon "ItemGPS") then {
+	         _jednotka removeWeapon "ItemGPS";
+	         _jednotka addWeapon "BrokenItemGPS"; 
 	       };
-		   if ("Exile_Item_XM8" in items _jednotka) then {
-	         _jednotka removeItem "Exile_Item_XM8";
+	       if (_jednotka hasWeapon "ItemRadio") then {
+	         _jednotka removeWeapon "ItemRadio";
+	         _jednotka addWeapon "BrokenItemRadio"; 
 	       };
 	      };
 };
+			if (worldName == "Altis") then {
+					  if (_emp == 1) then {
+					   if ("ItemGPS" in items _jednotka) then {
+						 _jednotka removeItem "ItemGPS";
+					   };
+					   if ("ItemRadio" in items _jednotka) then {
+						 _jednotka removeItem "ItemRadio";
+					   };
+					   if ("Exile_Item_XM8" in items _jednotka) then {
+						 _jednotka removeItem "Exile_Item_XM8";
+					   };
+					  };
+			};
 	    };
+	    //_count_units = count AllUnits;
     };
     if (_emp == 1) then {
       _count_vehicles = count vehicles;
@@ -101,8 +120,8 @@ if (worldName == "Altis") then {
         _vehikl = vehicles select _c;
         if (_vehikl isKindOf "AllVehicles") then {
           if ((damage _vehikl) <= 0.99) then {
-            _vehikl setDamage 0.9;
-            _vehikl setFuel 0;
+            //_vehikl setDamage 0.9;
+            //_vehikl setFuel 0;
             diag_log format["[NAC BLOWOUT SERVER] :: [V] %1 has been damaged by blowout by 0.90", _vehikl];
           };  
         };
