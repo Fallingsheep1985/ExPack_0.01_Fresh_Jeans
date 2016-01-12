@@ -1,6 +1,6 @@
 disableSerialization;
 
-if (SlotsPlayerCredits > 1) then {
+if (SlotsPlayerCredits >= 1) then {
 	//Disable btns
 	_dialog = findDisplay 9000;
 	_spinbtn = _dialog displayCtrl 1600;
