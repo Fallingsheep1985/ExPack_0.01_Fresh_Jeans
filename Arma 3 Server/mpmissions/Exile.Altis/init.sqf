@@ -8,6 +8,7 @@ _AIR_PATROL_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >
 _STATUS_BAR_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
 _FOG_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
 _LOCK_PICK_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
+_BLOWOUT_SCRIPT			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "BLOWOUT_SCRIPT");
 
 //Lockpick
 if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
@@ -88,4 +89,21 @@ OPEN_bADMIN_FNC = {
 waituntil {!isnull (finddisplay 46)};
 (findDisplay 46) displayAddEventHandler ["KeyDown","_this select 1 call OPEN_bADMIN_FNC;false;"];
 
- 
+//blow out
+if (_BLOWOUT_SCRIPT isEqualTo 1) then {
+	ns_blowout = false;
+	ns_blowout_dayz = true;// true / false
+	ns_blow_delaymod = 1; //blowout delay
+	ns_blow_emp = false; //Namalsk Only
+	ns_blow_prep = false;
+	ns_blow_status = false;
+	ns_blow_action = false;
+
+	if (!isDedicated) then
+	{
+		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf"; 
+	};
+	if (isServer) then {
+		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
+	};
+};

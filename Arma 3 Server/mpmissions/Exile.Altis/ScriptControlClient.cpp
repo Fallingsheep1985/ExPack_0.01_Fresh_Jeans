@@ -26,6 +26,8 @@ class CfgScriptControlMisson
 		FOG_SCRIPT = 1;
 		//Lockpick by W4rGo
 		LOCK_PICK_SCRIPT = 1;
+		//Blowout
+		BLOWOUT_SCRIPT = 1;
 	};
 
 	//////////////////////////////////
