@@ -1,19 +1,19 @@
-// Ground Fog - TorturedChunk - Kaysi - mmmyum @ OpenDayZ.net
+// Ground Fog - TorturedChunk - j0k3r5 - mmmyum @ OpenDayZ.net
 
-//Modify By CNSU
-waitUntil {!isNull player};                                                                                                                                                                                                                                                                                                                                                                                     
+
+waitUntil {!isNull player};
 doofog = {
 private ["_obj","_pos","_fog1","_fog2","_fog3","_inVehicle"];
         _inVehicle = (vehicle player != player);
- 
+
         if (_inVehicle) then {
             _obj = (vehicle player);
         } else {
             _obj = player;
         };
- 
+
         _pos = position _obj;
- 
+
         _fog1 = "#particlesource" createVehicleLocal _pos;
         _fog1 setParticleParams [
         ["\A3\Data_F\ParticleEffects\Universal\universal.p3d" , 16, 12, 13, 0], "", "Billboard", 1, 10,
@@ -23,7 +23,7 @@ private ["_obj","_pos","_fog1","_fog2","_fog3","_inVehicle"];
         _fog1 setParticleRandom [3, [55, 55, 0.2], [0, 0, -0.1], 2, 0.45, [0, 0, 0, 0.1], 0, 0];
         _fog1 setParticleCircle [0.001, [0, 0, -0.12]];
         _fog1 setDropInterval 0.01;
- 
+
         _fog2 = "#particlesource" createVehicleLocal _pos;
         _fog2 setParticleParams [
         ["\A3\Data_F\ParticleEffects\Universal\universal.p3d" , 16, 12, 13, 0], "", "Billboard", 1, 10,
@@ -33,7 +33,7 @@ private ["_obj","_pos","_fog1","_fog2","_fog3","_inVehicle"];
         _fog2 setParticleRandom [3, [55, 55, 0.2], [0, 0, -0.1], 2, 0.45, [0, 0, 0, 0.1], 0, 0];
         _fog2 setParticleCircle [0.001, [0, 0, -0.12]];
         _fog2 setDropInterval 0.01;
- 
+
         _fog3 = "#particlesource" createVehicleLocal _pos;
         _fog3 setParticleParams [
         ["\A3\Data_F\ParticleEffects\Universal\universal.p3d" , 16, 12, 13, 0], "", "Billboard", 1, 10,
@@ -43,22 +43,23 @@ private ["_obj","_pos","_fog1","_fog2","_fog3","_inVehicle"];
         _fog3 setParticleRandom [3, [55, 55, 0.2], [0, 0, -0.1], 2, 0.45, [0, 0, 0, 0.1], 0, 0];
         _fog3 setParticleCircle [0.001, [0, 0, -0.12]];
         _fog3 setDropInterval 0.01;
- 
+
         _this setVariable ["playerfog", floor time + 5];
- 
-        sleep 120;
- 
+
+        sleep 30;
+
         deleteVehicle _fog1;
         deleteVehicle _fog2;
         deleteVehicle _fog3;
     };
 [] spawn {
     while {true} do {
-        if(daytime < 7 || daytime > 19) then {
+        if(daytime < 5 || daytime > 21) then {
             if (player getVariable ["playerfog", -1] < time) then {
                 player setVariable ["playerfog", floor time + 5];
                 player spawn doofog;
-                sleep 120;
+                sleep 30;
+
             };
         };
     };
