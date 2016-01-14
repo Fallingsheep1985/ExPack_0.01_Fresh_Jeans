@@ -81,7 +81,7 @@ bl_local_anims =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!(ns_blow_itemapsi in items _jednotka) && (Alive _jednotka)) then
+		if (!([_jednotka] call fnc_hasAPSI) && (Alive _jednotka)) then
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -99,7 +99,7 @@ bl_local_def_anim =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!(ns_blow_itemapsi in items _jednotka) && (Alive _jednotka)) then 
+		if (!([_jednotka] call fnc_hasAPSI)&& (Alive _jednotka)) then 
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -475,7 +475,7 @@ while {true} do {
 	};
 	_bul = [] call bl_flash; 
 
-	if (!(ns_blow_itemapsi in items player)) then {
+	if (!([player] call fnc_hasAPSI)) then {
 		playSound "bl_psi";
 	};
 
@@ -527,7 +527,7 @@ while {true} do {
 		if([player] call fnc_isInsideBuilding) then {
 			_isinbuilding = true;
 		};
-		if (!(ns_blow_itemapsi in items player)) then {
+		if (!([player] call fnc_hasAPSI)) then {
 			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
 			if (!_isinbuilding) then {
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
@@ -545,7 +545,7 @@ while {true} do {
 	sleep 1;
 	4 fadeSound 0;
 	sleep 5;
-	if (ns_blow_itemapsi in items player) then {disableUserInput false;};
+	if ([player] call fnc_hasAPSI) then {disableUserInput false;};
 	sleep 6;
 	6 fadeSound 1;
 	titleText["","BLACK IN",10]; 
@@ -570,7 +570,7 @@ if (worldName == "Altis") then {
 		};
 	};
 };
-	if (ns_blow_itemapsi in items player) then{
+	if ([player] call fnc_hasAPSI) then{
 		cutRsc ["RscAPSI_h6","PLAIN"];
 		playSound "apsi_off";
 		"filmGrain" ppEffectEnable false;

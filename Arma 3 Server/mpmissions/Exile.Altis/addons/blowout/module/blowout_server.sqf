@@ -6,6 +6,9 @@
  *   PBO edition
  *   SERVER-SIDE script 
 */
+private["_emp_tg_namalsk"];
+fnc_isInsideBuilding = compile preprocessFileLineNumbers "addons\blowout\external\fn_isInsideBuilding.sqf";
+fnc_hasAPSI = compile preprocessFileLineNumbers "addons\blowout\external\fn_hasAPSI.sqf";
 
 bl_flashes = 
 {
@@ -68,7 +71,7 @@ bl_damage = {
 				_isinbuilding = false;
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
 			};
-			if (!(ns_blow_itemapsi in items _jednotka)) then {
+			if (!([_jednotka] call fnc_hasAPSI)) then {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
 				if (!_isinbuilding) then {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
@@ -82,11 +85,9 @@ bl_damage = {
 			};
 			if (worldName == ns_blow_world) then {
 				if (ns_blow_removeapsi) then {
-					  if (_emp == 1) then {
-					   if (ns_blow_itemapsi in items _jednotka) then {
-						 _jednotka removeItem ns_blow_itemapsi
-					   };
-					  };
+					if ([_jednotka] call fnc_hasAPSI) then {
+						 _jednotka removeItem ns_blow_itemapsi;
+					};
 				};
 			};
 	    };
@@ -107,8 +108,6 @@ bl_damage = {
       };    
     };
 };
-private["_emp_tg_namalsk"];
-fnc_isInsideBuilding = compile preprocessFileLineNumbers "addons\blowout\external\fn_isInsideBuilding.sqf";
 
 // init
 while {true} do {
