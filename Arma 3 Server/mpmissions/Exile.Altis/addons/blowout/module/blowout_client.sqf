@@ -7,6 +7,7 @@
  *   CLIENT-SIDE script 
 */
 
+
 bl_detection = 
 {
 	playSound "bl_detect";
@@ -80,7 +81,7 @@ bl_local_anims =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!(_jednotka hasWeapon ns_blow_itemapsi) && (Alive _jednotka)) then
+		if (!(ns_blow_itemapsi in items _jednotka) && (Alive _jednotka)) then
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -98,7 +99,7 @@ bl_local_def_anim =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!(_jednotka hasWeapon ns_blow_itemapsi) && (Alive _jednotka)) then 
+		if (!(ns_blow_itemapsi in items _jednotka) && (Alive _jednotka)) then 
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -342,14 +343,14 @@ bl_preparations = {
 };
 
 while {true} do {
-	if (isNil("ns_blowout_dayz")) then { ns_blowout_dayz = false; };
+	if (isNil("ns_blowout_exile")) then { ns_blowout_exile = false; };
 	if (isNil("ns_blow_ambient_music")) then { ns_blow_ambient_music = false; };
 	if (isNil("ns_blow_prep")) then { ns_blow_prep = false; };
 	waitUntil{ns_blow_prep};
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_prep = %1 Blowout is preparing, take a cover!", ns_blow_prep];
 
-	if (player hasWeapon ns_blow_itemapsi) then {
+	if (ns_blow_itemapsi in items player) then {
 		_bul = [] spawn bl_detection;
 	};
 
@@ -359,13 +360,13 @@ while {true} do {
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout confirmation received.", ns_blow_status];
 
-	if (overcast <= 0.75 && !ns_blowout_dayz) then {
+	if (overcast <= 0.75 && !ns_blowout_exile) then {
 		_puvodni_pocasi = overcast;
 		35 setOvercast 1;
 	};
 
-	if (ns_blowout_dayz) then {
-		player setVariable["startcombattimer", 1, true];
+	if (ns_blowout_exile) then {
+		ExileClientPlayerIsInCombat = true;
 	};
    if (isNil("ns_blow_action")) then { ns_blow_action = false; };
    waitUntil{ns_blow_action};
@@ -449,7 +450,7 @@ while {true} do {
 	};
 	sleep 2;
 	_bul = [] call bl_flash; 
-	if (!ns_blowout_dayz) then { _bul = [] spawn bl_local_check_time; };
+	if (!ns_blowout_exile) then { _bul = [] spawn bl_local_check_time; };
 	_s = round (random 3); 
 	switch (_s) do 
 	{
@@ -474,7 +475,7 @@ while {true} do {
 	};
 	_bul = [] call bl_flash; 
 
-	if (!(player hasWeapon ns_blow_itemapsi)) then {
+	if (!(ns_blow_itemapsi in items player)) then {
 		playSound "bl_psi";
 	};
 
@@ -520,13 +521,13 @@ while {true} do {
 	titleText["","BLACK OUT",1];
 	disableUserInput true;
 
-	if(ns_blowout_dayz) then {
+	if(ns_blowout_exile) then {
 		private["_isinbuilding"];
 		_isinbuilding = false;
 		if([player] call fnc_isInsideBuilding) then {
 			_isinbuilding = true;
 		};
-		if (!(player hasWeapon ns_blow_itemapsi)) then {
+		if (!(ns_blow_itemapsi in items player)) then {
 			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
 			if (!_isinbuilding) then {
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
@@ -544,14 +545,14 @@ while {true} do {
 	sleep 1;
 	4 fadeSound 0;
 	sleep 5;
-	if (player hasWeapon ns_blow_itemapsi) then {disableUserInput false;};
+	if (ns_blow_itemapsi in items player) then {disableUserInput false;};
 	sleep 6;
 	6 fadeSound 1;
 	titleText["","BLACK IN",10]; 
 	ppEffectDestroy _nonapsi_ef;
 	waitUntil {!ns_blow_action};
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_action = %1 Blowout actions end received.", ns_blow_action];
-	if(!ns_blowout_dayz) then { 120 setOverCast _puvodni_pocasi; };
+	if(!ns_blowout_exile) then { 120 setOverCast _puvodni_pocasi; };
 if (worldName == "Altis") then {
 	if (dayTime > 18 || dayTime < 7) then {
 		playMusic "ExileTrack03";
@@ -569,7 +570,7 @@ if (worldName == "Altis") then {
 		};
 	};
 };
-	if (player hasWeapon ns_blow_itemapsi) then{
+	if (ns_blow_itemapsi in items player) then{
 		cutRsc ["RscAPSI_h6","PLAIN"];
 		playSound "apsi_off";
 		"filmGrain" ppEffectEnable false;

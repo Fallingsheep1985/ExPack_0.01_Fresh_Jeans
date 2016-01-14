@@ -91,17 +91,19 @@ waituntil {!isnull (finddisplay 46)};
 
 //blow out
 if (_BLOWOUT_SCRIPT isEqualTo 1) then {
-	ns_blow_itemapsi = "NVGoggles";
-	ns_blowout = false;
-	ns_blowout_dayz = true;// true / false
-	ns_blow_delaymod = 1; //blowout delay
+	ns_protect = ["H_PilotHelmetFighter_B","H_PilotHelmetFighter_I","H_PilotHelmetFighter_O"];
+	ns_blow_itemapsi = ns_protect;
+	ns_blow_world = "Altis"; // worldname
+	ns_blow_removeapsi = true; // remove/destroy APSI item after storm
+	ns_blowout = true;
+	ns_blowout_exile = true;// true / false
+	ns_blow_delaymod = 0.02; //blowout delay
 	ns_blow_emp = false; //Namalsk Only
 	ns_blow_prep = false;
 	ns_blow_status = false;
 	ns_blow_action = false;
 
-	if (!isDedicated) then
-	{
+	if (!isDedicated) then {
 		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf"; 
 	};
 	if (isServer) then {

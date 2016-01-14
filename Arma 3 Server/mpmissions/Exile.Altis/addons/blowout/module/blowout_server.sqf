@@ -9,7 +9,7 @@
 
 bl_flashes = 
 {
-  if (worldName == "namalsk") then {
+  if (worldName == ns_blow_world) then {
      _pozice = [0, 0, 0];
      _blesky1 = "bl_bleez" createVehicle _pozice;
      _blesky1 setPos [3976.25, 8470.01, 0];   
@@ -68,8 +68,7 @@ bl_damage = {
 				_isinbuilding = false;
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
 			};
-			
-			if (!(_jednotka hasWeapon ns_blow_itemapsi)) then {
+			if (!(ns_blow_itemapsi in items _jednotka)) then {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
 				if (!_isinbuilding) then {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
@@ -81,34 +80,14 @@ bl_damage = {
 			} else {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does have APSI, I do not have problem with him.", _jednotka];
 			};
-if (worldName == "namalsk") then {
-	      if (_emp == 1) then {
-	       if (_jednotka hasWeapon "NVGoggles") then {
-	         _jednotka removeWeapon "NVGoggles";
-	         _jednotka addWeapon "BrokenNVGoggles"; 
-	       };
-	       if (_jednotka hasWeapon "ItemGPS") then {
-	         _jednotka removeWeapon "ItemGPS";
-	         _jednotka addWeapon "BrokenItemGPS"; 
-	       };
-	       if (_jednotka hasWeapon "ItemRadio") then {
-	         _jednotka removeWeapon "ItemRadio";
-	         _jednotka addWeapon "BrokenItemRadio"; 
-	       };
-	      };
-};
-			if (worldName == "Altis") then {
+			if (worldName == ns_blow_world) then {
+				if (ns_blow_removeapsi) then {
 					  if (_emp == 1) then {
-					   if ("ItemGPS" in items _jednotka) then {
-						 _jednotka removeItem "ItemGPS";
-					   };
-					   if ("ItemRadio" in items _jednotka) then {
-						 _jednotka removeItem "ItemRadio";
-					   };
-					   if ("Exile_Item_XM8" in items _jednotka) then {
-						 _jednotka removeItem "Exile_Item_XM8";
+					   if (ns_blow_itemapsi in items _jednotka) then {
+						 _jednotka removeItem ns_blow_itemapsi
 					   };
 					  };
+				};
 			};
 	    };
 	    //_count_units = count AllUnits;
@@ -136,12 +115,12 @@ while {true} do {
  _emp_tg_namalsk = 0;
  if (isNil("ns_blow_emp")) then { ns_blow_emp = false; }; 
  if (isNil("ns_blowout")) then { ns_blowout = true; }; 
- if (isNil("ns_blowout_dayz")) then { ns_blowout_dayz = false; };
+ if (isNil("ns_blowout_exile")) then { ns_blowout_exile = false; };
  if (isNil("ns_blow_delaymod")) then { ns_blow_delaymod = 1; };
  if (isNil("ns_blow_prep")) then { ns_blow_prep = false; };
  
   private["_prodleva"];
-  if(ns_blowout_dayz) then {
+  if(ns_blowout_exile) then {
    _prodleva = random (6000 * ns_blow_delaymod);
    while {_prodleva < (3000 * ns_blow_delaymod)} do {
      _prodleva = random (6000 * ns_blow_delaymod);
@@ -162,8 +141,8 @@ while {true} do {
     diag_log format["[NAC BLOWOUT SERVER] :: Blowout module is ON ns_blowout (ns_blowout = %1)", ns_blowout];
   };
   
-  if(ns_blowout_dayz) then {
-    diag_log format["[NAC BLOWOUT SERVER] :: Blowout module is in DayZ mode ns_blowout_dayz (ns_blowout_dayz = %1)", ns_blowout_dayz];
+  if(ns_blowout_exile) then {
+    diag_log format["[NAC BLOWOUT SERVER] :: Blowout module is in DayZ mode ns_blowout_exile (ns_blowout_exile = %1)", ns_blowout_exile];
   };
   
   // Stop variable check
@@ -210,7 +189,7 @@ while {true} do {
     _bul = [] call bl_flashes;
     sleep 4;
     _bul = [] call bl_flashes;
-    if (!ns_blowout_dayz) then {_bul = [_emp_tg_namalsk] call bl_damage;};
+    if (!ns_blowout_exile) then {_bul = [_emp_tg_namalsk] call bl_damage;};
     sleep 12.2;
     ns_blow_action = false;
     publicVariable "ns_blow_action";
