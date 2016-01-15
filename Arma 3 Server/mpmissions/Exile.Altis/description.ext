@@ -117,5 +117,7 @@ class CfgRemoteExec
 #include "badmin\client\systems\adminPanel\dialog\playerMenu.hpp"
 //Slot Machine
 #include"Scripts\slotmachine\slots.hpp"
+//Blackjack
+#include"Scripts\blackjack\blackjack.hpp"
 //XM8 Apps
 #include"xm8Apps\Xm8Apps.hpp"
