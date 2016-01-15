@@ -33,7 +33,8 @@ if ((_myX > (_min select 0)) and (_myX < (_max select 0))) then {
 						_inside = true;
 				} else { _inside = false; };
 		} else { _inside = false; };
-} else { _inside = false; };
+} else { 
+_inside = false; 
+};
 
-//diag_log ("isinBuilding Check: " + str(_inside) );
 _inside
