@@ -350,7 +350,7 @@ while {true} do {
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_prep = %1 Blowout is preparing, take a cover!", ns_blow_prep];
 
-	if (ns_blow_itemapsi in items player) then {
+	if (([player] call fnc_hasAPSI)) then {
 		_bul = [] spawn bl_detection;
 	};
 
