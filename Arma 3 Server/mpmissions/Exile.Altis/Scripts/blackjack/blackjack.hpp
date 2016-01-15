@@ -205,7 +205,7 @@
 			w = 5 * GUI_GRID_W; 
 			h = 2.5 * GUI_GRID_H; 
 		}; 
-		class EXIT_BTN: RscButtonMenu {			
+		class EXIT_BTN: RscButton {			
 		idc = 6002; 
 			text = "EXIT"; 
 
