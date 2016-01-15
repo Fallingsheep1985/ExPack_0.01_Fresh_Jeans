@@ -30,10 +30,10 @@ app1_action = {
 };
 
 //App 2 
-_app2Text = "App 2";
+_app2Text = "Blackjack";
 _app2Logo = "";
 app2_action = {
-
+	[] execVM "Scripts\blackjack\fn_blackjack.sqf";
 };
 
 //App 3 
