@@ -144,7 +144,9 @@ disableSerialization;
  _TOTALTXT ctrlSetText format["%1",_total]; 
  if( _total == 21 ) then { 	
  _win = 4 * _betamt; 
- 	life_cash = life_cash + _win; 
+ _newPoptabs = ExileClientPlayerMoney + _win;
+ ENIGMA_UpdateStats = [player,_newPoptabs];
+ publicVariableServer "ENIGMA_UpdateStats"; 
  	_winnings ctrlSetText format["%1",_win]; 
  		_bet1 ctrlEnable true; 
  	_bet2 ctrlEnable true; 
@@ -156,7 +158,7 @@ disableSerialization;
  	//check if dealer got ace and then a 10.	//10 then ace?		
 	if( _number == 13 )then {	
 	_number = "ACE"; 
- 		if( _D1 == "10" ) thenthen {	
+ 		if( _D1 == "10" ) then {	
 		_Dcard2 ctrlSetText format["%1",_number]; 
  			_winnings = _display displayCtrl 6001; 
  			_winnings ctrlSetText "You Lose. Dealer got Black Jack."; 

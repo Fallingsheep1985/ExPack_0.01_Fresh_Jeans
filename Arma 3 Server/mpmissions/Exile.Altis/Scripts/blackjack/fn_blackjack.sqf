@@ -2,10 +2,9 @@
 Description: Blackjack	
 Created by Blacklistgaming.org        
 Coder: PapaBear*/
-if(!dialog) then {	
-	createDialog "BlackjackGUI"; 
-}; 
  disableSerialization; 
+ createDialog "BlackjackGUI"; 
+
  _display = findDisplay 5980; 
  _Hit = _display displayCtrl 5983; 
  _Stay = _display displayCtrl 5982; 

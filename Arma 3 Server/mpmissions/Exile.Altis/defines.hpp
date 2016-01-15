@@ -746,6 +746,7 @@ class RscButtonMenu
 	tooltipColorText[] = {1,1,1,1};
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
+	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
 	class TextPos
 	{
 		left = "0.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
@@ -766,6 +767,13 @@ class RscButtonMenu
 		top = 0.005;
 		w = 0.0225;
 		h = 0.03;
+	};
+	class HitZone
+	{
+		left = 0.004;
+		top = 0.029;
+		right = 0.004;
+		bottom = 0.029;
 	};
 	soundEnter[] = 
 	{
