@@ -1,44 +1,26 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	IgiLoad v0.9.10_RC_e_(Arma3_1.32)																		//
-//	Version info: This is not official version of IgiLoad it is only WIP (RC)								//
-//	Author: Igi_PL																							//
-//	Web: http://www.igipl.net/																				//
-//	Version date: 2014.10.16																				//
-//																											//
-//	USE:																									//
-//	1. In mission "init.sqf" add line: "0 = execVM "IgiLoad\IgiLoadInit.sqf";".								//
-//	2. In vehicles "INITIALIZATION" field type: "0 = [this] execVM "IgiLoad\IgiLoad.sqf";"					//
-//	3. Unload from script or trigger:																		//
-//		a) Unloading cargo from script. Force unload: "0 = [Car, true, "L"] spawn IL_Do_Unload;"			//
-//		b) Unloading cargo from script. Force unload: "0 = [Car, true] spawn IL_Do_Unload;"					//
-//		c) Unloading cargo from script. Force unload: "0 = [Car] spawn IL_Do_Unload;"						//
-//	4. Loading cargo from script. Force load: "0 = [Car, [typeOf Box], "B", true, Box] spawn IL_Do_Load;"	//
-//																											//
-//	Ways from points 1 and 2 can not be used simultaneously!!!												//
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	IgiLoad v0.9.10_RC_e_(Arma3_1.32)																		
+//	Version info: This is not official version of IgiLoad it is only WIP (RC)								
+//	Author: Igi_PL																							
+//	Web: http://www.igipl.net/																				
+//	Version date: 2014.10.16																				//											
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 waitUntil { time > 0 };
 IL_Script_Inst = time;
-//	VARIABLES
+
 _obj_main = _this select 0;
 _obj_main_type = (typeOf _obj_main);
 
 if (isnil "IL_Variables") then
 {
 	IL_Variables = true;
-	//Check new vehicles time
 	IL_Check_Veh_Min = 15;
 	IL_Check_Veh_Max = 30;
-	//Dealing with cargo damage
-	//-1 - do nothing
-	//0 - set to 0
-	//1 - keep such as before loading/unloading
-	IL_CDamage = -1;   /// fix for repair car by load/unload
-	//AddAction menu position
-	IL_Action_LU_Priority = 30; //Load and (para)unload
-	IL_Action_O_Priority = 0;	//Open and close
-	IL_Action_S_Priority = 0; //Setup
-	//Maximum capacity for vehicles
+	IL_CDamage = -1;
+	IL_Action_LU_Priority = 30; 
+	IL_Action_O_Priority = 0;	
+	IL_Action_S_Priority = 0; 
 	IL_Num_Slots_OFFROAD = -2;
 	IL_Num_Slots_VAN = -3;
 	IL_Num_Slots_MOHAWK = -7;
@@ -47,45 +29,45 @@ if (isnil "IL_Variables") then
 	IL_Num_Slots_TEMPEST = -5;
 	IL_Num_Slots_HEMTT = -6;
 	IL_Num_Slots_MH9 = -1;
-	//Player addScore after loading and unloading
+	
 	IL_Load_Score = 20;
-	//Para unload score = 2 * IL_Unload_Score
+	
 	IL_Unload_Score = 10;
-	//The minimum altitude for the drop with parachute
+	
 	IL_Para_Drop_ATL = 50;
 	IL_Para_Jump_ATL = 30;
-	//The minimum altitude for parachute opening
+	
 	IL_Para_Drop_Open_ATL = 150;
 	IL_Para_Jump_Open_ATL = 150;
-	//Parachute get velocity from player or cargo
+	
 	IL_Para_Drop_Velocity = true;
 	IL_Para_Jump_Velocity = true;
-	//Set smoke and light for parachute drop.
+	
 	IL_Para_Smoke = true;
 	IL_Para_Light = true;
-	//Additional smoke after landing
+	
 	IL_Para_Smoke_Add = true;
-	//Additional light after landing
+	
 	IL_Para_Light_Add = true;
-	//Smoke and light color
+	
 	IL_Para_Smoke_Default = "SmokeshellGreen";
 	IL_Para_Light_Default = "Chemlight_green";
 	IL_Para_Smoke_Veh = "SmokeshellBlue";
 	IL_Para_Light_Veh = "Chemlight_blue";
-	//This allows for loading or unloading, if a player is in the area of loading or copilot
+	
 	IL_Can_Inside = true;
 	IL_Can_CoPilot = true;
 	IL_Can_Outside = true;
-	//IL_SDistU = 20;//No longer needed
+	//IL_SDistU = 20;
 	IL_SDistL = 2.5;
 	IL_SDistL_Heli_offset = 1;
-	//Load and unload (not para) max speed in km/h
+	
 	IL_LU_Speed = 10;
-	//Load and unload (not para) max height in m
+	
 	IL_LU_Alt = 3;
-	//Enable or disable usable cargo ramp in CH-49
+	
 	IL_Ramp = true;
-	//Enable change of vehicle mass
+	
 	IL_Mass = true;
 
 	
@@ -404,7 +386,7 @@ if (isnil "IL_Variables") then
 		"Land_BarrelWater_grey_F",
 		"Land_MetalBarrel_F"
 		*/
-	];	// "Land_MetalBarrel_empty_F","MetalBarrel_burning_F"];
+	];	
 	IL_Supported_Tank = 
 	[
 		/*
@@ -488,7 +470,7 @@ if (isnil "IL_Variables") then
 		"B_Slingload_01_Repair_F",
 		"B_Slingload_01_Cargo_F"
 	];
-	//needed for the new Initialization, put all supported Vehicles & all supported Cargo in!!!
+	
 	IL_Supported_Init_All = IL_Supported_Vehicles_OFFROAD + IL_Supported_Vehicles_VAN + IL_Supported_Vehicles_HEMTT + IL_Supported_Vehicles_KAMAZ + IL_Supported_Vehicles_TEMPEST + IL_Supported_Vehicles_MOHAWK + IL_Supported_Vehicles_CHINOOK + IL_Supported_Vehicles_MH9 + IL_Supported_Bicycles + IL_Supported_Karts + IL_Supported_HEMTT + IL_Supported_KAMAZ + IL_Supported_TEMPEST + IL_Supported_Strider + IL_Supported_Hunter + IL_Supported_Ifrit + IL_Supported_UGV + IL_Supported_VAN + IL_Supported_OFFROAD + IL_Supported_SUV + IL_Supported_Hatchback + IL_Supported_Quadbike + IL_Supported_Supply_Crate + IL_Supported_Veh_Ammo + IL_Supported_Barrel + IL_Supported_Tank + IL_Supported_Rubberboat + IL_Supported_SDV + IL_Supported_Box_H1 + IL_Supported_Box_H2 + IL_Supported_Cargo20 + IL_Supported_TaruPods;
 	
 	IL_Supported_Cargo_MH9 = IL_Supported_Supply_Crate + IL_Supported_Barrel; 
