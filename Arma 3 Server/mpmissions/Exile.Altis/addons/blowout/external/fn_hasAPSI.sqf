@@ -1,6 +1,7 @@
 //check if player has apsi item
 //Created by Fallingsheep
 private["_unit1","_items","_hasAPSI"];
+diag_log "BLOWOUT - APSI CHECK";
 _unit1 = _this select 0;
 //Check items
 if(ns_blow_itemtype isEqualTo 1)then{

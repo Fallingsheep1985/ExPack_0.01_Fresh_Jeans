@@ -59,6 +59,31 @@ if (_FOG_SCRIPT isEqualTo 1) then {
 	_GF = [] execVM "scripts\fog.sqf";
 	diag_log "Ground Fog - Loaded";
 };
+//blow out
+if (_BLOWOUT_SCRIPT isEqualTo 1) then {
+	ns_blow_itemapsi = ["H_PilotHelmetFighter_B","H_PilotHelmetFighter_I","H_PilotHelmetFighter_O"];
+	ns_blow_itemtype = 3;  // 1=item 2=weapon 3=headgear
+	ns_blow_world = "Altis"; // worldname
+	ns_blow_removeapsi = true; // remove/destroy APSI item after storm
+	ns_blowout = true;
+	ns_blowout_exile = true;// true / false
+	ns_blow_delaymod = 0.1; //blowout delay
+	ns_blow_emp = false; //Namalsk Only
+	ns_blow_prep = false;
+	ns_blow_status = false;
+	ns_blow_action = false;
+
+	if (!isDedicated) then {
+		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf";
+		diag_log "BLOWOUT CLIENT - Loading";		 
+	};
+	if (isServer) then {
+		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
+		diag_log "BLOWOUT SERVER - Loading";
+	};
+	diag_log "BLOWOUT - Loaded";
+};
+
 // bAdmin Exile by Daz & Biabock
 #define DEBUG false
 [DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
@@ -84,30 +109,7 @@ OPEN_bADMIN_FNC = {
 waituntil {!isnull (finddisplay 46)};
 (findDisplay 46) displayAddEventHandler ["KeyDown","_this select 1 call OPEN_bADMIN_FNC;false;"];
 
-//blow out
-if (_BLOWOUT_SCRIPT isEqualTo 1) then {
-	ns_blow_itemapsi = ["H_PilotHelmetFighter_B","H_PilotHelmetFighter_I","H_PilotHelmetFighter_O"];
-	ns_blow_itemtype = 3;  // 1=item 2=weapon 3=headgear
-	ns_blow_world = "Altis"; // worldname
-	ns_blow_removeapsi = true; // remove/destroy APSI item after storm
-	ns_blowout = true;
-	ns_blowout_exile = true;// true / false
-	ns_blow_delaymod = 0.1; //blowout delay
-	ns_blow_emp = false; //Namalsk Only
-	ns_blow_prep = false;
-	ns_blow_status = false;
-	ns_blow_action = false;
 
-	if (!isDedicated) then {
-		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf";
-	diag_log "BLOWOUT CLIENT - Loading";		 
-	};
-	if (isServer) then {
-		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
-		diag_log "BLOWOUT SERVER - Loading";
-	};
-	diag_log "BLOWOUT - Loaded";
-};
 
 //run last cause error in RPT
 // Weather Effects by john
