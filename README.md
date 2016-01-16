@@ -26,7 +26,8 @@ Current Scripts
 * Creepy Night Fog by CNSU
 * Update Respect/Poptabs and save to database by [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
 * W4rGo's Lockpick System by [`W4rGo`](http://www.exilemod.com/profile/3342-w4rgo/)
-
+* EMP Blowout from Namalsk
+* Blackjack
 
 Script Permission List
 --------------------------
@@ -54,7 +55,7 @@ Scripts to be added
 * Respect Ranking System
 * Achievement System
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
-* Blackjack - WIP
+
 
 
 Scripts pending approval
