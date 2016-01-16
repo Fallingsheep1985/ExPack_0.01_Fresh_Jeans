@@ -9,49 +9,8 @@
 private["_emp_tg_namalsk"];
 diag_log "BLOWOUT SERVER - Loaded";
 
-bl_flashes = 
-{
-  if (worldName == ns_blow_world) then {
-     _pozice = [0, 0, 0];
-     _blesky1 = "bl_bleez" createVehicle _pozice;
-     _blesky1 setPos [3976.25, 8470.01, 0];   
-     _blesky1 setVectorUp [0,0,1];
-     _blesky2 = "bl_bleez" createVehicle _pozice;
-     _blesky2 setPos [3976.25, 8470.01, 151];
-     _blesky2 setVectorUp [0,0,1];     
-     _blesky3 = "bl_bleez" createVehicle _pozice;
-     _blesky3 setPos [3976.25, 8470.01, 320];  
-     _blesky3 setVectorUp [0,0,1];
-     _blesky4 = "bl_bleez" createVehicle _pozice;
-     _blesky4 setPos [3976.25, 8470.01, 471];  
-     _blesky4 setVectorUp [0,0,1];   
-     _blesky5 = "bl_bleez" createVehicle _pozice;
-     _blesky5 setPos [3976.25, 8470.01, 620];  
-     _blesky5 setVectorUp [0,0,1];
-     _blesky6 = "bl_bleez" createVehicle _pozice;
-     _blesky6 setPos [3976.25, 8470.01, 770];  
-     _blesky6 setVectorUp [0,0,1];
-     _blesky7 = "bl_bleez" createVehicle _pozice;
-     _blesky7 setPos [3976.25, 8470.01, 820];  
-     _blesky7 setVectorUp [0,0,1];
-     _blesky8 = "bl_bleez" createVehicle _pozice;
-     _blesky8 setPos [3976.25, 8470.01, 970];  
-     _blesky8 setVectorUp [0,0,1];
-     _blesky9 = "bl_bleez" createVehicle _pozice;
-     _blesky9 setPos [3976.25, 8470.01, 1120];  
-     _blesky9 setVectorUp [0,0,1];
-     sleep 0.25;
-     deleteVehicle _blesky1;  
-     deleteVehicle _blesky2; 
-     deleteVehicle _blesky3; 
-     deleteVehicle _blesky4; 
-     deleteVehicle _blesky5; 
-     deleteVehicle _blesky6; 
-     deleteVehicle _blesky7; 
-     deleteVehicle _blesky8; 
-     deleteVehicle _blesky9;
-  };
-};
+bl_flashes 
+
 bl_damage = {
 	private["_isinbuilding","_emp"];
 	_emp = _this select 0;
@@ -158,7 +117,7 @@ while {true} do {
   ns_blow_prep = true;
   publicVariable "ns_blow_prep";
   diag_log format["[NAC BLOWOUT SERVER] :: Preparations are under way (ns_blow_prep = %1)", ns_blow_prep];
-  sleep 300;
+  sleep 10;
   ns_blow_prep = false;
   publicVariable "ns_blow_prep";
   diag_log format["[NAC BLOWOUT SERVER] :: Preparations are finished (ns_blow_prep = %1)", ns_blow_prep];
@@ -172,28 +131,13 @@ while {true} do {
     ns_blow_action = true;
     publicVariable "ns_blow_action";
     diag_log format["[NAC BLOWOUT SERVER] :: Blowout actions in progress (ns_blow_action = %1)", ns_blow_action];
-    _bul = [] call bl_flashes;
-    sleep 7.20;
-    _bul = [] call bl_flashes;
-    sleep 1; 
-    _bul = [] call bl_flashes;
-    sleep 4.3;
-    _bul = [] call bl_flashes;
-    sleep 3;
-    _bul = [] call bl_flashes;
-    sleep 1;
-    _bul = [] call bl_flashes;
-    sleep 4;
-    _bul = [] call bl_flashes;
-    sleep 4;
-    _bul = [] call bl_flashes;
     if (!ns_blowout_exile) then {_bul = [_emp_tg_namalsk] call bl_damage;};
-    sleep 12.2;
+	sleep 10;
     ns_blow_action = false;
     publicVariable "ns_blow_action";
     diag_log format["[NAC BLOWOUT SERVER] :: Blowout actions finished (ns_blow_action = %1)", ns_blow_action];
   };
-  sleep 25;
+  sleep 10;
   ns_blow_status = false; 
   publicVariable "ns_blow_status";
   diag_log format["[NAC BLOWOUT SERVER] :: Blowout finished (ns_blow_status = %1)", ns_blow_status];

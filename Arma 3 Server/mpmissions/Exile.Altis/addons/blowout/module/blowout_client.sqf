@@ -48,29 +48,6 @@ bl_flash =
 	sleep 0.25;
 };
 
-bl_local_check_time = 
-{
-	if ((daytime >= 17)||(daytime <= 7)) then 
-	{
-		if (daytime >= 17) then 
-		{   
-			_posun = 9 - daytime;
-			skipTime _posun; // skiping time to daylight
-			sleep 14;
-			_posun = -_posun;
-			skipTime _posun;  // skiping time to previous
-		} else {
-			if (daytime >= 0) then
-			{
-				_posun = 14 - daytime;
-				skipTime _posun; // skiping time to daylight
-				sleep 14;
-				_posun = -_posun;
-				skipTime _posun;  // skiping time to previous
-			};
-		};
-	};
-};
 
 bl_local_anims = 
 {
@@ -126,7 +103,7 @@ bl_preparations = {
 	sleep 0.25; 
 	"chromAberration" ppEffectEnable false;
 	
-	sleep 4;
+	sleep 10;
 	
 	playSound "ns_fx_drone1";
 	"chromAberration" ppEffectAdjust [0.25,0,true];
@@ -145,13 +122,13 @@ bl_preparations = {
 	"chromAberration" ppEffectEnable false;
 	
 	//-------------------------------------------------
-	sleep 54.7;
+	sleep 10;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_misc4";
 	
 	//-------------------------------------------------
-	sleep 13.5;
+	sleep 10;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_drone2";
@@ -189,7 +166,7 @@ bl_preparations = {
 	"chromAberration" ppEffectEnable false;
 	
 	//-------------------------------------------------
-	sleep 77;
+	sleep 10;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_drone2";
@@ -227,7 +204,7 @@ bl_preparations = {
 	"chromAberration" ppEffectEnable false;
 	
 	//-------------------------------------------------
-	sleep 50;
+	sleep 10;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_drone2";
@@ -246,7 +223,7 @@ bl_preparations = {
 	sleep 0.25; 
 	"chromAberration" ppEffectEnable false;
 	
-	sleep 7;
+	sleep 10;
 	
 	playSound "ns_fx_drone1";
 	"chromAberration" ppEffectAdjust [0.25,0,true];
@@ -265,7 +242,7 @@ bl_preparations = {
 	"chromAberration" ppEffectEnable false;
 	
 	//-------------------------------------------------
-	sleep 33;
+	sleep 5;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_drone2";
@@ -303,7 +280,7 @@ bl_preparations = {
 	"chromAberration" ppEffectEnable false;
 	
 	//-------------------------------------------------
-	sleep 25;
+	sleep 5;
 	//-------------------------------------------------
 	
 	playSound "ns_fx_misc4";
@@ -323,7 +300,7 @@ bl_preparations = {
 	sleep 0.25; 
 	"chromAberration" ppEffectEnable false;
 	
-	sleep 3;
+	sleep 5;
 	
 	playSound "ns_fx_drone1";
 	"chromAberration" ppEffectAdjust [0.25,0,true];
@@ -360,10 +337,7 @@ while {true} do {
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout confirmation received.", ns_blow_status];
 
-	if (overcast <= 0.75 && !ns_blowout_exile) then {
-		_puvodni_pocasi = overcast;
-		35 setOvercast 1;
-	};
+
 
 	if (ns_blowout_exile) then {
 		ExileClientPlayerIsInCombat = true;
@@ -420,7 +394,7 @@ while {true} do {
 	}; 
 	"dynamicBlur" ppEffectAdjust [2.4];
 	"dynamicBlur" ppEffectCommit 6;
-	sleep 4;
+	sleep 1;
 	_s = round (random 3); 
 	switch (_s) do 
 	{
@@ -448,9 +422,8 @@ while {true} do {
 		case 2: {playSound "bl_wave3";};
 		case 3: {playSound "bl_wave1";};
 	};
-	sleep 2;
+	sleep 1;
 	_bul = [] call bl_flash; 
-	if (!ns_blowout_exile) then { _bul = [] spawn bl_local_check_time; };
 	_s = round (random 3); 
 	switch (_s) do 
 	{
@@ -479,7 +452,7 @@ while {true} do {
 		playSound "bl_psi";
 	};
 
-	sleep 4;
+	sleep 1;
 	_bul = [] call bl_flash; 
 	_s = round (random 3); 
 	switch (_s) do 
@@ -552,7 +525,7 @@ while {true} do {
 	ppEffectDestroy _nonapsi_ef;
 	waitUntil {!ns_blow_action};
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_action = %1 Blowout actions end received.", ns_blow_action];
-	if(!ns_blowout_exile) then { 120 setOverCast _puvodni_pocasi; };
+
 if (worldName == "Altis") then {
 	if (dayTime > 18 || dayTime < 7) then {
 		playMusic "ExileTrack03";

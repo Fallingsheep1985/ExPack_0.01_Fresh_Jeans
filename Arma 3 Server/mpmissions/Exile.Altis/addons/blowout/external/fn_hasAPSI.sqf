@@ -1,6 +1,6 @@
 //check if player has apsi item
 //Created by Fallingsheep
-private["_unit1","_items","_hasAPSI","_x"];
+private["_unit","_items","_hasAPSI","_x"];
 diag_log "BLOWOUT - APSI CHECK";
 _unit = _this select 0;
 //undefined fix
