@@ -10,25 +10,16 @@ private["_emp_tg_namalsk"];
 diag_log "BLOWOUT SERVER - Loaded";
 // init
 while {true} do {
- _emp_tg_namalsk = 0;
- if (isNil("ns_blow_emp")) then { ns_blow_emp = false; }; 
  if (isNil("ns_blowout")) then { ns_blowout = true; }; 
- if (isNil("ns_blowout_exile")) then { ns_blowout_exile = false; };
  if (isNil("ns_blow_delaymod")) then { ns_blow_delaymod = 1; };
  if (isNil("ns_blow_prep")) then { ns_blow_prep = false; };
  
-  private["_prodleva"];
-  if(ns_blowout_exile) then {
-   _prodleva = random (6000 * ns_blow_delaymod);
-   while {_prodleva < (3000 * ns_blow_delaymod)} do {
-     _prodleva = random (6000 * ns_blow_delaymod);
-   };
-  } else {
-   _prodleva = (random (1600 * ns_blow_delaymod));
-   while {_prodleva < (800 * ns_blow_delaymod)} do {
-     _prodleva = random (1600 * ns_blow_delaymod);
-   };
-  };
+private["_prodleva"];
+_prodleva = random (6000 * ns_blow_delaymod);
+
+while {_prodleva < (3000 * ns_blow_delaymod)} do {
+  _prodleva = random (6000 * ns_blow_delaymod);
+};
   
   diag_log format["[NAC BLOWOUT SERVER] :: Next blowout in _delay (_delay = %1), delay modifier is %2 (ns_blow_delaymod)", _prodleva, ns_blow_delaymod];
   sleep _prodleva;
@@ -39,21 +30,9 @@ while {true} do {
     diag_log format["[NAC BLOWOUT SERVER] :: Blowout module is ON ns_blowout (ns_blowout = %1)", ns_blowout];
   };
   
-  if(ns_blowout_exile) then {
-    diag_log format["[NAC BLOWOUT SERVER] :: Blowout module is in DayZ mode ns_blowout_exile (ns_blowout_exile = %1)", ns_blowout_exile];
-  };
-  
   // Stop variable check
   waitUntil{ns_blowout};
 
-  if (ns_blow_emp) then {
-     diag_log format["[NAC BLOWOUT SERVER] :: Boosting up efficiency, EMP target Namalsk and surroundings (ns_blow_emp = %1)", ns_blow_emp];
-     _emp_tg_namalsk = 1;
-  } else {
-     diag_log format["[NAC BLOWOUT SERVER] :: Normal output, EMP target surroundings of Namalsk (ns_blow_emp = %1)", ns_blow_emp];
-     _emp_tg_namalsk = 0;
-  };
-  
   // Preparations before blowout - APSI / players running to take a cover
   ns_blow_prep = true;
   publicVariable "ns_blow_prep";

@@ -62,7 +62,6 @@ if (_FOG_SCRIPT isEqualTo 1) then {
 //blow out
 if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 	ns_blow_itemapsi = ["H_PilotHelmetFighter_B","H_PilotHelmetFighter_I","H_PilotHelmetFighter_O"]; //Can be mixed Item, Weapon, Headgear, goggles, vest.
-	ns_blow_world = "Altis"; // worldname
 	ns_blow_removeapsi = true; // remove/destroy APSI item after storm
 	ns_blow_delaymod = 0.1; //blowout delay - higher number longer time between blowouts
 	// value of 1 will kill player!
@@ -72,9 +71,7 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 	//////////////////////////////
 	//		Do not change		//
 	//////////////////////////////
-	ns_blow_emp = false; //Namalsk Only
 	ns_blowout = true;
-	ns_blowout_exile = true;
 	ns_blow_prep = false;
 	ns_blow_status = false;
 	ns_blow_action = false;

@@ -310,7 +310,6 @@ bl_preparations = {
 
 while {true} do {
 	if (isNil("ns_blowout_exile")) then { ns_blowout_exile = false; };
-	if (isNil("ns_blow_ambient_music")) then { ns_blow_ambient_music = false; };
 	if (isNil("ns_blow_prep")) then { ns_blow_prep = false; };
 	waitUntil{ns_blow_prep};
 
@@ -325,8 +324,6 @@ while {true} do {
 	waitUntil{ns_blow_status};
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_status = %1 Blowout confirmation received.", ns_blow_status];
-
-
 
 	if (ns_blowout_exile) then {
 		ExileClientPlayerIsInCombat = true;
@@ -483,25 +480,23 @@ while {true} do {
 	titleText["","BLACK OUT",1];
 	disableUserInput true;
 
-	if(ns_blowout_exile) then {
-		private["_isinbuilding"];
-		_isinbuilding = false;
-		if([player] call fnc_isInsideBuilding) then {
-			_isinbuilding = true;
-		};
-		if (!phasAPSI) then {
-			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
-			if (!_isinbuilding) then {
-				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
-					player setDamage (damage player + ns_blow_damage_unprotected);
-					diag_log format["[NAC BLOWOUT CLIENT] :: [S] player has been damaged by blowout"];
-			} else {
-					player setDamage (damage player + ns_blow_damage_inbuilding);
-				diag_log format["[NAC BLOWOUT CLIENT] :: [S] but is in some building, good for him."];
-			};
+	private["_isinbuilding"];
+	_isinbuilding = false;
+	if([player] call fnc_isInsideBuilding) then {
+		_isinbuilding = true;
+	};
+	if (!phasAPSI) then {
+		diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
+		if (!_isinbuilding) then {
+			diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
+				player setDamage (damage player + ns_blow_damage_unprotected);
+				diag_log format["[NAC BLOWOUT CLIENT] :: [S] player has been damaged by blowout"];
 		} else {
-			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does have APSI, I do not have problem with him."];
+				player setDamage (damage player + ns_blow_damage_inbuilding);
+			diag_log format["[NAC BLOWOUT CLIENT] :: [S] but is in some building, good for him."];
 		};
+	} else {
+		diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does have APSI, I do not have problem with him."];
 	};
 	
 	sleep 1;
@@ -515,23 +510,6 @@ while {true} do {
 	waitUntil {!ns_blow_action};
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_action = %1 Blowout actions end received.", ns_blow_action];
 
-if (worldName == "Altis") then {
-	if (dayTime > 18 || dayTime < 7) then {
-		playMusic "ExileTrack03";
-		[] spawn {
-			ns_blow_ambient_music = true;
-			sleep (getnumber (configfile >> "cfgMusic" >> "ExileTrack03" >> "duration"));
-			ns_blow_ambient_music = false;
-		};
-	} else {
-		playMusic "ExileTrack04";
-		[] spawn {
-			ns_blow_ambient_music = true;
-			sleep (getnumber (configfile >> "cfgMusic" >> "ExileTrack04" >> "duration"));
-			ns_blow_ambient_music = false;
-		};
-	};
-};
 	if (phasAPSI) then{
 		cutRsc ["RscAPSI_h6","PLAIN"];
 		playSound "apsi_off";
