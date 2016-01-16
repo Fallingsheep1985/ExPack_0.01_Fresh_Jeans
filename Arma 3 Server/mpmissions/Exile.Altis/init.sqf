@@ -92,17 +92,19 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 	ns_blow_removeapsi = true; // remove/destroy APSI item after storm
 	ns_blowout = true;
 	ns_blowout_exile = true;// true / false
-	ns_blow_delaymod = 0.02; //blowout delay
+	ns_blow_delaymod = 0.1; //blowout delay
 	ns_blow_emp = false; //Namalsk Only
 	ns_blow_prep = false;
 	ns_blow_status = false;
 	ns_blow_action = false;
 
 	if (!isDedicated) then {
-		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf"; 
+		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf";
+	diag_log "BLOWOUT CLIENT - Loading";		 
 	};
 	if (isServer) then {
 		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
+		diag_log "BLOWOUT SERVER - Loading";
 	};
 	diag_log "BLOWOUT - Loaded";
 };

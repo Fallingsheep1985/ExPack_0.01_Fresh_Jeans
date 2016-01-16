@@ -5,9 +5,6 @@
 // Taken away for now
 //#include "initServer.sqf"
 
-//Load Custom scripts
-[] execVM "init.sqf";
-
 if (!hasInterface || isServer) exitWith {};
 
 
