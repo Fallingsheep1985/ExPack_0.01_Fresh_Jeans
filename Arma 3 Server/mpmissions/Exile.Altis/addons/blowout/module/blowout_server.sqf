@@ -6,76 +6,8 @@
  *   PBO edition
  *   SERVER-SIDE script 
 */
-private["_emp_tg_namalsk","_jednotka"];
+private["_emp_tg_namalsk"];
 diag_log "BLOWOUT SERVER - Loaded";
-_jednotka =0;
-_count_units = count AllUnits;
-for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do { 
-	_jednotka = AllUnits select _c;
-	if ([_jednotka] call fnc_hasAPSI)then{
-		pshasAPSI = true;
-	}else{
-		pshasAPSI = false;
-	};
-};
-bl_damage = {
-	private["_isinbuilding","_emp"];
-	_emp = _this select 0;
-	_jednotka =0;
-	//_count_units = count playableUnits;
-	_count_units = count AllUnits;
-	_isinbuilding = false;
-	diag_log format["[NAC BLOWOUT SERVER] :: bl_damage (_count_units = %1)", _count_units];
-	for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do {
-		//_jednotka = playableUnits select _c;
-		_jednotka = AllUnits select _c;
-		if (!isNull _jednotka) then {
-			if([_jednotka] call fnc_isInsideBuilding) then {
-				_isinbuilding = true;
-				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 IN", _isinbuilding];
-			} else {
-				_isinbuilding = false;
-				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
-			};
-			if (!pshasAPSI) then {
-				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
-				if (!_isinbuilding) then {
-					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
-					_jednotka setDamage (damage _jednotka + 0.60);
-					diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 has been damaged by blowout by 0.30", _jednotka];
-				} else {
-					diag_log format["[NAC BLOWOUT SERVER] :: [S] but %1 is in some building, good for him.", _jednotka];
-					_jednotka setDamage (damage _jednotka + 0.40);
-				};
-			} else {
-				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does have APSI, I do not have problem with him.", _jednotka];
-			};
-			if (worldName == ns_blow_world) then {
-				if (ns_blow_removeapsi) then {
-					if (pshasAPSI) then {
-						 _jednotka removeItem ns_blow_itemapsi;
-					};
-				};
-			};
-	    };
-	    //_count_units = count AllUnits;
-    };
-    if (_emp == 1) then {
-      _count_vehicles = count vehicles;
-      diag_log format["[NAC BLOWOUT SERVER] :: bl_damage (_count_vehicles = %1)", _count_vehicles];
-      for [{_c = 0}, {_c <= _count_vehicles}, {_c = _c + 1}] do {
-        _vehikl = vehicles select _c;
-        if (_vehikl isKindOf "AllVehicles") then {
-          if ((damage _vehikl) <= 0.99) then {
-            //_vehikl setDamage 0.9;
-            //_vehikl setFuel 0;
-            diag_log format["[NAC BLOWOUT SERVER] :: [V] %1 has been damaged by blowout by 0.90", _vehikl];
-          };  
-        };
-      };    
-    };
-};
-
 // init
 while {true} do {
  _emp_tg_namalsk = 0;
@@ -140,7 +72,6 @@ while {true} do {
     ns_blow_action = true;
     publicVariable "ns_blow_action";
     diag_log format["[NAC BLOWOUT SERVER] :: Blowout actions in progress (ns_blow_action = %1)", ns_blow_action];
-    if (!ns_blowout_exile) then {_bul = [_emp_tg_namalsk] call bl_damage;};
 	sleep 10;
     ns_blow_action = false;
     publicVariable "ns_blow_action";

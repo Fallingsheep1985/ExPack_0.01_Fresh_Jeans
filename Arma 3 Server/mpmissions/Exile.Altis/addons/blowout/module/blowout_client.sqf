@@ -510,10 +510,10 @@ while {true} do {
 			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
 			if (!_isinbuilding) then {
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
-					player setDamage (damage player + 0.60);
-					diag_log format["[NAC BLOWOUT CLIENT] :: [S] player has been damaged by blowout by 0.15"];
+					player setDamage (damage player + ns_blow_damage_unprotected);
+					diag_log format["[NAC BLOWOUT CLIENT] :: [S] player has been damaged by blowout"];
 			} else {
-					player setDamage (damage player + 0.40);
+					player setDamage (damage player + ns_blow_damage_inbuilding);
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] but is in some building, good for him."];
 			};
 		} else {

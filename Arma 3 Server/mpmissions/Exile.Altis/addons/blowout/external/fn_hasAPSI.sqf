@@ -1,6 +1,6 @@
 //check if player has apsi item
 //Created by Fallingsheep
-private["_items","_hasAPSI","_x"];
+private["_items","_hasAPSI","_x","_pitems","_pheadgear","_pweapons","_pgoggles","_pvest"];
 diag_log "BLOWOUT - APSI CHECK";
 _pitems = assignedItems player;
 _pheadgear = headgear player;
