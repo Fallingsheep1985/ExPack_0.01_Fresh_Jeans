@@ -109,4 +109,5 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 	if (isServer) then {
 		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
 	};
+	diag_log "BLOWOUT - Loaded";
 };

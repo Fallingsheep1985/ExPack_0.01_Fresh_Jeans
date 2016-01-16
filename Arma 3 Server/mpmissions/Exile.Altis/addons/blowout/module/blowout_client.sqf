@@ -6,7 +6,7 @@
  *   PBO edition
  *   CLIENT-SIDE script 
 */
-
+diag_log "BLOWOUT CLIENT - Loaded";
 
 bl_detection = 
 {
