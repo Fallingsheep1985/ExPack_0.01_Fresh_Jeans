@@ -1,7 +1,7 @@
 //check if player has apsi item
 //Created by Fallingsheep
 private["_hasAPSI","_x"];
-diag_log "BLOWOUT - APSI CHECK";
+//diag_log "BLOWOUT - APSI CHECK";
 
 //Check Headgear
 if(ns_blow_itemtype == 1)then{ 

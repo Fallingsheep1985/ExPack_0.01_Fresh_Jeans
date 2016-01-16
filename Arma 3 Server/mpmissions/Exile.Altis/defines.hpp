@@ -1171,7 +1171,7 @@ class RscTitles {
                 y = 0.99;
                 w = 0.4;
                 h = 0.03;
-                text = "Blowout, v1.0, by CNSU.";//Blowout system modfiy by CNSU
+                text = "EXILE Blowout v1.0 , by Fallingsheep.";//Blowout system modfiy by CNSU
                 colorBackground[] = {0.5,0.5,0.5,0.4};
                 ColorText[] = {0.0,1.0,0.2,1};
             };
