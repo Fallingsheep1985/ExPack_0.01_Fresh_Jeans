@@ -54,41 +54,24 @@ bl_flash =
 	sleep 0.25;
 };
 
-
 bl_local_anims = 
 {
 //undefined fix
-	_jednotka = 0;
-	
-    _count_units = count AllUnits;
-    for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
-    {
-		_jednotka = AllUnits select _c;
-		if ((!phasAPSI) && (Alive _jednotka)) then
-		{
-			if ((vehicle _jednotka) == _jednotka) then 
-			{
-				_jednotka switchMove "AcinPercMrunSnonWnonDf_agony";
-			};
-		};
+
+if ((!phasAPSI) && (Alive player)) then
+{
+	if ((vehicle player) == player) then 
+	{
+		player switchMove "AcinPercMrunSnonWnonDf_agony";
 	};
 };
 
 bl_local_def_anim = 
+if ((!phasAPSI)&& (Alive player)) then 
 {
-//undefined fix
-	_jednotka = 0;
-    _count_units = count AllUnits;
-    for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
-    {
-		_jednotka = AllUnits select _c;
-		if ((!phasAPSI)&& (Alive _jednotka)) then 
-		{
-			if ((vehicle _jednotka) == _jednotka) then 
-			{
-				_jednotka switchMove "";
-			};
-		};
+	if ((vehicle player) == player) then 
+	{
+		player switchMove "";
 	};
 };
 

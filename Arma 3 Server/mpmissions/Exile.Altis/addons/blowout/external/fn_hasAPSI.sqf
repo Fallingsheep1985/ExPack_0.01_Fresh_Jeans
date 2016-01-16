@@ -1,12 +1,8 @@
 //check if player has apsi item
 //Created by Fallingsheep
-private["_items","_hasAPSI","_x","_pitems","_pheadgear","_pweapons","_pgoggles","_pvest"];
+private["_hasAPSI","_x"];
 diag_log "BLOWOUT - APSI CHECK";
-_pitems = assignedItems player;
-_pheadgear = headgear player;
-_pweapons = weapons player;
-_pgoggles = goggles player;
-_pvest = vest player;
+
 //Check items
 {
 	if (_x in ns_blow_itemapsi)then{
@@ -14,7 +10,7 @@ _pvest = vest player;
     }else{
         _hasAPSI = false;
     };
-} foreach _pitems;
+} foreach (assignedItems player);
 //Check Weapons
 {
 	if (_x in ns_blow_itemapsi)then{
@@ -22,21 +18,22 @@ _pvest = vest player;
     }else{
         _hasAPSI = false;
     };
-} foreach _pweapons;
+} foreach (weapons player);
+
 //Check Headgear
-if (_pheadgear in ns_blow_itemapsi)then{
+if ((headgear player) in ns_blow_itemapsi)then{
 	_hasAPSI = true;
 }else{
     _hasAPSI = false;
 };
 //Vest
-if (_pvest in ns_blow_itemapsi)then{
+if ((vest player) in ns_blow_itemapsi)then{
 	_hasAPSI = true;
 }else{
     _hasAPSI = false;
 };
 //goggles
-if (_pgoggles in ns_blow_itemapsi)then{
+if ((goggles player) in ns_blow_itemapsi)then{
 	_hasAPSI = true;
 }else{
     _hasAPSI = false;
