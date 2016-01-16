@@ -8,6 +8,12 @@
 */
 diag_log "BLOWOUT CLIENT - Loaded";
 
+if ([player] call fnc_hasAPSI)then{
+	_phasAPSI = true;
+}else{
+	_phasAPSI = false;
+};
+
 bl_detection = 
 {
 	playSound "bl_detect";
@@ -58,7 +64,7 @@ bl_local_anims =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!([_jednotka] call fnc_hasAPSI) && (Alive _jednotka)) then
+		if ((!_phasAPSI) && (Alive _jednotka)) then
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -76,7 +82,7 @@ bl_local_def_anim =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if (!([_jednotka] call fnc_hasAPSI)&& (Alive _jednotka)) then 
+		if ((!_phasAPSI)&& (Alive _jednotka)) then 
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -327,7 +333,7 @@ while {true} do {
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_prep = %1 Blowout is preparing, take a cover!", ns_blow_prep];
 
-	if (([player] call fnc_hasAPSI)) then {
+	if (_phasAPSI) then {
 		_bul = [] spawn bl_detection;
 	};
 
@@ -448,7 +454,7 @@ while {true} do {
 	};
 	_bul = [] call bl_flash; 
 
-	if (!([player] call fnc_hasAPSI)) then {
+	if (!_phasAPSI) then {
 		playSound "bl_psi";
 	};
 
@@ -500,14 +506,14 @@ while {true} do {
 		if([player] call fnc_isInsideBuilding) then {
 			_isinbuilding = true;
 		};
-		if (!([player] call fnc_hasAPSI)) then {
+		if (!_phasAPSI) then {
 			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
 			if (!_isinbuilding) then {
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
-					player setDamage 0.6;
+					player setDamage (damage player + 0.60);
 					diag_log format["[NAC BLOWOUT CLIENT] :: [S] player has been damaged by blowout by 0.15"];
 			} else {
-					player setDamage 0.4;
+					player setDamage (damage player + 0.40);
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] but is in some building, good for him."];
 			};
 		} else {
@@ -518,7 +524,7 @@ while {true} do {
 	sleep 1;
 	4 fadeSound 0;
 	sleep 5;
-	if ([player] call fnc_hasAPSI) then {disableUserInput false;};
+	if (_phasAPSI) then {disableUserInput false;};
 	sleep 6;
 	6 fadeSound 1;
 	titleText["","BLACK IN",10]; 
@@ -543,7 +549,7 @@ if (worldName == "Altis") then {
 		};
 	};
 };
-	if ([player] call fnc_hasAPSI) then{
+	if (_phasAPSI) then{
 		cutRsc ["RscAPSI_h6","PLAIN"];
 		playSound "apsi_off";
 		"filmGrain" ppEffectEnable false;

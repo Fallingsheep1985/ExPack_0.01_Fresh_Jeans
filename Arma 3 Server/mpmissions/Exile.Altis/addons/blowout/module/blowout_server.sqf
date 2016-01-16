@@ -6,12 +6,22 @@
  *   PBO edition
  *   SERVER-SIDE script 
 */
-private["_emp_tg_namalsk"];
-diag_log "BLOWOUT SERVER - Loaded"; 
-
+private["_emp_tg_namalsk","_jednotka"];
+diag_log "BLOWOUT SERVER - Loaded";
+_jednotka =0;
+_count_units = count AllUnits;
+for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do { 
+	_jednotka = AllUnits select _c;
+	if ([_jednotka] call fnc_hasAPSI)then{
+		_phasAPSI = true;
+	}else{
+		_phasAPSI = false;
+	};
+};
 bl_damage = {
 	private["_isinbuilding","_emp"];
 	_emp = _this select 0;
+	_jednotka =0;
 	//_count_units = count playableUnits;
 	_count_units = count AllUnits;
 	_isinbuilding = false;
@@ -27,21 +37,22 @@ bl_damage = {
 				_isinbuilding = false;
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
 			};
-			if (!([_jednotka] call fnc_hasAPSI)) then {
+			if (!_phasAPSI) then {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
 				if (!_isinbuilding) then {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
-					_jednotka setDamage (damage _jednotka + 0.30);
+					_jednotka setDamage (damage _jednotka + 0.60);
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 has been damaged by blowout by 0.30", _jednotka];
 				} else {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] but %1 is in some building, good for him.", _jednotka];
+					_jednotka setDamage (damage _jednotka + 0.40);
 				};
 			} else {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does have APSI, I do not have problem with him.", _jednotka];
 			};
 			if (worldName == ns_blow_world) then {
 				if (ns_blow_removeapsi) then {
-					if ([_jednotka] call fnc_hasAPSI) then {
+					if (_phasAPSI) then {
 						 _jednotka removeItem ns_blow_itemapsi;
 					};
 				};

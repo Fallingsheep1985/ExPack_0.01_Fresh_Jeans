@@ -1,15 +1,13 @@
 //check if player has apsi item
 //Created by Fallingsheep
-private["_unit","_items","_hasAPSI","_x"];
+private["_items","_hasAPSI","_x"];
 diag_log "BLOWOUT - APSI CHECK";
-_unit = _this select 0;
-_pitems = assignedItems _unit;
-_pheadgear = headgear _unit;
-_pweapons = weapons _unit;
-_pgoggles = goggles _unit;
-_pvest = vest _unit;
+_pitems = assignedItems player;
+_pheadgear = headgear player;
+_pweapons = weapons player;
+_pgoggles = goggles player;
+_pvest = vest player;
 //Check items
-if(ns_blow_itemtype isEqualTo 1)then{
 {
 	if (_x in ns_blow_itemapsi)then{
 	_hasAPSI = true;
@@ -17,10 +15,7 @@ if(ns_blow_itemtype isEqualTo 1)then{
         _hasAPSI = false;
     };
 } foreach _pitems;
-        
-};
 //Check Weapons
-if(ns_blow_itemtype isEqualTo 2)then{
 {
 	if (_x in ns_blow_itemapsi)then{
 	_hasAPSI = true;
@@ -28,15 +23,22 @@ if(ns_blow_itemtype isEqualTo 2)then{
         _hasAPSI = false;
     };
 } foreach _pweapons;
-};
 //Check Headgear
-if(ns_blow_itemtype isEqualTo 3)then{
-{
-	if (_x in ns_blow_itemapsi)then{
+if (_pheadgear in ns_blow_itemapsi)then{
 	_hasAPSI = true;
-    }else{
-        _hasAPSI = false;
-    };
-} foreach _pheadgear;
+}else{
+    _hasAPSI = false;
+};
+//Vest
+if (_pvest in ns_blow_itemapsi)then{
+	_hasAPSI = true;
+}else{
+    _hasAPSI = false;
+};
+//goggles
+if (_pgoggles in ns_blow_itemapsi)then{
+	_hasAPSI = true;
+}else{
+    _hasAPSI = false;
 };
 _hasAPSI
