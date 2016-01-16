@@ -70,8 +70,9 @@ _rainLevel = rain;
 _damage = damage player;
 _uniform = uniform player;
 _cover = nearestBuilding player;
-_fire = count (player nearestObjects ["Exile_Construction_CampFire_Static", 20]);
+_fire = nearestObject [player,"Exile_Construction_CampFire_Static"];
 _distanceToCover = player distance _cover;
+_distanceToFire = player distance _fire;
  
 [sick,sickValue,cold] spawn
 {
@@ -152,13 +153,14 @@ waitUntil
                 _damage = damage player;
                 _uniform = uniform player;
                 _cover = nearestBuilding player;
-				_fire = count (player nearestObjects ["Exile_Construction_CampFire_Static", 20]);
+                _fire = nearestObject [player,"Exile_Construction_CampFire_Static"];
                 _distanceToCover = player distance _cover;
+                _distanceToFire = player distance _fire;
          
                 if ((daytime >= 19 || daytime < 5) || (_rainLevel > 0.5 )) then {_warm = false};
          
                 if ((!_warm) && (_uniform in _coldClothes)) then {_warm = false};
-                if ((!_warm) && (_fire > 1) || (_distanceToCover < 50)) then {_warm = true};
+                if ((!_warm) && (_distanceToFire < 20) || (_distanceToCover < 50)) then {_warm = true};
                 if !(_uniform in _coldClothes) then {_warm = true};
                
                 if (_warm) then
