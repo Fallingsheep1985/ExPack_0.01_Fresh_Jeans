@@ -7,9 +7,7 @@
  *   SERVER-SIDE script 
 */
 private["_emp_tg_namalsk"];
-diag_log "BLOWOUT SERVER - Loaded";
-
-bl_flashes 
+diag_log "BLOWOUT SERVER - Loaded"; 
 
 bl_damage = {
 	private["_isinbuilding","_emp"];

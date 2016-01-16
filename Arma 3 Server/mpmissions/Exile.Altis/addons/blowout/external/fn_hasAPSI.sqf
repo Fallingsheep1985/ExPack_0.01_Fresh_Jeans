@@ -9,31 +9,25 @@ _pheadgear = headgear _unit;
 _pweapons = weapons _unit;
 //Check items
 if(ns_blow_itemtype isEqualTo 1)then{
-    if{_x in ns_blow_itemapsi} foreach _pitems then{
-		diag_log format["player: %2 ",_unit];
+    if (ns_blow_itemapsi in _pitems) then{
         _hasAPSI = true;
     }else{
-		diag_log format["player: %2 NO APSI",_unit];
         _hasAPSI = false;
     };
 };
 //Check Weapons
 if(ns_blow_itemtype isEqualTo 2)then{
-    if{_x in ns_blow_itemapsi} foreach _pweapons then{
-		diag_log format["player: %2 APSI: %1",_unit];
+    if (ns_blow_itemapsi in _pweapons) then{
         _hasAPSI = true;
     }else{
-		diag_log format["player: %2 NO APSI",_unit];
         _hasAPSI = false;
     };
 };
 //Check Headgear
 if(ns_blow_itemtype isEqualTo 3)then{
-    if{_x in ns_blow_itemapsi} foreach _pheadgear then{
-		diag_log format["player: %2 APSI: %1",_unit];
+    if(ns_blow_itemapsi in _pheadgear) then{
         _hasAPSI = true;
     }else{
-		diag_log format["player: %2 NO APSI",_unit];
         _hasAPSI = false;
     };
 };
