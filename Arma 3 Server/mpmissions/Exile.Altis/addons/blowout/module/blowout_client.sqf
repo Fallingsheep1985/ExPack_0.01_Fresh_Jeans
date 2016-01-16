@@ -9,9 +9,9 @@
 diag_log "BLOWOUT CLIENT - Loaded";
 
 if ([player] call fnc_hasAPSI)then{
-	_phasAPSI = true;
+	phasAPSI = true;
 }else{
-	_phasAPSI = false;
+	phasAPSI = false;
 };
 
 bl_detection = 
@@ -64,7 +64,7 @@ bl_local_anims =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if ((!_phasAPSI) && (Alive _jednotka)) then
+		if ((!phasAPSI) && (Alive _jednotka)) then
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -82,7 +82,7 @@ bl_local_def_anim =
     for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do 
     {
 		_jednotka = AllUnits select _c;
-		if ((!_phasAPSI)&& (Alive _jednotka)) then 
+		if ((!phasAPSI)&& (Alive _jednotka)) then 
 		{
 			if ((vehicle _jednotka) == _jednotka) then 
 			{
@@ -333,7 +333,7 @@ while {true} do {
 
 	diag_log format["[NAC BLOWOUT CLIENT] :: ns_blow_prep = %1 Blowout is preparing, take a cover!", ns_blow_prep];
 
-	if (_phasAPSI) then {
+	if (phasAPSI) then {
 		_bul = [] spawn bl_detection;
 	};
 
@@ -454,7 +454,7 @@ while {true} do {
 	};
 	_bul = [] call bl_flash; 
 
-	if (!_phasAPSI) then {
+	if (!phasAPSI) then {
 		playSound "bl_psi";
 	};
 
@@ -506,7 +506,7 @@ while {true} do {
 		if([player] call fnc_isInsideBuilding) then {
 			_isinbuilding = true;
 		};
-		if (!_phasAPSI) then {
+		if (!phasAPSI) then {
 			diag_log format["[NAC BLOWOUT CLIENT] :: [S] Player does not have APSI"];
 			if (!_isinbuilding) then {
 				diag_log format["[NAC BLOWOUT CLIENT] :: [S] and is not in a building, sorry."];
@@ -524,7 +524,7 @@ while {true} do {
 	sleep 1;
 	4 fadeSound 0;
 	sleep 5;
-	if (_phasAPSI) then {disableUserInput false;};
+	if (phasAPSI) then {disableUserInput false;};
 	sleep 6;
 	6 fadeSound 1;
 	titleText["","BLACK IN",10]; 
@@ -549,7 +549,7 @@ if (worldName == "Altis") then {
 		};
 	};
 };
-	if (_phasAPSI) then{
+	if (phasAPSI) then{
 		cutRsc ["RscAPSI_h6","PLAIN"];
 		playSound "apsi_off";
 		"filmGrain" ppEffectEnable false;

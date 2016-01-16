@@ -13,9 +13,9 @@ _count_units = count AllUnits;
 for [{_c = 0}, {_c <= _count_units}, {_c = _c + 1}] do { 
 	_jednotka = AllUnits select _c;
 	if ([_jednotka] call fnc_hasAPSI)then{
-		_phasAPSI = true;
+		pshasAPSI = true;
 	}else{
-		_phasAPSI = false;
+		pshasAPSI = false;
 	};
 };
 bl_damage = {
@@ -37,7 +37,7 @@ bl_damage = {
 				_isinbuilding = false;
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 OUT", _isinbuilding];
 			};
-			if (!_phasAPSI) then {
+			if (!pshasAPSI) then {
 				diag_log format["[NAC BLOWOUT SERVER] :: [S] %1 does not have APSI", _jednotka];
 				if (!_isinbuilding) then {
 					diag_log format["[NAC BLOWOUT SERVER] :: [S] and %1 is not in a building, sorry.", _jednotka];
@@ -52,7 +52,7 @@ bl_damage = {
 			};
 			if (worldName == ns_blow_world) then {
 				if (ns_blow_removeapsi) then {
-					if (_phasAPSI) then {
+					if (pshasAPSI) then {
 						 _jednotka removeItem ns_blow_itemapsi;
 					};
 				};
