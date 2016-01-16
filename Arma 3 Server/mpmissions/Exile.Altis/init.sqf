@@ -85,7 +85,6 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 		_bul = [] execVM "addons\blowout\module\blowout_server.sqf";
 		diag_log "BLOWOUT SERVER - Loading";
 	};
-	diag_log "BLOWOUT - Loaded";
 };
 if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\weatherEffects.sqf";

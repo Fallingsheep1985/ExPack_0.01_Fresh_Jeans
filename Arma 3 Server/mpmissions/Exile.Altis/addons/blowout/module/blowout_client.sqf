@@ -56,7 +56,6 @@ bl_flash =
 
 bl_local_anims = 
 {
-//undefined fix
 
 if ((!phasAPSI) && (Alive player)) then
 {
