@@ -8,8 +8,6 @@
 */
 private["_emp_tg_namalsk"];
 diag_log "BLOWOUT SERVER - Loaded";
-fnc_isInsideBuilding = compile preprocessFileLineNumbers "addons\blowout\external\fn_isInsideBuilding.sqf";
-fnc_hasAPSI = compile preprocessFileLineNumbers "addons\blowout\external\fn_hasAPSI.sqf";
 
 bl_flashes = 
 {

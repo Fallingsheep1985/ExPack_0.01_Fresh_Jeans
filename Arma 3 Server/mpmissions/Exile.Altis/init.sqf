@@ -73,6 +73,9 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 	ns_blow_status = false;
 	ns_blow_action = false;
 
+	fnc_isInsideBuilding = compile preprocessFileLineNumbers "addons\blowout\external\fn_isInsideBuilding.sqf";
+	fnc_hasAPSI = compile preprocessFileLineNumbers "addons\blowout\external\fn_hasAPSI.sqf";
+	
 	if (!isDedicated) then {
 		 _bul = [] execVM "addons\blowout\module\blowout_client.sqf";
 		diag_log "BLOWOUT CLIENT - Loading";		 
