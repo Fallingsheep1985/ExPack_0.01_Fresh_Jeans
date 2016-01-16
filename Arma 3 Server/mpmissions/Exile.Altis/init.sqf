@@ -59,11 +59,6 @@ if (_FOG_SCRIPT isEqualTo 1) then {
 	_GF = [] execVM "scripts\fog.sqf";
 	diag_log "Ground Fog - Loaded";
 };
-// Weather Effects by john
-if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
-	[] execVM "scripts\weatherEffects.sqf";
-	diag_log "Weather Effects - Loaded";
-};
 // bAdmin Exile by Daz & Biabock
 #define DEBUG false
 [DEBUG] call compile preprocessFileLineNumbers "badmin\globalCompile.sqf";
@@ -110,4 +105,11 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 		_bul = [ns_blow_emp] execVM "addons\blowout\module\blowout_server.sqf";
 	};
 	diag_log "BLOWOUT - Loaded";
+};
+
+//run last cause error in RPT
+// Weather Effects by john
+if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
+	[] execVM "scripts\weatherEffects.sqf";
+	diag_log "Weather Effects - Loaded";
 };
