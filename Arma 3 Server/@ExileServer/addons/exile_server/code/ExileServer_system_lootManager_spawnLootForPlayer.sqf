@@ -20,17 +20,7 @@ _spawnedLoot = false;
 _minimumDistanceToTraderZones = getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "minimumDistanceToTraderZones");
 _minimumDistanceToTerritories = getNumber (configFile >> "CfgSettings" >> "LootSettings" >> "minimumDistanceToTerritories");
 _RANDOM_HELI_CRASH_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "random_heli_crash_config" >> "RANDOM_HELI_CRASH_SCRIPT");
-_presentClasses = 
-[
-	"Exile_Loot_XmasPresent_Blue",
-	"Exile_Loot_XmasPresent_Gold",
-	"Exile_Loot_XmasPresent_Green",
-	"Exile_Loot_XmasPresent_Mint",
-	"Exile_Loot_XmasPresent_Pink",
-	"Exile_Loot_XmasPresent_Purple",
-	"Exile_Loot_XmasPresent_Red",
-	"Exile_Loot_XmasPresent_Magenta"
-];
+
 try 
 {
 	if !(alive _playerObject) then
@@ -108,14 +98,9 @@ try
 										_cargoType = _itemClassName call ExileClient_util_cargo_getType;
 										if (isNull _lootHolder) then 
 										{
-											if ((floor (random 100)) < 50) then 
-											{
-												_lootHolder = createVehicle [_presentClasses call BIS_fnc_selectRandom, _lootPosition, [], 0, "CAN_COLLIDE"];
-											}
-											else 
-											{
-												_lootHolder = createVehicle ["LootWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
-											};
+										
+											_lootHolder = createVehicle ["LootWeaponHolder", _lootPosition, [], 0, "CAN_COLLIDE"];
+									
 											_lootHolder setDir (random 360);
 											_lootHolder setPosATL _lootPosition;
 											_lootHolder setVariable ["ExileSpawnedAt", time];
