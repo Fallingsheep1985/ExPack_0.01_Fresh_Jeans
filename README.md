@@ -27,6 +27,7 @@ Current Scripts
 * W4rGo's Lockpick System by [`W4rGo`](http://www.exilemod.com/profile/3342-w4rgo/)
 * EMP Blowout from Namalsk
 * Blackjack Orginal script by papabear modified by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/) for Exile [`Original Atlis Life Script`](http://www.altisliferpg.com/topic/7532-howto-blackjackreal/)
+* Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 
 Script Permission List
 --------------------------
@@ -53,7 +54,6 @@ Scripts to be added
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
-* Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 
 Scripts pending approval
 --------------------------

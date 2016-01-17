@@ -8,6 +8,8 @@ class CfgScriptControlMisson
 	
 	class SCRIPT_config
 	{
+		//Map name
+		MAPNAME = "Altis";
 		//IGILOAD
 		IGILOAD_SCRIPT = 1;
 		//Kill Messages - GR8
@@ -28,6 +30,8 @@ class CfgScriptControlMisson
 		LOCK_PICK_SCRIPT = 1;
 		//Blowout
 		BLOWOUT_SCRIPT = 1;
+		//Electrical Storms
+		ELECTRICAL_STORMS_SCRIPT = 1;
 	};
 
 	//////////////////////////////////
@@ -36,7 +40,7 @@ class CfgScriptControlMisson
 	class version_config
 	{
 		REPACK_VERSION = 0.01; //current release number
-		BUILD_VERSION = 166; //should match the current git commits number
+		BUILD_VERSION = 170; //should match the current git commits number
 	};
 
 };

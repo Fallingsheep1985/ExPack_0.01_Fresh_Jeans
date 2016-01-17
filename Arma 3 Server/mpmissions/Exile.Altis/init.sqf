@@ -1,14 +1,18 @@
 //init
-_LOGO_WATERMARK_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
-_WELCOME_CREDITS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
-_KILL_MESSAGE_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
-_IGILOAD_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "IGILOAD_SCRIPT");
-_WEATHER_EFFECTS_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
-_AIR_PATROL_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AIR_PATROL_SCRIPT");
-_STATUS_BAR_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
-_FOG_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
-_LOCK_PICK_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
-_BLOWOUT_SCRIPT			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "BLOWOUT_SCRIPT");
+_LOGO_WATERMARK_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOGO_WATERMARK_SCRIPT");
+_WELCOME_CREDITS_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WELCOME_CREDITS_SCRIPT");
+_KILL_MESSAGE_SCRIPT 		= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "KILL_MESSAGE_SCRIPT");
+_IGILOAD_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "IGILOAD_SCRIPT");
+_WEATHER_EFFECTS_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "WEATHER_EFFECTS_SCRIPT");
+_AIR_PATROL_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AIR_PATROL_SCRIPT");
+_STATUS_BAR_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "STATUS_BAR_SCRIPT");
+_FOG_SCRIPT 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "FOG_SCRIPT");
+_LOCK_PICK_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
+_BLOWOUT_SCRIPT				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "BLOWOUT_SCRIPT");
+_ELECTRICAL_STORMS_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ELECTRICAL_STORMS_SCRIPT");
+
+//Loads mapcenter based on map name set in scriptcontrol
+[] execVM "scripts\mapcenter.sqf";
 
 //Lockpick
 if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
@@ -86,6 +90,10 @@ if (_BLOWOUT_SCRIPT isEqualTo 1) then {
 		_bul = [] execVM "addons\blowout\module\blowout_server.sqf";
 		diag_log "BLOWOUT SERVER - Loading";
 	};
+};
+if (_ELECTRICAL_STORMS_SCRIPT isEqualTo 1) then {
+	[] execVM "Scripts\storms\config_storms.sqf";
+	diag_log "Electrical Storms - Loaded";
 };
 if (_WEATHER_EFFECTS_SCRIPT isEqualTo 1) then {
 	[] execVM "scripts\weatherEffects.sqf";
