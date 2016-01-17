@@ -51,7 +51,7 @@
 		}; 
 		class RscText_1013: RscText {			
 		idc = 6000; 
-			text = "Winnings: $"; 
+			text = "Winnings: "; 
 
 			x = 5.5 * GUI_GRID_W + GUI_GRID_X; 
 			y = 15 * GUI_GRID_H + GUI_GRID_Y; 
@@ -93,10 +93,10 @@
 		}; 
 		class BET_5K: RscButtonMenu {			
 		idc = 5984; 
-			text = "5K"; 
+			text = "500"; 
 
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5}; 
-			onButtonClick = "[5000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
+			onButtonClick = "[500] execVM 'scripts\blackjack\fn_BJbet.sqf';";
 			x = 6 * GUI_GRID_W + GUI_GRID_X; 
 			y = 19 * GUI_GRID_H + GUI_GRID_Y; 
 			w = 4 * GUI_GRID_W; 
@@ -104,10 +104,10 @@
 		}; 
 		class BET_10K: RscButtonMenu {			
 		idc = 5985; 
-			text = "10K"; 
+			text = "1K"; 
 
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5}; 
-			onButtonClick = "[10000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
+			onButtonClick = "[1000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
 			x = 13 * GUI_GRID_W + GUI_GRID_X; 
 			y = 19 * GUI_GRID_H + GUI_GRID_Y; 
 			w = 4 * GUI_GRID_W; 
@@ -115,10 +115,10 @@
 		}; 
 		class BET_25K: RscButtonMenu {			
 		idc = 5986; 
-			text = "25K"; 
+			text = "2K"; 
 
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5}; 
-			onButtonClick = "[25000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
+			onButtonClick = "[2000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
 			x = 20 * GUI_GRID_W + GUI_GRID_X; 
 			y = 19 * GUI_GRID_H + GUI_GRID_Y; 
 			w = 4 * GUI_GRID_W; 
@@ -126,10 +126,10 @@
 		}; 
 		class BET_50K: RscButtonMenu {			
 		idc = 5987; 
-			text = "50K"; 
+			text = "5K"; 
 
 			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5}; 
-			onButtonClick = "[50000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
+			onButtonClick = "[5000] execVM 'scripts\blackjack\fn_BJbet.sqf';";
 			x = 27 * GUI_GRID_W + GUI_GRID_X; 
 			y = 19 * GUI_GRID_H + GUI_GRID_Y; 
 			w = 4 * GUI_GRID_W; 

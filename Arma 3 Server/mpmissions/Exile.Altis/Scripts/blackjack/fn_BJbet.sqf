@@ -52,22 +52,22 @@ disableSerialization;
  _Hit ctrlEnable false; 
  _Stay ctrlEnable false; 
  switch ( _betamt ) do {	
- case 5000:  { 
+ case 500:  { 
  _bet10KTEXT ctrlSetText ""; 
   _bet25KTEXT ctrlSetText ""; 
   _bet50KTEXT ctrlSetText ""; 
   }; 
- 	case 10000: { 
+ 	case 1000: { 
 	_bet5KTEXT ctrlSetText ""; 
   _bet25KTEXT ctrlSetText ""; 
   _bet50KTEXT ctrlSetText ""; 
   }; 
- 	case 25000: { 
+ 	case 2000: { 
 	_bet10KTEXT ctrlSetText ""; 
   _bet5KTEXT ctrlSetText ""; 
   _bet50KTEXT ctrlSetText ""; 
   }; 
- 	case 50000: { 
+ 	case 5000: { 
 	_bet10KTEXT ctrlSetText ""; 
   _bet25KTEXT ctrlSetText ""; 
   _bet5KTEXT ctrlSetText ""; 
