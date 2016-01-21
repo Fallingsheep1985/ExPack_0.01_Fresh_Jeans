@@ -43,6 +43,7 @@ Script Permission List
 * [`eraser1`](http://www.exilemod.com/profile/96-eraser1/)
 * [`infiSTAR`](http://www.exilemod.com/profile/11-infistar/) - BE Filters
 * [`happydayz`](http://www.exilemod.com/profile/3076-happydayz/)
+* [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 
 Scripts to be added 
 --------------------------
