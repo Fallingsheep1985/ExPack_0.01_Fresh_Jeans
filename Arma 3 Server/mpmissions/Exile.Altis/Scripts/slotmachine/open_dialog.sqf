@@ -19,7 +19,6 @@ startreel3 = slotspictures call BIS_fnc_selectRandom;
 	_reel3 ctrlSetText format ["%1" ,startreel3];
 
 //Variables
-SlotsWinChance = random 100;
 IsSpinning = false;
 SlotsPlayerCredits = 0;
 hasSlotsCredits = false;

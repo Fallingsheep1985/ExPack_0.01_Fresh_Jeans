@@ -8,6 +8,8 @@ disableSerialization;
 reelArray = ["cherry","lemon","grape","watermelon","orange","bar","seven","diamond"];
 slotspictures = ["pictures\image1.jpg","pictures\image2.jpg","pictures\image3.jpg","pictures\image4.jpg","pictures\image5.jpg","pictures\image6.jpg","pictures\image7.jpg","pictures\image8.jpg"];
 
+SlotsWinChance = random 100;
+
 _dialog = findDisplay 9000;
 _spinbtn = _dialog displayCtrl 1600;
 _bet1 = _dialog displayCtrl 1601;
@@ -55,14 +57,16 @@ if (hasSlotsCredits) then {
 		_counter = _counter + 1;
 	};
 	//10% chance to win
-	if(SlotsWinChance < 10) then{
+	if(SlotsWinChance > 90) then{
 		reel1 = reelArray call BIS_fnc_selectRandom;
 		reel2 = reel1;
 		reel3 = reel1;
+		SlotsWinChance = 0;//reset win chance
 	}else{
 		reel1 = reelArray call BIS_fnc_selectRandom;
 		reel2 = reelArray call BIS_fnc_selectRandom;
 		reel3 = reelArray call BIS_fnc_selectRandom;
+		SlotsWinChance = 0; //reset win chance
 	};
 	sleep 0.1;
 	//reel 1
