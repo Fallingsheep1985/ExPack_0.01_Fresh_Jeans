@@ -22,15 +22,15 @@ _bet25KTEXT = _display displayCtrl 6005;
 _bet50KTEXT = _display displayCtrl 6006; 
 _betamt = 0; 
 if( (ctrlText _bet5KText) != "" ) then{	
-_betamt = 5000; 
+_betamt = 500; 
 }else{	
 if( (ctrlText _bet10KText) != "" ) then	{		
-_betamt = 10000; 
+_betamt = 1000; 
 	}	else	{		
 	if( (ctrlText _bet25KText) != "" ) then	 {			
-	_betamt = 25000; 
+	_betamt = 2000; 
 		}		else		{			
-		_betamt = 50000; 
+		_betamt = 5000; 
 		}; 
 	}; 
 }; 
@@ -196,7 +196,7 @@ _total = _total + (parseNumber _P5T);
 		//if player hit 21 then he wins 4X	
 		if( _total == 21 ) then	{		
 		_TOTALTXT ctrlSetText format["%1",_total]; 
-		_win = 4; 
+		_win = BJ21; 
 	}	else	{		
 	//player didnt hit 21		
 	//now check if he went bust using the 11		
@@ -212,7 +212,7 @@ _total = _total + (parseNumber _P5T);
 			//if using 1 in total and still under 21				
 			//while using 5 cards, player wins 3X				
 			if( _NextCard == 5 ) then 				{
-			_win = 4; 
+			_win = BJ5card; 
 				}				else				{									
 				_TOTALTXT ctrlSetText format["%1",_totalTemp]; 
 				}; 
@@ -227,7 +227,7 @@ _total = _total + (parseNumber _P5T);
 	_TOTALTXT ctrlSetText format["%1",_total]; 
 	//if hit 21, win	
 	if( _total == 21 ) then	{		
-	_win = 4; 
+	_win = BJ21; 
 		_gameover = true; 
 	}	else	{		
 	if( _total > 21 ) then 		{			

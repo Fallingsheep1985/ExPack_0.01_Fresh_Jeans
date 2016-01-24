@@ -29,15 +29,15 @@ _bet25KTEXT = _display displayCtrl 6005;
 _bet50KTEXT = _display displayCtrl 6006; 
 _betamt = 0; 
 if( (ctrlText _bet5KText) != "" ) then{
-_betamt = 5000; 
+_betamt = 500; 
 }else{
 	if( (ctrlText _bet10KText) != "" ) then{
-	_betamt = 10000; 
+	_betamt = 1000; 
 	}else{
 		if( (ctrlText _bet25KText) != "" ) then{
-		_betamt = 25000; 
+		_betamt = 2000; 
 		}else{
-		_betamt = 50000; 
+		_betamt = 5000; 
 		}; 
 	}; 
 }; 
@@ -146,7 +146,7 @@ _number = _number + 2;
 		//player wins
 		//dealer bust
 		_gameover = true; 
-		_win = 2; 
+		_win = BJDbust; 
 		}else{
 			if( _totalDealer > _totalPlayer ) then {
 			//dealer beats player
@@ -154,7 +154,7 @@ _number = _number + 2;
 			}else{
 				if( _totalDealer == _totalPlayer ) then{
 				_gameover = true; 
-				_win = 1; 
+				_win = BJdraw; 
 				}else{
 				_gameover = false; 
 				}; 

@@ -143,7 +143,7 @@ disableSerialization;
  }; 
  _TOTALTXT ctrlSetText format["%1",_total]; 
  if( _total == 21 ) then { 	
- _win = 4 * _betamt; 
+ _win = BJ21 * _betamt; 
  _newPoptabs = ExileClientPlayerMoney + _win;
  ENIGMA_UpdateStats = [player,_newPoptabs];
  publicVariableServer "ENIGMA_UpdateStats"; 

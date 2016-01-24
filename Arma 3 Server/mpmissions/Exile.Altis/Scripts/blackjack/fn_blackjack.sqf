@@ -5,6 +5,16 @@ Coder: PapaBear*/
  disableSerialization; 
  createDialog "BlackjackGUI"; 
 
+//multiplier for getting 21
+BJ21 = 2;
+//dealer bust
+BJDbust = 2;
+//draw
+BJdraw = 0;
+//5 card win
+BJ5card = 2;
+ 
+ 
  _display = findDisplay 5980; 
  _Hit = _display displayCtrl 5983; 
  _Stay = _display displayCtrl 5982; 
