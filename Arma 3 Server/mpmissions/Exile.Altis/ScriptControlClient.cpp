@@ -32,6 +32,8 @@ class CfgScriptControlMisson
 		BLOWOUT_SCRIPT = 1;
 		//Electrical Storms
 		ELECTRICAL_STORMS_SCRIPT = 1;
+		//ETG Heli Crash drops
+		ETG_CRASHDROP = 1;
 	};
 
 	//////////////////////////////////

@@ -10,10 +10,19 @@ _FOG_SCRIPT 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SC
 _LOCK_PICK_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
 _BLOWOUT_SCRIPT				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "BLOWOUT_SCRIPT");
 _ELECTRICAL_STORMS_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ELECTRICAL_STORMS_SCRIPT");
+_ETG_CRASHDROP			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ETG_CRASHDROP");
 
 //Loads mapcenter based on map name set in scriptcontrol
 [] execVM "scripts\mapcenter.sqf";
 
+
+//ETG Heli Crash And Drop Script
+if (_ETG_CRASHDROP	isEqualTo 1) then {
+	if (isServer) then {
+		 fn_crashdrop = compile preprocessFile "scripts\fn_crashdrop.sqf";
+		 [2] call fn_crashdrop;
+	};
+};
 //Lockpick
 if (_LOCK_PICK_SCRIPT isEqualTo 1) then {
 	[] execVM "addons\w4_lockpick\initLockpick.sqf";
