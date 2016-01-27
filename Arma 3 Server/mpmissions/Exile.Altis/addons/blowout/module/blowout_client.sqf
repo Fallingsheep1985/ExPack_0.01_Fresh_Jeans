@@ -7,6 +7,8 @@
  *   CLIENT-SIDE script 
 */
 
+bl_prep_inprogress = false;
+
 bl_detection = 
 {
     playSound "bl_detect";
@@ -73,6 +75,7 @@ bl_local_def_anim =
 };
 
 bl_preparations = {
+	bl_prep_inprogress = true;
     playSound "ns_fx_drone2";
     "chromAberration" ppEffectAdjust [0.25,0,true];
     "chromAberration" ppEffectEnable true;
@@ -108,13 +111,13 @@ bl_preparations = {
     "chromAberration" ppEffectEnable false;
     
     //-------------------------------------------------
-    sleep 54.7;
+    sleep 54;
     //-------------------------------------------------
     
     playSound "ns_fx_misc4";
     
     //-------------------------------------------------
-    sleep 13.5;
+    sleep 13;
     //-------------------------------------------------
     
     playSound "ns_fx_drone2";
@@ -303,6 +306,8 @@ bl_preparations = {
     "chromAberration" ppEffectCommit 0.20;
     sleep 0.25; 
     "chromAberration" ppEffectEnable false;
+	//total wait time approx 300
+	bl_prep_inprogress = false;
 };
 
 while {true} do {
@@ -317,6 +322,9 @@ while {true} do {
     };
 
     _bul = [] spawn bl_preparations;
+	if(bl_prep_inprogress)then{
+	 waitUntil{!bl_prep_inprogress};
+	};
     if (isNil("ns_blow_status")) then { ns_blow_status = false; };
     waitUntil{ns_blow_status};
 
@@ -325,6 +333,8 @@ while {true} do {
 
     if (ns_blowout_exile) then {
         ExileClientPlayerIsInCombat = true;
+		ExileClientPlayerLastCombatAt = diag_tickTime;
+		true call ExileClient_gui_hud_toggleCombatIcon;
     };
    if (isNil("ns_blow_action")) then { ns_blow_action = false; };
    waitUntil{ns_blow_action};
@@ -479,21 +489,32 @@ while {true} do {
     disableUserInput true;
 
     if(ns_blowout_exile) then {
-        private["_isinbuilding"];
+        private["_isinbuilding","_isinvehicle"];
         _isinbuilding = false;
+		_isinvehicle = false;
+		if (vehicle player == player)then{
+			_isinvehicle = true;
+		};
         if([player] call fnc_isInsideBuilding) then {
             _isinbuilding = true;
         };
         if (!([player] call fnc_hasAPSI)) then {
             diag_log format["[NAC BLOWOUT CLIENT] :: Player does not have APSI"];
-            if (!_isinbuilding) then {
-                diag_log format["[NAC BLOWOUT CLIENT] :: and is not in a building, sorry."];
+			
+            if ((!_isinbuilding)&&(!_isinvehicle))then {			
+					diag_log format["[NAC BLOWOUT CLIENT] :: and is unprotected."];
                     player setDamage (damage player + ns_blow_damage_unprotected);
-                    diag_log format["[NAC BLOWOUT CLIENT] :: player has been damaged by blowout by 0.15"];
-            } else {
-                    player setDamage (damage player + ns_blow_damage_inbuilding);
-                diag_log format["[NAC BLOWOUT CLIENT] :: but is in some building, good for him."];
             };
+			
+			if (_isinbuilding) then{
+                   player setDamage (damage player + ns_blow_damage_inbuilding);
+                diag_log format["[NAC BLOWOUT CLIENT] :: player is in a building."];
+            };
+			
+			if(_isinvehicle) then{
+					diag_log format["[NAC BLOWOUT CLIENT] :: player is in a vehicle."];
+					player setDamage (damage player + ns_blow_damage_invehicle);
+			};		
         } else {
             diag_log format["[NAC BLOWOUT CLIENT] :: Player does have APSI, I do not have problem with him."];
         };
