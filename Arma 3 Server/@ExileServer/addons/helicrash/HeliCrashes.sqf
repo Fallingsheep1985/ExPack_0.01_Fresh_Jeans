@@ -5,7 +5,7 @@ private "_crashNum","_RANDOM_HELI_CRASH_SCRIPT";
 //  Modded by:  Vampire & xBowBii    //
 //  Modded for Exile by Darth_Rogue  //
 ///////////////////////////////////////
-_RANDOM_HELI_CRASH_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "RANDOM_HELI_CRASH_SCRIPT");
+_RANDOM_HELI_CRASH_SCRIPT = getNumber(missionConfigFile >> "CfgScriptControl" >> "RANDOM_HELI_CRASH_SCRIPT");
 if (_RANDOM_HELI_CRASH_SCRIPT  isEqualTo 1) then {
 // Number of Crashes
 _crashNum = 15;
