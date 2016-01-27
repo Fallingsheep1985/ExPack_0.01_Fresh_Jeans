@@ -10,7 +10,7 @@
  */
 
 private["_DYNAMIC_ITEMS_SCRIPT","_mapsizeX","_mapsizeY","_gridSize","_gridVehicles","_gridSizeOffset","_vehicleCount","_debugMarkers","_vehicleClassNames","_maximumDamage","_damageChance","_xSize","_workingXSize","_ySize","_workingYSize","_position","_spawned","_spawnedPositions","_positionReal","_spawnControl","_vehicleClassName","_vehicle","_hitpoints","_debugMarker","_vehicleItemsAllowed","_allowedItems","_maximumItemsPerVehicle","_itemsAdded","_itemsPerVehicle","_itemAdd","_cargoType"];
-_DYNAMIC_ITEMS_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "dynamic_items_config" >> "DYNAMIC_ITEMS_SCRIPT");
+_DYNAMIC_ITEMS_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "DYNAMIC_ITEMS_SCRIPT");
 _mapsizeX = worldSize;
 _mapsizeY = worldSize;
 _gridSize = getNumber(configFile >> "CfgSettings" >> "VehicleSpawn" >> "vehiclesGridSize");

@@ -5,12 +5,12 @@ private "_crashNum","_RANDOM_HELI_CRASH_SCRIPT";
 //  Modded by:  Vampire & xBowBii    //
 //  Modded for Exile by Darth_Rogue  //
 ///////////////////////////////////////
-_RANDOM_HELI_CRASH_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "random_heli_crash_config" >> "RANDOM_HELI_CRASH_SCRIPT");
+_RANDOM_HELI_CRASH_SCRIPT = getNumber(configFile >> "CfgScriptControl" >> "RANDOM_HELI_CRASH_SCRIPT");
 if (_RANDOM_HELI_CRASH_SCRIPT  isEqualTo 1) then {
 // Number of Crashes
 _crashNum = 15;
 //							
-_spawnCenter =[15834.2,15787.8,0]; //Center of your map 
+_spawnCenter = mapCenter; //Center of your map 
 _min = 0; // minimum distance from the center position (Number) in meters
 _max = 10000; // maximum distance from the center position (Number) in meters
 _mindist = 20; // minimum distance from the nearest object (Number) in meters, ie. spawn at least this distance away from anything within x meters..
