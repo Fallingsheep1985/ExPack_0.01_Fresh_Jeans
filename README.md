@@ -55,11 +55,12 @@ Scripts to be added
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
+* ETG Heli Crash and Drop Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
+* ETG Login Reward Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 
 Scripts pending approval
 --------------------------
-* ETG Heli Crash and Drop Script
-* ETG Login Reward Script
+
 * Chop wood directly into a truck
 * Indestructible Bases
 
