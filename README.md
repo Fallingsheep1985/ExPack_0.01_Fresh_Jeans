@@ -56,7 +56,6 @@ Scripts to be added
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
-
 * ETG Login Reward Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 
 Scripts pending approval
