@@ -29,6 +29,7 @@ Current Scripts
 * Blackjack Orginal script by papabear modified by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/) for Exile [`Original Atlis Life Script`](http://www.altisliferpg.com/topic/7532-howto-blackjackreal/)
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
 * ETG Heli Crash and Drop Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
+* Chop wood directly into a truck by  [`Phate`] (http://www.exilemod.com/profile/40698-phate/)
 
 Script Permission List
 --------------------------
@@ -60,7 +61,5 @@ Scripts to be added
 
 Scripts pending approval
 --------------------------
-
-* Chop wood directly into a truck
 * Indestructible Bases
 
