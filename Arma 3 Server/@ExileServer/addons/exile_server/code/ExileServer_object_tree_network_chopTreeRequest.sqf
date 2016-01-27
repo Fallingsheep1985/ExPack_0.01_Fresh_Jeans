@@ -12,7 +12,7 @@
 // Edited by Phate from easy-gaming.net
  
 private["_sessionId","_parameters","_treeNetId","_tree","_isTree","_treeModelNames","_treeHeight","_newDamage","_treePosition","_spawnRadius","_weaponHolders","_weaponHolder","_weaponHolderPosition"];
-_CHOPWOOD_DIRET_TO_TRUCK = getNumber(missionConfigFile >> "CfgScriptControl" >> "CHOPWOOD_DIRET_TO_TRUCK");
+_CHOPWOOD_DIRET_TO_TRUCK = getNumber(missionConfigFile >> "CfgScriptControl" >> "SCRIPT_config" >> "CHOPWOOD_DIRET_TO_TRUCK");
 _sessionId = _this select 0;
 _parameters = _this select 1;
 _treeNetId = _parameters select 0;
