@@ -28,6 +28,7 @@ Current Scripts
 * EMP Blowout from Namalsk
 * Blackjack Orginal script by papabear modified by [`Fallingsheep`] (http://www.exilemod.com/profile/59883-fallingsheep/) for Exile [`Original Atlis Life Script`](http://www.altisliferpg.com/topic/7532-howto-blackjackreal/)
 * Dynamic Electrical Storms by [`John`](http://www.exilemod.com/profile/38-john/)
+* ETG Heli Crash and Drop Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 
 Script Permission List
 --------------------------
@@ -55,7 +56,7 @@ Scripts to be added
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
-* ETG Heli Crash and Drop Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
+
 * ETG Login Reward Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 
 Scripts pending approval
