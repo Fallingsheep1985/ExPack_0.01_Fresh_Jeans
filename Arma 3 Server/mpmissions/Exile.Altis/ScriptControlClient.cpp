@@ -40,6 +40,8 @@ class CfgScriptControlMisson
 		ELECTRICAL_STORMS_SCRIPT = 1;
 		//ETG Heli Crash drops
 		ETG_CRASHDROP = 1;
+		//Advanced Vehicle System
+		AVS_SCRIPT = 1;
 	};
 
 	//////////////////////////////////

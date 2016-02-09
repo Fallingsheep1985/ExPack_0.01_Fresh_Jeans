@@ -10,11 +10,16 @@ _FOG_SCRIPT 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SC
 _LOCK_PICK_SCRIPT 			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "LOCK_PICK_SCRIPT");
 _BLOWOUT_SCRIPT				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "BLOWOUT_SCRIPT");
 _ELECTRICAL_STORMS_SCRIPT 	= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ELECTRICAL_STORMS_SCRIPT");
-_ETG_CRASHDROP			= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ETG_CRASHDROP");
+_ETG_CRASHDROP				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "ETG_CRASHDROP");
+_AVS_SCRIPT 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "AVS_SCRIPT");
 
 //Loads mapcenter based on map name set in scriptcontrol
 [] execVM "scripts\mapcenter.sqf";
 
+//AVS
+if  (_AVS_SCRIPT isEqualTo 1) then { 
+[] execVM "AVS\AVS_fnc_init.sqf";
+};
 
 //ETG Heli Crash And Drop Script
 if (_ETG_CRASHDROP	isEqualTo 1) then {

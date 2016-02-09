@@ -1,6 +1,6 @@
 //new
 7 "" !="true" !="vehicle this land 'LAND'" !="exileserver_system_network_dispatchincomingmessage.*" !"fnc_AdminReq" !"bis_fnc_curatorrespawn" !"'GG\whitelist.sqf';" !"rhs_fnc_flashbang_effect"
-7 "ExileClient_system_network_dispatchIncomingMessage"
+7 "ExileClient_system_network_dispatchIncomingMessage" !="avs_fnc_rearmvehicle \[.*,.*\]"
 7 "FN_infiSTAR_C"
 1 "call"
 1 "spawn" !"createPlayerRequest"
