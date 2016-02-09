@@ -37,10 +37,10 @@ app2_action = {
 };
 
 //App 3 
-_app3Text = "App 3";
+_app3Text = "Deploy Bike";
 _app3Logo = "";
 app3_action = {
-
+	[] execVM"scripts\deploy_bike.sqf";
 };
 
 //App 4 
