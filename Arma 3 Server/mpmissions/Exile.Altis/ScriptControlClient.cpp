@@ -42,6 +42,8 @@ class CfgScriptControlMisson
 		ETG_CRASHDROP = 1;
 		//Advanced Vehicle System
 		AVS_SCRIPT = 1;
+		//scrap bike
+		SCRAP_BIKE = 1;
 	};
 
 	//////////////////////////////////

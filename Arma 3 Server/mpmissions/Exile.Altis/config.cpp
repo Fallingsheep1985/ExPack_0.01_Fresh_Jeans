@@ -1983,6 +1983,12 @@ class CfgInteractionMenus
 				condition = "true";
 				action = "_this call ExileClient_object_vehicle_flip";
 			};
+			class Scrap: ExileAbstractAction
+			{
+				title = "Scrap";
+				condition = "true";
+				action = "execVM 'scripts\bikescrap.sqf';";
+			};
 		};
 	};
 
