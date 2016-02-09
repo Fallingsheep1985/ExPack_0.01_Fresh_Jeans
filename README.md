@@ -31,6 +31,8 @@ Current Scripts
 * ETG Heli Crash and Drop Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
 * Chop wood directly into a truck by  [`Phate`] (http://www.exilemod.com/profile/40698-phate/)
 * DMS - Defents Mission System by [`Defent`](http://www.exilemod.com/profile/259-defent/) & [`eraser1`](http://www.exilemod.com/profile/96-eraser1/)
+* AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
+
 
 Script Permission List
 --------------------------
@@ -53,7 +55,6 @@ Scripts to be added
 * Deploy/Pack Ebike
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
 * GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
-* AVS - Advanced Vehicle System by [`Rod Serling`](http://www.exilemod.com/profile/20-rod-serling/)
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
