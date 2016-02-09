@@ -44,6 +44,8 @@ class CfgScriptControlMisson
 		AVS_SCRIPT = 1;
 		//scrap bike
 		SCRAP_BIKE = 1;
+		//pack bike
+		PACK_BIKE = 1;
 	};
 
 	//////////////////////////////////
