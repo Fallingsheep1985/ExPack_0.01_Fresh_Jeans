@@ -37,6 +37,7 @@ Current Scripts
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
 * GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * Indestructible Bases
+* Respect Based Load Outs
 
 Script Permission List
 --------------------------
