@@ -21,9 +21,6 @@ if (_MAPNAME == "Chernarus") then{
 if (_MAPNAME == "Sahrani") then{
 	[] execVM "scripts\traders\Sahranitraders.sqf";
 };
-if (_MAPNAME == "Sahrani") then{
-	[] execVM "scripts\traders\Sahranitraders.sqf";
-};
 //al Rayak Map
 if (_MAPNAME == "pja310") then{
 	[] execVM "scripts\traders\pja310traders.sqf";
