@@ -10,6 +10,7 @@
  */
  
 private["_constructionID","_data","_position","_vectorDirection","_vectorUp","_constructionObject","_pinCode"];
+_INDESTRUTABLE_BASE_SCRIPT 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "INDESTRUTABLE_BASE_SCRIPT");
 _constructionID = _this;
 _data = format ["loadConstruction:%1", _constructionID] call ExileServer_system_database_query_selectSingle;
 _position = [_data select 4, _data select 5, _data select 6];
@@ -22,6 +23,10 @@ _constructionObject setVariable ["ExileDatabaseID", _data select 0];
 _constructionObject setVariable ["ExileOwnerUID", (_data select 2)];
 _constructionObject setVariable ["ExileIsPersistent", true];
 _constructionObject setVariable ["ExileTerritoryID", (_data select 15)];
+if (_INDESTRUTABLE_BASE_SCRIPT isEqualTo 1) then {
+	_constructionObject allowDamage false;
+};
+
 _pinCode = _data select 14;
 if !(_pinCode isEqualTo "000000") then
 {

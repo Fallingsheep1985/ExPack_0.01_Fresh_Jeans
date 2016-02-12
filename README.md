@@ -35,6 +35,8 @@ Current Scripts
 * Deploy bike [`StokesMagee`](http://www.exilemod.com/profile/49712-stokesmagee/)
 * Pack bike [`Austin`](http://www.exilemod.com/profile/41-austin/)
 * ScrapBike by [`Taylor Swift (Mezo)`](http://www.exilemod.com/profile/472-taylor-swift-mezo/)
+* GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
+* Indestructible Bases
 
 Script Permission List
 --------------------------
@@ -54,13 +56,8 @@ Script Permission List
 
 Scripts to be added 
 --------------------------
-* GPS Check for Map Markers by [`Wyqer`](http://www.exilemod.com/profile/52393-wyqer/)
 * Roaming Traders by [`John`](http://www.exilemod.com/profile/38-john/)
 * Respect Ranking System
 * Achievement System
 * ETG Login Reward Script by [`Kellojo`] (http://www.exilemod.com/profile/3541-kellojo/)
-
-Scripts pending approval
---------------------------
-* Indestructible Bases
 

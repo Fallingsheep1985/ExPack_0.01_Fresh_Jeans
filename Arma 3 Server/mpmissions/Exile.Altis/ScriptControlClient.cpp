@@ -46,6 +46,10 @@ class CfgScriptControlMisson
 		SCRAP_BIKE = 1;
 		//pack bike
 		PACK_BIKE = 1;
+		//Indestructible bases on restart
+		INDESTRUTABLE_BASE_SCRIPT = 1;
+		//Need gps for map markers
+		GPS_MAP_MARKERS = 1;
 	};
 
 	//////////////////////////////////
@@ -54,7 +58,7 @@ class CfgScriptControlMisson
 	class version_config
 	{
 		REPACK_VERSION = 0.01; //current release number
-		BUILD_VERSION = 190; //should match the current git commits number
+		BUILD_VERSION = 197; //should match the current git commits number
 	};
 
 };
