@@ -50,6 +50,8 @@ class CfgScriptControlMisson
 		INDESTRUTABLE_BASE_SCRIPT = 1;
 		//Need gps for map markers
 		GPS_MAP_MARKERS = 1;
+		//Respect Based loadouts
+		RESPECT_BASED_LOADOUTS = 1;
 	};
 
 	//////////////////////////////////

@@ -1511,6 +1511,7 @@ class CfgExileCustomCode
  ExileClient_object_item_craft = "fixes\ExileClient_object_item_craft.sqf";
  ExileClient_gui_xm8_slide_apps_onOpen = "xm8Apps\ExileClient_gui_xm8_slide_apps_onOpen.sqf";
  ExileClient_gui_map_event_onDraw = "scripts\mapmarkergps.sqf";
+ ExileServer_object_player_createBambi = "scripts\respectloadout.sqf";
 };
 class CfgExileHUD
 {
