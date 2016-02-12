@@ -8,6 +8,11 @@ Pre release of ExPack.
 Current Supported Maps
 --------------------------
 * Altis
+* Bornholm
+* Chernarus 
+* Al Rayak
+* Sahrani
+* Esseker
 
 Current Scripts
 --------------------------
