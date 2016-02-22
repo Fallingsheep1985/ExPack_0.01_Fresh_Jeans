@@ -1,7 +1,7 @@
 _MAPNAME 				= getNumber(missionConfigFile >> "CfgScriptControlMisson" >> "SCRIPT_config" >> "MAPNAME");
 
 //Altis
-if (_MAPNAME == "Altis") then{
+if (_MAPNAME = "Altis") then{
 _objects = 
 [
     ["Land_CarService_F",[14618.7,16877.4,0.900759],131.363,0,0,false],
@@ -357,7 +357,7 @@ _objects =
     ["Exile_Sign_Boat_Small",[23333.4,24189.1,-0.633072],293.636,0,0,false]
 ];
 };
-if (_MAPNAME == "Chernarus") then{
+if (_MAPNAME = "Chernarus") then{
 //Chernarus
 _objects =
 [
@@ -852,7 +852,7 @@ _objects =
     ["Misc_concrete_High",[13024.9,3744.5,1.12669],56.6636,0,0,false]
 ];
 };
-if (_MAPNAME == "Bornholm") then{
+if (_MAPNAME = "Bornholm") then{
 
 //Bornholm
 _objects = 
@@ -1056,7 +1056,7 @@ _objects =
 
 
 //Esseker
-if (_MAPNAME == "Esseker") then{
+if (_MAPNAME = "Esseker") then{
 _objects = 
 [
     ["Land_CarService_F",[14618.7,16877.4,0.900759],131.363,0,0,false],
